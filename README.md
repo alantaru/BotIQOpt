@@ -1,90 +1,73 @@
-# IQ Option Bot
+# BotIQOpt
 
-## Descrição
-Bot de trading automatizado para a plataforma IQ Option com núcleo de IA auto-aprendizagem. Desenvolvido para operar em diferentes ativos financeiros (Forex, Ações, Criptomoedas) com estratégias baseadas em análise técnica e machine learning.
+Um bot avançado para IQ Option com núcleo de inteligência artificial para trading automatizado.
 
-## Requisitos do Sistema
-- Python 3.9 ou superior
-- 4GB de RAM (8GB recomendado)
-- Conexão estável com a internet
-- Conta IQ Option (demo ou real)
+## Recursos
+
+- **Núcleo Ferramental**: Implementa operações com a API do IQ Option
+- **Núcleo de Inteligência**: IA para análise e previsão de mercados
+- **Modos de Operação**: Download, Aprendizado, Teste e Real
+- **Auto-treinamento**: IA capaz de aprender e melhorar com o tempo
+- **Dashboard de Performance**: Visualização de métricas de desempenho
+- **Gerenciamento de Risco**: Estratégias inteligentes para proteção de capital
 
 ## Instalação
 
-1. Clone o repositório:
-```bash
-git clone https://github.com/seu-usuario/iq-option-bot.git
-cd iq-option-bot
-```
+### Linux/Mac
 
-2. Execute o script de instalação:
 ```bash
 chmod +x install.sh
 ./install.sh
 ```
 
-3. Ative o ambiente virtual:
-```bash
-source .venv/bin/activate
+### Windows
+
+```
+install.bat
 ```
 
 ## Configuração
 
-1. Edite o arquivo `.env` com suas credenciais da IQ Option:
+1. Edite o arquivo `.env` com suas credenciais da IQ Option
+2. Configure suas preferências de trading no arquivo `conf.ini`
+
+## Modos de Uso
+
+### Download de Dados Históricos
+
 ```bash
-IQ_OPTION_API_KEY=sua_chave_api
-IQ_OPTION_EMAIL=seu_email
-IQ_OPTION_PASSWORD=sua_senha
+python main.py --mode DOWNLOAD --asset EURUSD --timeframe_type Minutes --timeframe_value 1 --candle_count 1000
 ```
 
-2. Configure os parâmetros no `conf.ini`:
-- Modo de operação (TEST/REAL)
-- Ativos a serem negociados
-- Parâmetros de gerenciamento de risco
-- Configurações do modelo de IA
+### Aprendizado
 
-## Uso Básico
-
-Para iniciar o bot:
 ```bash
-python main.py
+python main.py --mode LEARNING
 ```
 
-Modos de operação:
-- **DOWNLOAD**: Baixa dados históricos
-- **LEARNING**: Treina o modelo de IA
-- **TEST**: Executa em modo de teste
-- **REAL**: Executa operações reais
+### Teste
 
-## Modelo de IA
+```bash
+python main.py --mode TEST
+```
 
-O bot utiliza uma rede neural profunda com as seguintes características:
-- 3 camadas ocultas com 128 neurônios cada
-- Função de ativação ReLU
-- Dropout de 20% para prevenção de overfitting
-- Early stopping com paciência de 10 épocas
+### Operação Real
 
-## Estratégias Implementadas
+```bash
+python main.py --mode REAL
+```
 
-1. Análise Técnica:
-- Médias móveis
-- RSI
-- MACD
-- Bandas de Bollinger
+## Arquitetura
 
-2. Machine Learning:
-- Previsão de tendência
-- Detecção de padrões
-- Gerenciamento de risco adaptativo
+- **main.py**: Ponto de entrada principal
+- **ferramental/**: Módulo para interação com a API do IQ Option
+- **inteligencia/**: Implementação da IA e algoritmos de aprendizado
 
-## Licença
+## Segurança
 
-Este projeto está licenciado sob a MIT License - veja o arquivo [LICENSE](LICENSE) para detalhes.
+- **Modo de Teste**: Sempre execute em modo de teste antes de usar o modo real
+- **Auto-Switch**: O sistema só muda para modo real após atingir critérios rigorosos
 
-## Contribuição
+## Aviso Legal
 
-Contribuições são bem-vindas! Siga as diretrizes no arquivo [CONTRIBUTING.md](CONTRIBUTING.md).
-
-## Suporte
-
-Para reportar bugs ou solicitar novas funcionalidades, abra uma issue no repositório.
+Este software é para uso educacional apenas. Trading envolve risco de perda parcial ou total do capital investido. Use por sua conta e risco.

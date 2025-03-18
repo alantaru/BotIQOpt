@@ -7,6 +7,7 @@ import sys
 from contextlib import contextmanager
 from typing import Dict, List, Optional
 from datetime import datetime
+import json
 
 import pandas as pd
 import numpy as np
@@ -15,6 +16,7 @@ import configparser
 
 from inteligencia.Inteligencia import Inteligencia
 from ferramental.Ferramental import Ferramental
+from ferramental.ErrorTracker import ErrorTracker
 
 # Configure logging
 logging.basicConfig(
@@ -59,11 +61,14 @@ def get_params(config, args, section, param_names):
         elif config_value is not None:
             if param_name in ("timeframe_value", "candle_count"):
                 params[param_name] = int(config_value)
+            elif param_name == "auto_switch_to_real":
+                params[param_name] = config_value.lower() == 'true'
             else:
                 params[param_name] = config_value
         else:
-            # Handle missing required parameters
-            raise ValueError(f"Missing required parameter: {param_name}")
+            # Handle missing required parameters (except for auto_switch_to_real, which has a default)
+            if param_name != "auto_switch_to_real":
+                raise ValueError(f"Missing required parameter: {param_name}")
     return params
 
 def calculate_timeframe(timeframe_type, timeframe_value):
@@ -372,24 +377,32 @@ def main():
 
     mode = args.mode if args.mode else config['General']['operation_mode']
     
+    # Add auto_switch_to_real to general parameters
+    general_params = get_params(config, args, 'General', ['asset', 'timeframe_type', 'timeframe_value', 'candle_count', 'auto_switch_to_real'])
+
     try:
         # Initialize components with error handling
         inteligencia = Inteligencia(
-            config['General']['model_filename'],
-            config['General']['historical_data_filename']
+            model_path=config['General']['model_filename'],
+            historical_data_filename=config['General']['historical_data_filename']
         )
-        assets = [asset.strip() for asset in config['General']['assets'].split(',') if asset.strip()]
         
+        # Set auto_switch_to_real in Inteligencia
+        inteligencia.set_auto_switch(general_params.get('auto_switch_to_real', False))
+        
+        assets = [asset.strip() for asset in config['General']['assets'].split(',') if asset.strip()]
+
         if not assets:
             raise ValueError("No valid assets configured")
-            
+
         ferramental = Ferramental(assets)
-        
+
         # Set timezone from config if specified
         timezone = config['General'].get('timezone', 'UTC')
         os.environ['TZ'] = timezone
-        time.tzset()
-        
+        if hasattr(time, 'tzset'):
+            time.tzset()
+
     except Exception as e:
         logger.error(f"Initialization error: {str(e)}")
         error_tracker.log_error('INIT_ERROR', str(e))
@@ -411,7 +424,10 @@ def main():
         return
 
     inteligencia.set_mode(mode)
-    inteligencia.load_model()
+
+    # Only load model if not in LEARNING mode
+    if mode != "LEARNING":
+        inteligencia.load_model()
 
     if mode == "DOWNLOAD":
         params = get_params(config, args, 'General', ['asset', 'timeframe_type', 'timeframe_value', 'candle_count'])

@@ -1,5 +1,6 @@
 import os
 import time
+import pandas as pd
 from typing import List, Dict, Optional, Tuple, Union, Set, Literal
 from dataclasses import dataclass
 from functools import lru_cache
@@ -156,6 +157,7 @@ class Ferramental:
         """
         # Verifica e reseta métricas diárias se necessário
         self.check_and_reset_daily_metrics()
+        
         # Verifica credenciais
         try:
             email = os.environ["IQ_OPTION_EMAIL"]
@@ -164,8 +166,31 @@ class Ferramental:
             logger.error("Variáveis de ambiente IQ_OPTION_EMAIL e IQ_OPTION_PASSWORD devem ser configuradas")
             return False, "Credenciais ausentes"
             
-        # Configura sessão padrão
-        self.set_session()
+        attempts = 0
+        while attempts < self.max_retries:
+            try:
+                self.iq_option = IQ_Option(email, password)
+                check, reason = self.iq_option.connect()
+                
+                if check:
+                    logger.success("Conexão com a API do IQ Option estabelecida com sucesso")
+                    self.connected = True
+                    # Configura sessão padrão após conexão bem sucedida
+                    self.set_session()
+                    return True, None
+                
+                logger.warning(f"Falha na conexão (tentativa {attempts + 1}/{self.max_retries}): {reason}")
+                time.sleep(self.retry_delay)
+                attempts += 1
+                
+            except Exception as e:
+                logger.error(f"Erro na conexão (tentativa {attempts + 1}/{self.max_retries}): {str(e)}")
+                time.sleep(self.retry_delay)
+                attempts += 1
+        
+        logger.error(f"Falha ao conectar após {self.max_retries} tentativas")
+        self.connected = False
+        return False, "Max retries exceeded"
             
         attempts = 0
         while attempts < self.max_retries:
@@ -706,6 +731,212 @@ class Ferramental:
         except Exception as e:
             logger.error(f"Erro ao obter moeda da conta: {str(e)}")
             return None
+            
+    def get_balance(self) -> Optional[float]:
+        """Obtém o saldo atual da conta.
+        
+        Returns:
+            float: Saldo da conta ou None em caso de erro
+        """
+        if not self.connected:
+            logger.error("Não conectado à API do IQ Option")
+            return None
+            
+        try:
+            # Tenta obter o saldo com a versão mais atualizada da API
+            balance = self.get_balance_v2()
+            if balance is not None:
+                return balance
+                
+            # Fallback para a versão antiga em caso de falha
+            balance = self.iq_option.get_balance()
+            
+            if not isinstance(balance, (int, float)) or balance < 0:
+                logger.error("Saldo inválido recebido")
+                return None
+                
+            logger.success(f"Saldo obtido: {balance}")
+            return balance
+            
+        except Exception as e:
+            logger.error(f"Erro ao obter saldo: {str(e)}")
+            return None
+            
+    def get_min_trade_amount(self) -> float:
+        """Obtém o valor mínimo por operação.
+        
+        Returns:
+            float: Valor mínimo por operação
+        """
+        if not self.connected:
+            logger.error("Não conectado à API do IQ Option")
+            return 1.0
+            
+        try:
+            # Valores mínimos por tipo de conta (aproximados)
+            min_amounts = {
+                "USD": 1.0,
+                "EUR": 1.0,
+                "GBP": 1.0,
+                "BRL": 5.0,
+            }
+            
+            currency = self.get_currency()
+            return min_amounts.get(currency, 1.0)
+            
+        except Exception as e:
+            logger.error(f"Erro ao obter valor mínimo por operação: {str(e)}")
+            return 1.0
+            
+    def get_max_trade_amount(self) -> float:
+        """Obtém o valor máximo por operação.
+        
+        Returns:
+            float: Valor máximo por operação
+        """
+        if not self.connected:
+            logger.error("Não conectado à API do IQ Option")
+            return 20000.0
+            
+        try:
+            # Obtém o saldo atual
+            balance = self.get_balance()
+            if not balance:
+                return 20000.0
+                
+            # Limita o valor máximo a 20% do saldo ou aos limites da plataforma
+            platform_max = 20000.0
+            balance_max = balance * 0.2
+            
+            return min(platform_max, balance_max)
+            
+        except Exception as e:
+            logger.error(f"Erro ao obter valor máximo por operação: {str(e)}")
+            return 20000.0
+            
+    def get_current_price(self, asset: str) -> Optional[float]:
+        """Obtém o preço atual de um ativo.
+        
+        Args:
+            asset: Nome do ativo (ex: 'EURUSD')
+            
+        Returns:
+            float: Preço atual do ativo ou None em caso de erro
+        """
+        if not self.connected:
+            logger.error("Não conectado à API do IQ Option")
+            return None
+            
+        try:
+            # Tenta obter candles em tempo real e usar o preço do último candle
+            self.start_candles_stream(asset, 60, 10)
+            candles = self.get_realtime_candles(asset, 60)
+            
+            if candles and len(candles) > 0:
+                # Obtém o último candle disponível
+                last_candle = list(candles.values())[-1]
+                price = last_candle.get('close', None)
+                
+                if price is not None:
+                    logger.success(f"Preço atual de {asset}: {price}")
+                    self.stop_candles_stream(asset, 60)
+                    return price
+            
+            # Backup se não conseguir obter pelos candles em tempo real
+            instruments = self.iq_option.get_all_open_time()
+            if asset in instruments['turbo'] and instruments['turbo'][asset]['open']:
+                price = self.iq_option.get_price_raw(asset)
+                logger.success(f"Preço atual de {asset}: {price}")
+                return price
+                
+            logger.error(f"Não foi possível obter preço atual para {asset}")
+            return None
+            
+        except Exception as e:
+            logger.error(f"Erro ao obter preço atual: {str(e)}")
+            self.stop_candles_stream(asset, 60)
+            return None
+            
+    def get_spread(self, asset: str) -> Optional[float]:
+        """Obtém o spread atual de um ativo.
+        
+        Args:
+            asset: Nome do ativo (ex: 'EURUSD')
+            
+        Returns:
+            float: Spread do ativo em percentual ou None em caso de erro
+        """
+        if not self.connected:
+            logger.error("Não conectado à API do IQ Option")
+            return None
+            
+        try:
+            # Tenta obter o preço de compra e venda para calcular o spread
+            instruments = self.iq_option.get_all_open_time()
+            
+            if asset in instruments['turbo'] and instruments['turbo'][asset]['open']:
+                bid = self.iq_option.get_price_raw(asset)
+                ask = self.iq_option.get_price_raw(asset)
+                
+                # Na API do IQ Option, às vezes o preço de compra e venda são iguais
+                # Nesse caso, estimamos o spread baseado no tipo de ativo
+                if bid == ask:
+                    # Spreads típicos baseados no tipo de ativo
+                    if asset.startswith(('EUR', 'GBP', 'USD', 'JPY')):  # Forex major
+                        spread = 0.0002  # 0.02% típico para pares forex principais
+                    elif asset.startswith(('BTC', 'ETH')):  # Crypto
+                        spread = 0.001  # 0.1% típico para cryptos
+                    else:
+                        spread = 0.0005  # 0.05% valor médio para outros ativos
+                else:
+                    spread = (ask - bid) / bid
+                    
+                logger.success(f"Spread de {asset}: {spread:.4%}")
+                return spread
+                
+            logger.error(f"Não foi possível obter spread para {asset}")
+            return 0.05  # Valor default de 5% em caso de falha
+            
+        except Exception as e:
+            logger.error(f"Erro ao obter spread: {str(e)}")
+            return 0.05  # Valor default de 5% em caso de falha
+            
+    def configure_assets(self, assets: List[str]) -> bool:
+        """Configura a lista de ativos para operação.
+        
+        Args:
+            assets: Lista de ativos a serem configurados
+            
+        Returns:
+            bool: True se os ativos foram configurados com sucesso
+        """
+        try:
+            # Valida se todos os ativos existem
+            instruments = self.iq_option.get_all_open_time()
+            all_assets = set()
+            
+            for category in instruments.values():
+                all_assets.update(category.keys())
+                
+            # Filtra apenas ativos válidos
+            valid_assets = [asset for asset in assets if asset in all_assets]
+            
+            if len(valid_assets) != len(assets):
+                invalid_assets = set(assets) - set(valid_assets)
+                logger.warning(f"Alguns ativos não são válidos: {invalid_assets}")
+                
+            if not valid_assets:
+                logger.error("Nenhum ativo válido para configuração")
+                return False
+                
+            # Configura ativos da classe
+            self.asset_pairs = valid_assets
+            logger.success(f"Ativos configurados: {self.asset_pairs}")
+            return True
+            
+        except Exception as e:
+            logger.error(f"Erro ao configurar ativos: {str(e)}")
+            return False
 
     def reset_practice_balance(self) -> bool:
         """Reseta o saldo da conta de prática.
@@ -967,3 +1198,134 @@ class Ferramental:
         except Exception as e:
             logger.error(f"Erro ao processar autenticação de dois fatores: {str(e)}")
             return False
+            
+    def get_realtime_data(self) -> Optional[pd.DataFrame]:
+        """Obtém dados históricos e em tempo real para análise.
+        
+        Returns:
+            DataFrame com dados para análise ou None em caso de erro
+        """
+        if not self.connected:
+            logger.error("Não conectado à API do IQ Option")
+            return None
+            
+        try:
+            # Obtém dados para todos os ativos configurados
+            all_data = []
+            
+            for asset in self.asset_pairs:
+                # Tenta obter candles em tempo real para cada ativo
+                candles = {}
+                
+                # Verifica se o streaming de velas está configurado
+                for tf_seconds in [60, 300, 900]:  # 1m, 5m, 15m
+                    # Inicia streaming se não estiver ativo
+                    self.start_candles_stream(asset, tf_seconds)
+                    # Obtém velas em tempo real
+                    realtime_candles = self.get_realtime_candles(asset, tf_seconds)
+                    
+                    if realtime_candles:
+                        # Converte para DataFrame
+                        df = pd.DataFrame(list(realtime_candles.values()))
+                        # Adiciona informações do ativo e timeframe
+                        df['asset'] = asset
+                        df['timeframe'] = tf_seconds
+                        all_data.append(df)
+                
+                # Backup: Se não conseguiu dados em tempo real, tenta dados históricos
+                if not all_data:
+                    historical_candles = self.get_candles(asset, "Minutes", 1, 100)
+                    if historical_candles:
+                        df = pd.DataFrame(historical_candles)
+                        df['asset'] = asset
+                        df['timeframe'] = 60
+                        all_data.append(df)
+            
+            # Combina todos os dados
+            if all_data:
+                combined_data = pd.concat(all_data, ignore_index=True)
+                logger.success(f"Obteve {len(combined_data)} registros de dados em tempo real")
+                return combined_data
+                
+            logger.error("Não foi possível obter dados em tempo real")
+            return None
+            
+        except Exception as e:
+            logger.error(f"Erro ao obter dados em tempo real: {str(e)}")
+            return None
+            
+    def get_historical_data(self) -> Optional[pd.DataFrame]:
+        """Obtém dados históricos para treinamento.
+        
+        Returns:
+            DataFrame com dados históricos ou None em caso de erro
+        """
+        if not self.connected:
+            logger.error("Não conectado à API do IQ Option")
+            return None
+            
+        try:
+            # Obtém dados históricos para todos os ativos configurados
+            all_data = []
+            
+            for asset in self.asset_pairs:
+                # Obtém candles históricos para cada ativo
+                for tf_type, tf_value in [("Minutes", 1), ("Minutes", 5), ("Minutes", 15)]:
+                    historical_candles = self.get_candles(asset, tf_type, tf_value, 1000)
+                    
+                    if historical_candles:
+                        df = pd.DataFrame(historical_candles)
+                        df['asset'] = asset
+                        df['timeframe'] = tf_value * 60  # Converte para segundos
+                        all_data.append(df)
+            
+            # Combina todos os dados
+            if all_data:
+                combined_data = pd.concat(all_data, ignore_index=True)
+                logger.success(f"Obteve {len(combined_data)} registros de dados históricos")
+                return combined_data
+                
+            logger.error("Não foi possível obter dados históricos")
+            return None
+            
+        except Exception as e:
+            logger.error(f"Erro ao obter dados históricos: {str(e)}")
+            return None
+            
+    def get_available_assets(self) -> List[str]:
+        """Obtém lista de ativos disponíveis na plataforma.
+        
+        Returns:
+            Lista de ativos disponíveis
+        """
+        if not self.connected:
+            logger.error("Não conectado à API do IQ Option")
+            return []
+            
+        try:
+            # Obtém instrumentos para diferentes categorias
+            all_assets = set()
+            
+            # Forex
+            forex = self.iq_option.get_all_open_time()
+            
+            for market_type in forex:
+                for asset in forex[market_type]:
+                    if forex[market_type][asset]['open']:
+                        all_assets.add(asset)
+            
+            logger.success(f"Obteve {len(all_assets)} ativos disponíveis")
+            return list(all_assets)
+            
+        except Exception as e:
+            logger.error(f"Erro ao obter ativos disponíveis: {str(e)}")
+            return []
+            
+    def send_notification(self, message: str) -> None:
+        """Envia notificação para o usuário.
+        
+        Args:
+            message: Mensagem a ser enviada
+        """
+        logger.info(f"NOTIFICAÇÃO: {message}")
+        # Em uma implementação real, poderia enviar por email, SMS ou push notification
