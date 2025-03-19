@@ -72,27 +72,67 @@ class HybridModel(nn.Module):
 
 class Inteligencia:
     def __init__(self, model_path="hybrid_model.pth", device="cuda" if torch.cuda.is_available() else "cpu", historical_data_filename="historical_data.csv"):
-        self.device = device
-        self.model = HybridModel(num_features=10, num_classes=3).to(self.device) #num_features must match input features
-        self.initial_lr = 1e-5 # Add an initial learning rate - reduced
-        self.optimizer = optim.AdamW(self.model.parameters(), lr=self.initial_lr)
-        self.criterion = nn.CrossEntropyLoss()
-        self.scheduler = optim.lr_scheduler.CosineAnnealingLR(self.optimizer, T_max=100) # Use CosineAnnealingLR
-        self.model_path = model_path
-        self.train_losses = []
-        self.val_losses = []
-        self.train_accuracies = []
-        self.val_accuracies = []
-        self.best_accuracy = 0
-        self.mode = "LEARNING"
-        self.visualization_dir = "training_visualizations"
-        os.makedirs(self.visualization_dir, exist_ok=True)
-        self.historical_data_filename = historical_data_filename
-        self.historical_data = None
-        self.used_credentials = set()  # Set to track already used credentials
-        self.risk_multiplier = 1.0  # Default risk multiplier
-        self.min_confidence = 0.5  # Default minimum confidence threshold
-        self.auto_switch_to_real = False # Default: don't auto-switch to REAL mode for safety
+        """Inicializa a inteligência do bot com configurações robustas e tratamento de erros.
+        
+        Args:
+            model_path (str): Caminho para salvar/carregar o modelo
+            device (str): Dispositivo para execução (cuda ou cpu)
+            historical_data_filename (str): Nome do arquivo para dados históricos
+            
+        Raises:
+            RuntimeError: Se ocorrer erro na inicialização do modelo
+            ValueError: Se os parâmetros forem inválidos
+        """
+        try:
+            # Validação dos parâmetros
+            if not isinstance(model_path, str):
+                raise ValueError("model_path deve ser uma string")
+            if device not in ["cuda", "cpu"]:
+                raise ValueError("device deve ser 'cuda' ou 'cpu'")
+                
+            # Configurações principais
+            self.device = device
+            self.model = HybridModel(num_features=10, num_classes=3).to(self.device)
+            self.initial_lr = 1e-5
+            self.optimizer = optim.AdamW(self.model.parameters(), lr=self.initial_lr)
+            self.criterion = nn.CrossEntropyLoss()
+            self.scheduler = optim.lr_scheduler.CosineAnnealingLR(self.optimizer, T_max=100)
+            self.model_path = model_path
+            
+            # Métricas de treinamento
+            self.train_losses = []
+            self.val_losses = []
+            self.train_accuracies = []
+            self.val_accuracies = []
+            self.best_accuracy = 0
+            
+            # Configurações de operação
+            self.mode = "LEARNING"
+            self.visualization_dir = "training_visualizations"
+            os.makedirs(self.visualization_dir, exist_ok=True)
+            self.historical_data_filename = historical_data_filename
+            self.historical_data = None
+            
+            # Segurança e credenciais
+            self.used_credentials = set()
+            self.risk_multiplier = 1.0
+            self.min_confidence = 0.5
+            self.auto_switch_to_real = False
+            
+            # Configurações de salvamento automático
+            self.autosave_interval = 1000  # Salvar a cada 1000 iterações
+            self.last_save_time = time.time()
+            
+            # Configurações de logging
+            self.logger = logging.getLogger('Inteligencia')
+            self.logger.setLevel(logging.INFO)
+            handler = logging.FileHandler(os.path.join(self.visualization_dir, 'inteligencia.log'))
+            formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+            handler.setFormatter(formatter)
+            self.logger.addHandler(handler)
+            
+        except Exception as e:
+            raise RuntimeError(f"Erro na inicialização da Inteligência: {str(e)}")
 
     def set_mode(self, mode):
         valid_modes = ["LEARNING", "TEST", "REAL"]
@@ -316,15 +356,36 @@ class Inteligencia:
         print(f"Model saved to {self.model_path}")
         
     def load_model(self):
-        checkpoint = torch.load(self.model_path)
-        self.model.load_state_dict(checkpoint['model_state_dict'])
-        self.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
-        self.train_losses = checkpoint['train_losses']
-        self.val_losses = checkpoint['val_losses']
-        self.train_accuracies = checkpoint['train_accuracies']
-        self.val_accuracies = checkpoint['val_accuracies']
-        self.best_accuracy = checkpoint['best_accuracy']
-        print(f"Model loaded from {self.model_path}")
+        """Carrega o modelo treinado usando PyTorch"""
+        if not os.path.exists(self.model_path):
+            raise FileNotFoundError(f"Arquivo do modelo não encontrado: {self.model_path}")
+            
+        try:
+            # Verifica se o modelo foi salvo com a versão atual do PyTorch
+            checkpoint = torch.load(self.model_path, map_location=self.device)
+            
+            # Carrega estados do modelo e otimizador
+            self.model.load_state_dict(checkpoint['model_state_dict'])
+            self.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+            
+            # Carrega métricas de treinamento
+            self.train_losses = checkpoint['train_losses']
+            self.val_losses = checkpoint['val_losses']
+            self.train_accuracies = checkpoint['train_accuracies'] 
+            self.val_accuracies = checkpoint['val_accuracies']
+            self.best_accuracy = checkpoint['best_accuracy']
+            
+            # Verifica compatibilidade de versões
+            if 'torch_version' in checkpoint:
+                current_version = torch.__version__
+                saved_version = checkpoint['torch_version']
+                if current_version != saved_version:
+                    print(f"Aviso: Versão do PyTorch diferente (salvo: {saved_version}, atual: {current_version})")
+            
+            print(f"Modelo carregado de {self.model_path}")
+        except Exception as e:
+            print(f"Erro ao carregar modelo: {e}")
+            raise
         
     def _auto_save(self):
         checkpoint_path = os.path.join(self.visualization_dir, f"autosave_{datetime.now().strftime('%Y%m%d_%H%M%S')}.pth")
