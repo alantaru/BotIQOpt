@@ -1,5 +1,18 @@
-import os
+import logging
+
+# Configure logging
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('bot.log'),
+        logging.StreamHandler()
+    ]
+)
+
 logger = logging.getLogger(__name__)
+
+import os
 logger.debug("Importing os")  # Added debug log
 
 import argparse
@@ -8,17 +21,11 @@ logger.debug("Importing argparse")  # Added debug log
 import time
 logger.debug("Importing time")  # Added debug log
 
-import logging
-logger.debug("Importing logging")  # Added debug log
-
 import signal
 logger.debug("Importing signal")  # Added debug log
 
 import sys
 logger.debug("Importing sys")  # Added debug log
-
-logger.debug("Configuring basic logging")
-logging.basicConfig(level=logging.DEBUG)  # Set logging level to DEBUG
 
 from contextlib import contextmanager
 logger.debug("Importing contextlib")  # Added debug log
@@ -59,6 +66,10 @@ logger.debug("Ferramental imported successfully")  # Added debug log
 logger.debug("Importing ErrorTracker")
 from ferramental.ErrorTracker import ErrorTracker
 logger.debug("ErrorTracker imported successfully")  # Added debug log
+
+logger.debug("Importing BotPerformanceMetrics")
+from ferramental.PerformanceMetrics import BotPerformanceMetrics
+logger.debug("BotPerformanceMetrics imported successfully")  # Added debug log
 
 # Configure logging
 logging.basicConfig(
@@ -219,19 +230,19 @@ def plot_equity_curve(metrics) -> str:
         chart[max_y][max_x] = '▲'
             
         # Basic metrics
-        successful_trades = [t for t in self.trades if t['result'] is True]
-        win_rate = len(successful_trades) / len(self.trades)
+        successful_trades = [t for t in metrics.trades if t['result'] is True]
+        win_rate = len(successful_trades) / len(metrics.trades)
         
         # Advanced metrics
-        max_drawdown = self.calculate_max_drawdown()
-        sortino_ratio = self.calculate_sortino_ratio()
-        expectancy = self.calculate_expectancy()
-        risk_of_ruin = self.calculate_risk_of_ruin(win_rate)
+        max_drawdown = metrics.calculate_max_drawdown()
+        sortino_ratio = metrics.calculate_sortino_ratio()
+        expectancy = metrics.calculate_expectancy()
+        risk_of_ruin = metrics.calculate_risk_of_ruin(win_rate)
         
         # Trade statistics
-        avg_win = self.calculate_average_win()
-        avg_loss = self.calculate_average_loss()
-        profit_factor = self.calculate_profit_factor()
+        avg_win = metrics.calculate_average_win()
+        avg_loss = metrics.calculate_average_loss()
+        profit_factor = metrics.calculate_profit_factor()
         
         # Risk alerts
         risk_alerts = []
@@ -243,10 +254,10 @@ def plot_equity_curve(metrics) -> str:
             risk_alerts.append("Negative expectancy")
             
         return {
-            'total_trades': len(self.trades),
+            'total_trades': len(metrics.trades),
             'win_rate': win_rate,
             'profit_factor': profit_factor,
-            'sharpe_ratio': self.calculate_sharpe_ratio(),
+            'sharpe_ratio': metrics.calculate_sharpe_ratio(),
             'sortino_ratio': sortino_ratio,
             'expectancy': expectancy,
             'risk_of_ruin': risk_of_ruin,
@@ -256,6 +267,18 @@ def plot_equity_curve(metrics) -> str:
             'risk_alerts': risk_alerts
         }
         
+class BotPerformanceMetrics:
+    def __init__(self):
+        self.trades = []
+
+    def add_trade(self, asset, direction, amount, result):
+        self.trades.append({
+            'asset': asset,
+            'direction': direction,
+            'amount': amount,
+            'result': result
+        })
+
     def calculate_max_drawdown(self) -> float:
         """Calculate maximum drawdown"""
         equity_curve = []
@@ -348,6 +371,44 @@ def plot_equity_curve(metrics) -> str:
         risk_free_rate = 0.0  # Could be configurable
         
         return (mean_return - risk_free_rate) / std_dev if std_dev != 0 else 0.0
+
+    def calculate_metrics(self):
+        successful_trades = [t for t in self.trades if t['result'] is True]
+        win_rate = len(successful_trades) / len(self.trades)
+        
+        # Advanced metrics
+        max_drawdown = self.calculate_max_drawdown()
+        sortino_ratio = self.calculate_sortino_ratio()
+        expectancy = self.calculate_expectancy()
+        risk_of_ruin = self.calculate_risk_of_ruin(win_rate)
+        
+        # Trade statistics
+        avg_win = self.calculate_average_win()
+        avg_loss = self.calculate_average_loss()
+        profit_factor = self.calculate_profit_factor()
+        
+        # Risk alerts
+        risk_alerts = []
+        if max_drawdown > 0.2:
+            risk_alerts.append("High drawdown detected")
+        if risk_of_ruin > 0.1:
+            risk_alerts.append("High risk of ruin")
+        if expectancy < 0:
+            risk_alerts.append("Negative expectancy")
+            
+        return {
+            'total_trades': len(self.trades),
+            'win_rate': win_rate,
+            'profit_factor': profit_factor,
+            'sharpe_ratio': self.calculate_sharpe_ratio(),
+            'sortino_ratio': sortino_ratio,
+            'expectancy': expectancy,
+            'risk_of_ruin': risk_of_ruin,
+            'max_drawdown': max_drawdown,
+            'average_win': avg_win,
+            'average_loss': avg_loss,
+            'risk_alerts': risk_alerts
+        }
 
 def validate_config(config):
     """Validate configuration parameters"""
@@ -636,3 +697,6 @@ def main():
             logger.error(f"Error generating final report: {str(e)}")
             error_tracker.log_error('FINAL_REPORT_ERROR', str(e))
         logger.debug("Exiting main function")  # Added debug log
+
+if __name__ == "__main__":
+    main()

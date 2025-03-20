@@ -1,0 +1,179 @@
+2025-03-19 16:34:59,082 - TesteTreinamentoIA - INFO - ==== INICIANDO TESTES DE TREINAMENTO DA IA ====
+2025-03-19 16:34:59,082 - TesteTreinamentoIA - INFO - 
+==== TESTE: DataLoaders ====
+2025-03-19 16:34:59,083 - TesteTreinamentoIA - INFO - Iniciando teste de DataLoaders
+2025-03-19 16:34:59,083 - TesteTreinamentoIA - INFO - Gerando 500 registros de dados simulados com 10 features
+2025-03-19 16:34:59,083 - TesteTreinamentoIA - INFO - Gerados 500 registros com 11 features
+2025-03-19 16:34:59,083 - TesteTreinamentoIA - INFO - Distribuição de classes: {0: 282, 1: 160, 2: 58}
+2025-03-19 16:34:59,083 - TesteTreinamentoIA - INFO - Preparando DataLoaders (batch_size=32)
+2025-03-19 16:34:59,093 - TesteTreinamentoIA - INFO - DataLoaders preparados: 300 treino, 100 validação, 100 teste
+2025-03-19 16:34:59,096 - TesteTreinamentoIA - INFO - Batch de treino: torch.Size([32, 10]), torch.Size([32])
+2025-03-19 16:34:59,096 - TesteTreinamentoIA - INFO - DataLoaders preparados com sucesso
+2025-03-19 16:34:59,097 - TesteTreinamentoIA - INFO - 
+==== TESTE: Treinamento de Modelo ====
+2025-03-19 16:34:59,097 - TesteTreinamentoIA - INFO - Iniciando teste de treinamento de modelo
+2025-03-19 16:34:59,097 - TesteTreinamentoIA - INFO - Gerando 500 registros de dados simulados com 10 features
+2025-03-19 16:34:59,099 - TesteTreinamentoIA - INFO - Gerados 500 registros com 11 features
+2025-03-19 16:34:59,100 - TesteTreinamentoIA - INFO - Distribuição de classes: {0: 318, 1: 131, 2: 51}
+2025-03-19 16:34:59,100 - TesteTreinamentoIA - INFO - Preparando DataLoaders (batch_size=32)
+2025-03-19 16:34:59,104 - TesteTreinamentoIA - INFO - DataLoaders preparados: 300 treino, 100 validação, 100 teste
+2025-03-19 16:34:59,104 - TesteTreinamentoIA - INFO - Treinando modelo com parâmetros: {'hidden_size': 64, 'learning_rate': 0.001, 'weight_decay': 1e-05}
+2025-03-19 16:35:05,045 - TesteTreinamentoIA - INFO - Época 1/5 - Train Loss: 1.0781, Val Loss: 1.0570, Val Acc: 0.6600
+2025-03-19 16:35:05,078 - TesteTreinamentoIA - INFO - Época 2/5 - Train Loss: 0.9992, Val Loss: 0.9951, Val Acc: 0.6400
+2025-03-19 16:35:05,108 - TesteTreinamentoIA - INFO - Época 3/5 - Train Loss: 0.9254, Val Loss: 0.9289, Val Acc: 0.6400
+2025-03-19 16:35:05,138 - TesteTreinamentoIA - INFO - Época 4/5 - Train Loss: 0.8581, Val Loss: 0.8601, Val Acc: 0.6400
+2025-03-19 16:35:05,165 - TesteTreinamentoIA - INFO - Época 5/5 - Train Loss: 0.7967, Val Loss: 0.7979, Val Acc: 0.6400
+2025-03-19 16:35:05,165 - TesteTreinamentoIA - INFO - Histórico de treinamento: 5 épocas
+2025-03-19 16:35:05,169 - TesteTreinamentoIA - INFO - Acurácia final: 0.6400
+2025-03-19 16:35:05,169 - TesteTreinamentoIA - INFO - Avaliando modelo
+2025-03-19 16:35:05,173 - TesteTreinamentoIA - INFO - Avaliação concluída - Accuracy: 0.6500, Macro F1: 0.2898
+2025-03-19 16:35:05,173 - TesteTreinamentoIA - INFO - Acurácia no teste: 0.6500
+2025-03-19 16:35:05,173 - TesteTreinamentoIA - INFO - Treinamento de modelo concluído com sucesso
+2025-03-19 16:35:05,174 - TesteTreinamentoIA - INFO - 
+==== TESTE: Early Stopping ====
+2025-03-19 16:35:05,174 - TesteTreinamentoIA - INFO - Iniciando teste de early stopping
+2025-03-19 16:35:05,175 - TesteTreinamentoIA - INFO - Gerando 500 registros de dados simulados com 10 features
+2025-03-19 16:35:05,176 - TesteTreinamentoIA - INFO - Gerados 500 registros com 11 features
+2025-03-19 16:35:05,177 - TesteTreinamentoIA - INFO - Distribuição de classes: {0: 318, 1: 134, 2: 48}
+2025-03-19 16:35:05,177 - TesteTreinamentoIA - INFO - Preparando DataLoaders (batch_size=32)
+2025-03-19 16:35:05,182 - TesteTreinamentoIA - INFO - DataLoaders preparados: 300 treino, 100 validação, 100 teste
+2025-03-19 16:35:05,183 - TesteTreinamentoIA - INFO - Treinando modelo com parâmetros: {'hidden_size': 64, 'learning_rate': 0.001, 'weight_decay': 1e-05}
+2025-03-19 16:35:05,214 - TesteTreinamentoIA - INFO - Época 1/20 - Train Loss: 1.1101, Val Loss: 1.0534, Val Acc: 0.6500
+2025-03-19 16:35:05,234 - TesteTreinamentoIA - INFO - Época 2/20 - Train Loss: 1.0299, Val Loss: 0.9739, Val Acc: 0.6400
+2025-03-19 16:35:05,264 - TesteTreinamentoIA - INFO - Época 3/20 - Train Loss: 0.9500, Val Loss: 0.8984, Val Acc: 0.6400
+2025-03-19 16:35:05,295 - TesteTreinamentoIA - INFO - Época 4/20 - Train Loss: 0.8779, Val Loss: 0.8125, Val Acc: 0.6400
+2025-03-19 16:35:05,323 - TesteTreinamentoIA - INFO - Época 5/20 - Train Loss: 0.7993, Val Loss: 0.7264, Val Acc: 0.6400
+2025-03-19 16:35:05,352 - TesteTreinamentoIA - INFO - Época 6/20 - Train Loss: 0.7289, Val Loss: 0.6523, Val Acc: 0.6800
+2025-03-19 16:35:05,378 - TesteTreinamentoIA - INFO - Época 7/20 - Train Loss: 0.6700, Val Loss: 0.5908, Val Acc: 0.6900
+2025-03-19 16:35:05,407 - TesteTreinamentoIA - INFO - Época 8/20 - Train Loss: 0.5975, Val Loss: 0.5434, Val Acc: 0.7300
+2025-03-19 16:35:05,434 - TesteTreinamentoIA - INFO - Época 9/20 - Train Loss: 0.5644, Val Loss: 0.5051, Val Acc: 0.7300
+2025-03-19 16:35:05,470 - TesteTreinamentoIA - INFO - Época 10/20 - Train Loss: 0.5152, Val Loss: 0.4826, Val Acc: 0.7300
+2025-03-19 16:35:05,512 - TesteTreinamentoIA - INFO - Época 11/20 - Train Loss: 0.4922, Val Loss: 0.4599, Val Acc: 0.7600
+2025-03-19 16:35:05,546 - TesteTreinamentoIA - INFO - Época 12/20 - Train Loss: 0.4629, Val Loss: 0.4452, Val Acc: 0.7700
+2025-03-19 16:35:05,578 - TesteTreinamentoIA - INFO - Época 13/20 - Train Loss: 0.4451, Val Loss: 0.4324, Val Acc: 0.7800
+2025-03-19 16:35:05,604 - TesteTreinamentoIA - INFO - Época 14/20 - Train Loss: 0.4275, Val Loss: 0.4216, Val Acc: 0.7800
+2025-03-19 16:35:05,639 - TesteTreinamentoIA - INFO - Época 15/20 - Train Loss: 0.4461, Val Loss: 0.4144, Val Acc: 0.7900
+2025-03-19 16:35:05,668 - TesteTreinamentoIA - INFO - Época 16/20 - Train Loss: 0.4234, Val Loss: 0.4134, Val Acc: 0.7900
+2025-03-19 16:35:05,697 - TesteTreinamentoIA - INFO - Época 17/20 - Train Loss: 0.3976, Val Loss: 0.4099, Val Acc: 0.8100
+2025-03-19 16:35:05,720 - TesteTreinamentoIA - INFO - Época 18/20 - Train Loss: 0.3840, Val Loss: 0.3912, Val Acc: 0.8000
+2025-03-19 16:35:05,750 - TesteTreinamentoIA - INFO - Época 19/20 - Train Loss: 0.3763, Val Loss: 0.3873, Val Acc: 0.8100
+2025-03-19 16:35:05,784 - TesteTreinamentoIA - INFO - Época 20/20 - Train Loss: 0.3874, Val Loss: 0.3906, Val Acc: 0.8200
+2025-03-19 16:35:05,785 - TesteTreinamentoIA - WARNING - Early stopping não foi acionado
+2025-03-19 16:35:05,785 - TesteTreinamentoIA - INFO - Teste de early stopping concluído com sucesso
+2025-03-19 16:35:05,786 - TesteTreinamentoIA - INFO - 
+==== TESTE: Otimização de Hiperparâmetros ====
+2025-03-19 16:35:05,786 - TesteTreinamentoIA - INFO - Iniciando teste de otimização de hiperparâmetros
+2025-03-19 16:35:05,787 - TesteTreinamentoIA - INFO - Gerando 300 registros de dados simulados com 10 features
+2025-03-19 16:35:05,788 - TesteTreinamentoIA - INFO - Gerados 300 registros com 11 features
+2025-03-19 16:35:05,790 - TesteTreinamentoIA - INFO - Distribuição de classes: {0: 169, 1: 97, 2: 34}
+2025-03-19 16:35:05,791 - TesteTreinamentoIA - INFO - Preparando DataLoaders (batch_size=32)
+2025-03-19 16:35:05,796 - TesteTreinamentoIA - INFO - DataLoaders preparados: 180 treino, 60 validação, 60 teste
+2025-03-19 16:35:05,796 - TesteTreinamentoIA - INFO - Iniciando otimização de hiperparâmetros com 3 tentativas
+2025-03-19 16:35:05,797 - TesteTreinamentoIA - INFO - Gerando 1000 registros de dados simulados com 10 features
+2025-03-19 16:35:05,798 - TesteTreinamentoIA - INFO - Gerados 1000 registros com 11 features
+2025-03-19 16:35:05,799 - TesteTreinamentoIA - INFO - Distribuição de classes: {0: 610, 1: 290, 2: 100}
+2025-03-19 16:35:05,800 - TesteTreinamentoIA - INFO - Preparando DataLoaders (batch_size=32)
+2025-03-19 16:35:05,805 - TesteTreinamentoIA - INFO - DataLoaders preparados: 600 treino, 200 validação, 200 teste
+2025-03-19 16:35:05,808 - TesteTreinamentoIA - INFO - Treinando modelo com parâmetros: {'hidden_size': 79, 'learning_rate': 0.0001803702720988372, 'weight_decay': 9.233647449595936e-06}
+2025-03-19 16:35:05,865 - TesteTreinamentoIA - INFO - Época 1/5 - Train Loss: 1.0939, Val Loss: 1.0675, Val Acc: 0.5350
+2025-03-19 16:35:05,921 - TesteTreinamentoIA - INFO - Época 2/5 - Train Loss: 1.0574, Val Loss: 1.0276, Val Acc: 0.6250
+2025-03-19 16:35:05,978 - TesteTreinamentoIA - INFO - Época 3/5 - Train Loss: 1.0227, Val Loss: 0.9894, Val Acc: 0.6300
+2025-03-19 16:35:06,036 - TesteTreinamentoIA - INFO - Época 4/5 - Train Loss: 0.9937, Val Loss: 0.9520, Val Acc: 0.6250
+2025-03-19 16:35:06,102 - TesteTreinamentoIA - INFO - Época 5/5 - Train Loss: 0.9466, Val Loss: 0.9139, Val Acc: 0.6200
+2025-03-19 16:35:06,103 - TesteTreinamentoIA - INFO - Avaliando modelo
+2025-03-19 16:35:06,110 - TesteTreinamentoIA - INFO - Avaliação concluída - Accuracy: 0.6200, Macro F1: 0.2764
+2025-03-19 16:35:06,113 - TesteTreinamentoIA - INFO - Treinando modelo com parâmetros: {'hidden_size': 169, 'learning_rate': 0.006413686944321989, 'weight_decay': 0.0002765926282820381}
+2025-03-19 16:35:06,179 - TesteTreinamentoIA - INFO - Época 1/5 - Train Loss: 0.6755, Val Loss: 0.4196, Val Acc: 0.7800
+2025-03-19 16:35:06,236 - TesteTreinamentoIA - INFO - Época 2/5 - Train Loss: 0.4071, Val Loss: 0.3979, Val Acc: 0.8150
+2025-03-19 16:35:06,333 - TesteTreinamentoIA - INFO - Época 3/5 - Train Loss: 0.4067, Val Loss: 0.3917, Val Acc: 0.8150
+2025-03-19 16:35:06,406 - TesteTreinamentoIA - INFO - Época 4/5 - Train Loss: 0.3650, Val Loss: 0.3970, Val Acc: 0.8300
+2025-03-19 16:35:06,480 - TesteTreinamentoIA - INFO - Época 5/5 - Train Loss: 0.3335, Val Loss: 0.4142, Val Acc: 0.8300
+2025-03-19 16:35:06,481 - TesteTreinamentoIA - INFO - Avaliando modelo
+2025-03-19 16:35:06,489 - TesteTreinamentoIA - INFO - Avaliação concluída - Accuracy: 0.8300, Macro F1: 0.7269
+2025-03-19 16:35:06,491 - TesteTreinamentoIA - INFO - Treinando modelo com parâmetros: {'hidden_size': 211, 'learning_rate': 0.004424153954831352, 'weight_decay': 1.1103537620059677e-06}
+2025-03-19 16:35:06,570 - TesteTreinamentoIA - INFO - Época 1/5 - Train Loss: 0.6583, Val Loss: 0.4554, Val Acc: 0.7650
+2025-03-19 16:35:06,645 - TesteTreinamentoIA - INFO - Época 2/5 - Train Loss: 0.4280, Val Loss: 0.3921, Val Acc: 0.8250
+2025-03-19 16:35:06,717 - TesteTreinamentoIA - INFO - Época 3/5 - Train Loss: 0.3739, Val Loss: 0.3744, Val Acc: 0.8350
+2025-03-19 16:35:06,791 - TesteTreinamentoIA - INFO - Época 4/5 - Train Loss: 0.3577, Val Loss: 0.3871, Val Acc: 0.8550
+2025-03-19 16:35:06,878 - TesteTreinamentoIA - INFO - Época 5/5 - Train Loss: 0.2973, Val Loss: 0.4267, Val Acc: 0.8500
+2025-03-19 16:35:06,879 - TesteTreinamentoIA - INFO - Avaliando modelo
+2025-03-19 16:35:06,919 - TesteTreinamentoIA - INFO - Avaliação concluída - Accuracy: 0.8500, Macro F1: 0.7421
+2025-03-19 16:35:06,921 - TesteTreinamentoIA - INFO - Otimização concluída - Melhores parâmetros: {'hidden_size': 211, 'learning_rate': 0.004424153954831352, 'weight_decay': 1.1103537620059677e-06}, Melhor F1: 0.7421
+2025-03-19 16:35:06,922 - TesteTreinamentoIA - INFO - Melhores hiperparâmetros: {'hidden_size': 211, 'learning_rate': 0.004424153954831352, 'weight_decay': 1.1103537620059677e-06}
+2025-03-19 16:35:06,922 - TesteTreinamentoIA - INFO - Treinando modelo com parâmetros: {'hidden_size': 211, 'learning_rate': 0.004424153954831352, 'weight_decay': 1.1103537620059677e-06}
+2025-03-19 16:35:06,953 - TesteTreinamentoIA - INFO - Época 1/5 - Train Loss: 0.8350, Val Loss: 0.5935, Val Acc: 0.7667
+2025-03-19 16:35:06,979 - TesteTreinamentoIA - INFO - Época 2/5 - Train Loss: 0.5281, Val Loss: 0.4278, Val Acc: 0.8167
+2025-03-19 16:35:07,003 - TesteTreinamentoIA - INFO - Época 3/5 - Train Loss: 0.3674, Val Loss: 0.3365, Val Acc: 0.8833
+2025-03-19 16:35:07,029 - TesteTreinamentoIA - INFO - Época 4/5 - Train Loss: 0.3243, Val Loss: 0.3581, Val Acc: 0.8167
+2025-03-19 16:35:07,051 - TesteTreinamentoIA - INFO - Época 5/5 - Train Loss: 0.2794, Val Loss: 0.3181, Val Acc: 0.8333
+2025-03-19 16:35:07,052 - TesteTreinamentoIA - INFO - Avaliando modelo
+2025-03-19 16:35:07,055 - TesteTreinamentoIA - INFO - Avaliação concluída - Accuracy: 0.7500, Macro F1: 0.5852
+2025-03-19 16:35:07,056 - TesteTreinamentoIA - INFO - Acurácia com hiperparâmetros otimizados: 0.7500
+2025-03-19 16:35:07,056 - TesteTreinamentoIA - INFO - Otimização de hiperparâmetros concluída com sucesso
+2025-03-19 16:35:07,057 - TesteTreinamentoIA - INFO - 
+==== TESTE: Pipeline Completo de Treinamento ====
+2025-03-19 16:35:07,057 - TesteTreinamentoIA - INFO - Iniciando teste do pipeline completo de treinamento
+2025-03-19 16:35:07,057 - TesteTreinamentoIA - INFO - Gerando dados simulados
+2025-03-19 16:35:07,058 - TesteTreinamentoIA - INFO - Gerando 500 registros de dados simulados com 10 features
+2025-03-19 16:35:07,059 - TesteTreinamentoIA - INFO - Gerados 500 registros com 11 features
+2025-03-19 16:35:07,060 - TesteTreinamentoIA - INFO - Distribuição de classes: {0: 316, 1: 148, 2: 36}
+2025-03-19 16:35:07,061 - TesteTreinamentoIA - INFO - Preparando DataLoaders
+2025-03-19 16:35:07,061 - TesteTreinamentoIA - INFO - Preparando DataLoaders (batch_size=32)
+2025-03-19 16:35:07,068 - TesteTreinamentoIA - INFO - DataLoaders preparados: 300 treino, 100 validação, 100 teste
+2025-03-19 16:35:07,069 - TesteTreinamentoIA - INFO - Otimizando hiperparâmetros
+2025-03-19 16:35:07,069 - TesteTreinamentoIA - INFO - Iniciando otimização de hiperparâmetros com 3 tentativas
+2025-03-19 16:35:07,070 - TesteTreinamentoIA - INFO - Gerando 1000 registros de dados simulados com 10 features
+2025-03-19 16:35:07,072 - TesteTreinamentoIA - INFO - Gerados 1000 registros com 11 features
+2025-03-19 16:35:07,073 - TesteTreinamentoIA - INFO - Distribuição de classes: {0: 602, 1: 295, 2: 103}
+2025-03-19 16:35:07,073 - TesteTreinamentoIA - INFO - Preparando DataLoaders (batch_size=32)
+2025-03-19 16:35:07,078 - TesteTreinamentoIA - INFO - DataLoaders preparados: 600 treino, 200 validação, 200 teste
+2025-03-19 16:35:07,081 - TesteTreinamentoIA - INFO - Treinando modelo com parâmetros: {'hidden_size': 212, 'learning_rate': 0.00044618390130149167, 'weight_decay': 0.000571959376450477}
+2025-03-19 16:35:07,153 - TesteTreinamentoIA - INFO - Época 1/5 - Train Loss: 0.9832, Val Loss: 0.8481, Val Acc: 0.6100
+2025-03-19 16:35:07,220 - TesteTreinamentoIA - INFO - Época 2/5 - Train Loss: 0.7871, Val Loss: 0.6739, Val Acc: 0.6700
+2025-03-19 16:35:07,290 - TesteTreinamentoIA - INFO - Época 3/5 - Train Loss: 0.6389, Val Loss: 0.5601, Val Acc: 0.7500
+2025-03-19 16:35:07,361 - TesteTreinamentoIA - INFO - Época 4/5 - Train Loss: 0.5493, Val Loss: 0.4860, Val Acc: 0.7850
+2025-03-19 16:35:07,437 - TesteTreinamentoIA - INFO - Época 5/5 - Train Loss: 0.4983, Val Loss: 0.4417, Val Acc: 0.7950
+2025-03-19 16:35:07,437 - TesteTreinamentoIA - INFO - Avaliando modelo
+2025-03-19 16:35:07,447 - TesteTreinamentoIA - INFO - Avaliação concluída - Accuracy: 0.7950, Macro F1: 0.5341
+2025-03-19 16:35:07,449 - TesteTreinamentoIA - INFO - Treinando modelo com parâmetros: {'hidden_size': 205, 'learning_rate': 0.0001780280093165527, 'weight_decay': 1.4067154309933345e-06}
+2025-03-19 16:35:07,529 - TesteTreinamentoIA - INFO - Época 1/5 - Train Loss: 1.0229, Val Loss: 0.9566, Val Acc: 0.6000
+2025-03-19 16:35:07,602 - TesteTreinamentoIA - INFO - Época 2/5 - Train Loss: 0.9275, Val Loss: 0.8691, Val Acc: 0.6000
+2025-03-19 16:35:07,675 - TesteTreinamentoIA - INFO - Época 3/5 - Train Loss: 0.8492, Val Loss: 0.7950, Val Acc: 0.6000
+2025-03-19 16:35:07,737 - TesteTreinamentoIA - INFO - Época 4/5 - Train Loss: 0.7896, Val Loss: 0.7309, Val Acc: 0.6100
+2025-03-19 16:35:07,807 - TesteTreinamentoIA - INFO - Época 5/5 - Train Loss: 0.7307, Val Loss: 0.6757, Val Acc: 0.6450
+2025-03-19 16:35:07,808 - TesteTreinamentoIA - INFO - Avaliando modelo
+2025-03-19 16:35:07,815 - TesteTreinamentoIA - INFO - Avaliação concluída - Accuracy: 0.6450, Macro F1: 0.3653
+2025-03-19 16:35:07,818 - TesteTreinamentoIA - INFO - Treinando modelo com parâmetros: {'hidden_size': 247, 'learning_rate': 0.00026440804524741995, 'weight_decay': 0.0007187096628194393}
+2025-03-19 16:35:07,893 - TesteTreinamentoIA - INFO - Época 1/5 - Train Loss: 1.0332, Val Loss: 0.9063, Val Acc: 0.6350
+2025-03-19 16:35:07,969 - TesteTreinamentoIA - INFO - Época 2/5 - Train Loss: 0.8546, Val Loss: 0.7511, Val Acc: 0.6400
+2025-03-19 16:35:08,043 - TesteTreinamentoIA - INFO - Época 3/5 - Train Loss: 0.7233, Val Loss: 0.6319, Val Acc: 0.6750
+2025-03-19 16:35:08,118 - TesteTreinamentoIA - INFO - Época 4/5 - Train Loss: 0.6283, Val Loss: 0.5409, Val Acc: 0.7500
+2025-03-19 16:35:08,196 - TesteTreinamentoIA - INFO - Época 5/5 - Train Loss: 0.5529, Val Loss: 0.4804, Val Acc: 0.7950
+2025-03-19 16:35:08,197 - TesteTreinamentoIA - INFO - Avaliando modelo
+2025-03-19 16:35:08,203 - TesteTreinamentoIA - INFO - Avaliação concluída - Accuracy: 0.7950, Macro F1: 0.5295
+2025-03-19 16:35:08,206 - TesteTreinamentoIA - INFO - Otimização concluída - Melhores parâmetros: {'hidden_size': 212, 'learning_rate': 0.00044618390130149167, 'weight_decay': 0.000571959376450477}, Melhor F1: 0.5341
+2025-03-19 16:35:08,206 - TesteTreinamentoIA - INFO - Treinando modelo com os melhores hiperparâmetros
+2025-03-19 16:35:08,207 - TesteTreinamentoIA - INFO - Treinando modelo com parâmetros: {'hidden_size': 212, 'learning_rate': 0.00044618390130149167, 'weight_decay': 0.000571959376450477}
+2025-03-19 16:35:08,246 - TesteTreinamentoIA - INFO - Época 1/10 - Train Loss: 1.0477, Val Loss: 0.9622, Val Acc: 0.6300
+2025-03-19 16:35:08,287 - TesteTreinamentoIA - INFO - Época 2/10 - Train Loss: 0.8918, Val Loss: 0.8547, Val Acc: 0.6400
+2025-03-19 16:35:08,325 - TesteTreinamentoIA - INFO - Época 3/10 - Train Loss: 0.7681, Val Loss: 0.7707, Val Acc: 0.6500
+2025-03-19 16:35:08,365 - TesteTreinamentoIA - INFO - Época 4/10 - Train Loss: 0.6824, Val Loss: 0.6978, Val Acc: 0.6800
+2025-03-19 16:35:08,401 - TesteTreinamentoIA - INFO - Época 5/10 - Train Loss: 0.6197, Val Loss: 0.6311, Val Acc: 0.7800
+2025-03-19 16:35:08,436 - TesteTreinamentoIA - INFO - Época 6/10 - Train Loss: 0.5530, Val Loss: 0.5704, Val Acc: 0.7900
+2025-03-19 16:35:08,471 - TesteTreinamentoIA - INFO - Época 7/10 - Train Loss: 0.5402, Val Loss: 0.5214, Val Acc: 0.8100
+2025-03-19 16:35:08,501 - TesteTreinamentoIA - INFO - Época 8/10 - Train Loss: 0.4586, Val Loss: 0.4843, Val Acc: 0.8300
+2025-03-19 16:35:08,533 - TesteTreinamentoIA - INFO - Época 9/10 - Train Loss: 0.4184, Val Loss: 0.4579, Val Acc: 0.8300
+2025-03-19 16:35:08,572 - TesteTreinamentoIA - INFO - Época 10/10 - Train Loss: 0.4057, Val Loss: 0.4393, Val Acc: 0.8300
+2025-03-19 16:35:08,572 - TesteTreinamentoIA - INFO - Avaliando modelo
+2025-03-19 16:35:08,572 - TesteTreinamentoIA - INFO - Avaliando modelo
+2025-03-19 16:35:08,579 - TesteTreinamentoIA - INFO - Avaliação concluída - Accuracy: 0.7500, Macro F1: 0.4846
+2025-03-19 16:35:08,579 - TesteTreinamentoIA - INFO - Salvando métricas
+2025-03-19 16:35:08,582 - TesteTreinamentoIA - INFO - Pipeline completo executado com sucesso. Resultados salvos em pipeline_treinamento_20250319_163508.json
+2025-03-19 16:35:08,583 - TesteTreinamentoIA - INFO - Acurácia final: 0.7500, Macro F1: 0.4846
+2025-03-19 16:35:08,583 - TesteTreinamentoIA - INFO - 
+==== RESUMO DOS TESTES ====
+2025-03-19 16:35:08,584 - TesteTreinamentoIA - INFO - DataLoaders: SUCESSO
+2025-03-19 16:35:08,584 - TesteTreinamentoIA - INFO - Treinamento de Modelo: SUCESSO
+2025-03-19 16:35:08,584 - TesteTreinamentoIA - INFO - Early Stopping: SUCESSO
+2025-03-19 16:35:08,584 - TesteTreinamentoIA - INFO - Otimização de Hiperparâmetros: SUCESSO
+2025-03-19 16:35:08,585 - TesteTreinamentoIA - INFO - Pipeline Completo de Treinamento: SUCESSO

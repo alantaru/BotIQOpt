@@ -1,0 +1,81 @@
+2025-03-19 16:30:55,940 - TestePipelineTreinamento - INFO - ==== INICIANDO TESTES DE PIPELINE DE TREINAMENTO ====
+2025-03-19 16:30:55,942 - TestePipelineTreinamento - INFO - 
+==== TESTE: Seleção de Features ====
+2025-03-19 16:30:55,942 - TestePipelineTreinamento - INFO - Iniciando teste de seleção de features importantes
+2025-03-19 16:30:55,942 - TestePipelineTreinamento - INFO - Gerando 500 registros de dados simulados
+2025-03-19 16:30:56,199 - TestePipelineTreinamento - INFO - Gerados 500 registros com 15 features
+2025-03-19 16:30:56,199 - TestePipelineTreinamento - INFO - Selecionando as 5 features mais importantes
+2025-03-19 16:30:56,370 - TestePipelineTreinamento - INFO - Features mais importantes: ['timestamp', 'low', 'close', 'ema_12', 'bollinger_upper']
+2025-03-19 16:30:56,373 - TestePipelineTreinamento - INFO - Features selecionadas: ['timestamp', 'low', 'close', 'ema_12', 'bollinger_upper']
+2025-03-19 16:30:56,374 - TestePipelineTreinamento - INFO - Seleção de features concluída com sucesso
+2025-03-19 16:30:56,375 - TestePipelineTreinamento - INFO - 
+==== TESTE: Engenharia de Features ====
+2025-03-19 16:30:56,376 - TestePipelineTreinamento - INFO - Iniciando teste de engenharia de features avançadas
+2025-03-19 16:30:56,377 - TestePipelineTreinamento - INFO - Gerando 500 registros de dados simulados
+2025-03-19 16:30:56,619 - TestePipelineTreinamento - INFO - Gerados 500 registros com 15 features
+2025-03-19 16:30:56,620 - TestePipelineTreinamento - INFO - Criando features avançadas
+2025-03-19 16:30:56,627 - TestePipelineTreinamento - INFO - Criadas 11 novas features avançadas
+2025-03-19 16:30:56,628 - TestePipelineTreinamento - INFO - Novas features criadas: {'roc_10', 'bb_position', 'price_acceleration', 'volatility_14', 'sma_distance', 'sma_cross', 'trend_strength', 'trend_5', 'roc_5', 'volatility', 'bb_squeeze'}
+2025-03-19 16:30:56,629 - TestePipelineTreinamento - INFO - Engenharia de features concluída com sucesso
+2025-03-19 16:30:56,630 - TestePipelineTreinamento - INFO - 
+==== TESTE: Balanceamento de Classes ====
+2025-03-19 16:30:56,631 - TestePipelineTreinamento - INFO - Iniciando teste de balanceamento de classes
+2025-03-19 16:30:56,631 - TestePipelineTreinamento - INFO - Gerando 500 registros de dados simulados
+2025-03-19 16:30:56,799 - TestePipelineTreinamento - INFO - Gerados 500 registros com 15 features
+2025-03-19 16:30:56,800 - TestePipelineTreinamento - INFO - Distribuição original: {1: 500}
+2025-03-19 16:30:56,801 - TestePipelineTreinamento - INFO - Balanceando classes usando método: oversampling
+2025-03-19 16:30:56,802 - TestePipelineTreinamento - INFO - Distribuição original das classes: {1: 500}
+2025-03-19 16:30:56,804 - TestePipelineTreinamento - INFO - Nova distribuição das classes: {1: 500}
+2025-03-19 16:30:56,805 - TestePipelineTreinamento - INFO - Distribuição após oversampling: {1: 500}
+2025-03-19 16:30:56,806 - TestePipelineTreinamento - INFO - Balanceando classes usando método: undersampling
+2025-03-19 16:30:56,808 - TestePipelineTreinamento - INFO - Distribuição original das classes: {1: 500}
+2025-03-19 16:30:56,810 - TestePipelineTreinamento - INFO - Nova distribuição das classes: {1: 500}
+2025-03-19 16:30:56,811 - TestePipelineTreinamento - INFO - Distribuição após undersampling: {1: 500}
+2025-03-19 16:30:56,812 - TestePipelineTreinamento - INFO - Balanceamento de classes concluído com sucesso
+2025-03-19 16:30:56,813 - TestePipelineTreinamento - INFO - 
+==== TESTE: Divisão de Dados ====
+2025-03-19 16:30:56,813 - TestePipelineTreinamento - INFO - Iniciando teste de divisão de dados
+2025-03-19 16:30:56,814 - TestePipelineTreinamento - INFO - Gerando 1000 registros de dados simulados
+2025-03-19 16:30:57,166 - TestePipelineTreinamento - INFO - Gerados 1000 registros com 15 features
+2025-03-19 16:30:57,166 - TestePipelineTreinamento - INFO - Testando divisão aleatória
+2025-03-19 16:30:57,167 - TestePipelineTreinamento - INFO - Dividindo dados (test_size=0.2, val_size=0.2, random_split=True)
+2025-03-19 16:30:57,169 - TestePipelineTreinamento - INFO - Divisão concluída: 600 treino, 200 validação, 200 teste
+2025-03-19 16:30:57,170 - TestePipelineTreinamento - INFO - Divisão aleatória: 600 treino, 200 validação, 200 teste
+2025-03-19 16:30:57,170 - TestePipelineTreinamento - INFO - Testando divisão cronológica
+2025-03-19 16:30:57,171 - TestePipelineTreinamento - INFO - Dividindo dados (test_size=0.2, val_size=0.2, random_split=False)
+2025-03-19 16:30:57,173 - TestePipelineTreinamento - INFO - Divisão concluída: 600 treino, 200 validação, 200 teste
+2025-03-19 16:30:57,174 - TestePipelineTreinamento - INFO - Divisão cronológica: 600 treino, 200 validação, 200 teste
+2025-03-19 16:30:57,174 - TestePipelineTreinamento - INFO - Proporções: 0.60 treino, 0.20 validação, 0.20 teste
+2025-03-19 16:30:57,175 - TestePipelineTreinamento - INFO - Divisão de dados concluída com sucesso
+2025-03-19 16:30:57,175 - TestePipelineTreinamento - INFO - 
+==== TESTE: Pipeline Completo ====
+2025-03-19 16:30:57,176 - TestePipelineTreinamento - INFO - Iniciando teste do pipeline completo de processamento de dados
+2025-03-19 16:30:57,176 - TestePipelineTreinamento - INFO - Gerando dados simulados
+2025-03-19 16:30:57,177 - TestePipelineTreinamento - INFO - Gerando 1000 registros de dados simulados
+2025-03-19 16:30:57,510 - TestePipelineTreinamento - INFO - Gerados 1000 registros com 15 features
+2025-03-19 16:30:57,511 - TestePipelineTreinamento - INFO - Aplicando engenharia de features
+2025-03-19 16:30:57,511 - TestePipelineTreinamento - INFO - Criando features avançadas
+2025-03-19 16:30:57,517 - TestePipelineTreinamento - INFO - Criadas 11 novas features avançadas
+2025-03-19 16:30:57,518 - TestePipelineTreinamento - INFO - Selecionando features importantes
+2025-03-19 16:30:57,518 - TestePipelineTreinamento - INFO - Selecionando as 10 features mais importantes
+2025-03-19 16:30:57,522 - TestePipelineTreinamento - ERROR - Erro ao selecionar features importantes: Input X contains infinity or a value too large for dtype('float32').
+2025-03-19 16:30:57,523 - TestePipelineTreinamento - INFO - Balanceando classes
+2025-03-19 16:30:57,524 - TestePipelineTreinamento - INFO - Balanceando classes usando método: oversampling
+2025-03-19 16:30:57,525 - TestePipelineTreinamento - INFO - Distribuição original das classes: {1: 974, 0: 15, 2: 11}
+2025-03-19 16:30:57,546 - TestePipelineTreinamento - INFO - Nova distribuição das classes: {0: 974, 2: 974, 1: 974}
+2025-03-19 16:30:57,547 - TestePipelineTreinamento - INFO - Dividindo dados
+2025-03-19 16:30:57,547 - TestePipelineTreinamento - INFO - Dividindo dados (test_size=0.2, val_size=0.2, random_split=False)
+2025-03-19 16:30:57,550 - TestePipelineTreinamento - INFO - Divisão concluída: 1754 treino, 584 validação, 584 teste
+2025-03-19 16:30:57,551 - TestePipelineTreinamento - INFO - Pipeline completo executado com sucesso
+2025-03-19 16:30:57,552 - TestePipelineTreinamento - INFO - Features selecionadas: []
+2025-03-19 16:30:57,552 - TestePipelineTreinamento - INFO - Conjunto de treino: 1754 registros
+2025-03-19 16:30:57,553 - TestePipelineTreinamento - INFO - Conjunto de validação: 584 registros
+2025-03-19 16:30:57,553 - TestePipelineTreinamento - INFO - Conjunto de teste: 584 registros
+2025-03-19 16:30:57,622 - TestePipelineTreinamento - INFO - Dados de treino salvos em dados_treino_20250319_163057.csv
+2025-03-19 16:30:57,623 - TestePipelineTreinamento - INFO - 
+==== RESUMO DOS TESTES ====
+2025-03-19 16:30:57,624 - TestePipelineTreinamento - INFO - Seleção de Features: SUCESSO
+2025-03-19 16:30:57,625 - TestePipelineTreinamento - INFO - Engenharia de Features: SUCESSO
+2025-03-19 16:30:57,626 - TestePipelineTreinamento - INFO - Balanceamento de Classes: SUCESSO
+2025-03-19 16:30:57,626 - TestePipelineTreinamento - INFO - Divisão de Dados: SUCESSO
+2025-03-19 16:30:57,626 - TestePipelineTreinamento - INFO - Pipeline Completo: SUCESSO

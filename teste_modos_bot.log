@@ -1,0 +1,79 @@
+2025-03-19 17:00:07,813 - TesteModosBOT - INFO - ==== INICIANDO TESTES DE MODOS DO BOT ====
+2025-03-19 17:00:07,814 - TesteModosBOT - INFO - 
+==== TESTE: Modo Download ====
+2025-03-19 17:00:07,815 - TesteModosBOT - INFO - Configurando ambiente de teste
+2025-03-19 17:00:07,816 - TesteModosBOT - INFO - Iniciando teste do modo Download
+2025-03-19 17:00:07,816 - TesteModosBOT - INFO - Baixando dados históricos para EURUSD
+2025-03-19 17:00:07,817 - TesteModosBOT - INFO - Baixando dados históricos para EURUSD
+2025-03-19 17:00:07,819 - TesteModosBOT - INFO - Armazenando 1441 registros de dados de treinamento
+2025-03-19 17:00:07,820 - TesteModosBOT - INFO - Dados para EURUSD baixados com sucesso
+2025-03-19 17:00:07,821 - TesteModosBOT - INFO - Baixando dados históricos para GBPUSD
+2025-03-19 17:00:07,822 - TesteModosBOT - INFO - Baixando dados históricos para GBPUSD
+2025-03-19 17:00:07,823 - TesteModosBOT - INFO - Armazenando 1441 registros de dados de treinamento
+2025-03-19 17:00:07,823 - TesteModosBOT - INFO - Dados para GBPUSD baixados com sucesso
+2025-03-19 17:00:07,825 - TesteModosBOT - INFO - Teste do modo Download concluído com sucesso
+2025-03-19 17:00:07,827 - TesteModosBOT - INFO - 
+==== TESTE: Modo Learning ====
+2025-03-19 17:00:07,827 - TesteModosBOT - INFO - Configurando ambiente de teste
+2025-03-19 17:00:07,828 - TesteModosBOT - INFO - Iniciando teste do modo Learning
+2025-03-19 17:00:07,828 - TesteModosBOT - INFO - Treinando modelo com dados históricos
+2025-03-19 17:00:07,828 - TesteModosBOT - INFO - Teste do modo Learning concluído com sucesso
+2025-03-19 17:00:07,830 - TesteModosBOT - INFO - 
+==== TESTE: Modo Test ====
+2025-03-19 17:00:07,830 - TesteModosBOT - INFO - Configurando ambiente de teste
+2025-03-19 17:00:07,831 - TesteModosBOT - INFO - Iniciando teste do modo Test
+2025-03-19 17:00:07,831 - TesteModosBOT - INFO - Gerando previsões para 2 ativos
+2025-03-19 17:00:07,832 - TesteModosBOT - INFO - Executando trade de teste para GBPUSD (put)
+2025-03-19 17:00:07,832 - TesteModosBOT - INFO - Trade de teste executado para GBPUSD
+2025-03-19 17:00:07,833 - TesteModosBOT - INFO - Métricas de desempenho: {'total_trades': 1, 'wins': 1, 'losses': 0, 'win_rate': 1.0, 'profit_factor': inf, 'total_profit': 10.0, 'runtime': '0:00:00.002197'}
+2025-03-19 17:00:07,834 - TesteModosBOT - INFO - Teste do modo Test concluído com sucesso
+2025-03-19 17:00:07,835 - TesteModosBOT - INFO - 
+==== TESTE: Modo Real ====
+2025-03-19 17:00:07,835 - TesteModosBOT - INFO - Configurando ambiente de teste
+2025-03-19 17:00:07,836 - TesteModosBOT - INFO - Iniciando teste do modo Real
+2025-03-19 17:00:07,836 - TesteModosBOT - INFO - Gerando previsões para 2 ativos
+2025-03-19 17:00:07,836 - TesteModosBOT - INFO - Executando trade real para EURUSD (put)
+2025-03-19 17:00:07,837 - TesteModosBOT - INFO - Trade real executado para EURUSD
+2025-03-19 17:00:07,838 - TesteModosBOT - INFO - Executando trade real para GBPUSD (put)
+2025-03-19 17:00:07,838 - TesteModosBOT - INFO - Trade real executado para GBPUSD
+2025-03-19 17:00:07,839 - TesteModosBOT - INFO - Métricas de desempenho: {'total_trades': 2, 'wins': 2, 'losses': 0, 'win_rate': 1.0, 'profit_factor': inf, 'total_profit': 20.0, 'runtime': '0:00:00.001999'}
+2025-03-19 17:00:07,839 - TesteModosBOT - INFO - Teste do modo Real concluído com sucesso
+2025-03-19 17:00:07,840 - TesteModosBOT - INFO - 
+==== TESTE: Auto Switch ====
+2025-03-19 17:00:07,841 - TesteModosBOT - INFO - Configurando ambiente de teste
+2025-03-19 17:00:07,841 - TesteModosBOT - INFO - Iniciando teste de mudança automática para modo real
+2025-03-19 17:00:07,842 - TesteModosBOT - INFO - Gerando previsões para 2 ativos
+2025-03-19 17:00:07,842 - TesteModosBOT - INFO - Executando trade de teste para EURUSD (put)
+2025-03-19 17:00:07,843 - TesteModosBOT - INFO - Executando trade de teste para GBPUSD (call)
+2025-03-19 17:00:07,844 - TesteModosBOT - INFO - Mudando para modo de operação real com base no desempenho
+2025-03-19 17:00:07,844 - TesteModosBOT - INFO - Teste de mudança automática concluído com sucesso
+2025-03-19 17:00:07,845 - TesteModosBOT - INFO - 
+==== TESTE: Pipeline Completo ====
+2025-03-19 17:00:07,846 - TesteModosBOT - INFO - Configurando ambiente de teste
+2025-03-19 17:00:07,846 - TesteModosBOT - INFO - Iniciando teste do pipeline completo
+2025-03-19 17:00:07,847 - TesteModosBOT - INFO - Executando modo Download
+2025-03-19 17:00:07,847 - TesteModosBOT - INFO - Baixando dados históricos para EURUSD
+2025-03-19 17:00:07,849 - TesteModosBOT - INFO - Armazenando 1441 registros de dados de treinamento
+2025-03-19 17:00:07,850 - TesteModosBOT - INFO - Baixando dados históricos para GBPUSD
+2025-03-19 17:00:07,851 - TesteModosBOT - INFO - Armazenando 1441 registros de dados de treinamento
+2025-03-19 17:00:07,852 - TesteModosBOT - INFO - Executando modo Learning
+2025-03-19 17:00:07,852 - TesteModosBOT - INFO - Treinando modelo com dados históricos
+2025-03-19 17:00:07,853 - TesteModosBOT - INFO - Executando modo Test
+2025-03-19 17:00:07,853 - TesteModosBOT - INFO - Gerando previsões para 2 ativos
+2025-03-19 17:00:07,854 - TesteModosBOT - INFO - Executando trade de teste para GBPUSD (put)
+2025-03-19 17:00:07,854 - TesteModosBOT - INFO - Métricas após modo Test: {'total_trades': 1, 'wins': 1, 'losses': 0, 'win_rate': 1.0, 'profit_factor': inf, 'total_profit': 10.0, 'runtime': '0:00:00.008000'}
+2025-03-19 17:00:07,855 - TesteModosBOT - INFO - Executando modo Real
+2025-03-19 17:00:07,855 - TesteModosBOT - INFO - Gerando previsões para 2 ativos
+2025-03-19 17:00:07,855 - TesteModosBOT - INFO - Executando trade real para EURUSD (put)
+2025-03-19 17:00:07,856 - TesteModosBOT - INFO - Executando trade real para GBPUSD (put)
+2025-03-19 17:00:07,856 - TesteModosBOT - INFO - Métricas finais: {'total_trades': 3, 'wins': 3, 'losses': 0, 'win_rate': 1.0, 'profit_factor': inf, 'total_profit': 30.0, 'runtime': '0:00:00.010576'}
+2025-03-19 17:00:07,857 - TesteModosBOT - INFO - Teste do pipeline completo concluído com sucesso
+2025-03-19 17:00:07,858 - TesteModosBOT - INFO - 
+==== RESUMO DOS TESTES ====
+2025-03-19 17:00:07,859 - TesteModosBOT - INFO - Modo Download: SUCESSO
+2025-03-19 17:00:07,859 - TesteModosBOT - INFO - Modo Learning: SUCESSO
+2025-03-19 17:00:07,859 - TesteModosBOT - INFO - Modo Test: SUCESSO
+2025-03-19 17:00:07,860 - TesteModosBOT - INFO - Modo Real: SUCESSO
+2025-03-19 17:00:07,860 - TesteModosBOT - INFO - Auto Switch: SUCESSO
+2025-03-19 17:00:07,860 - TesteModosBOT - INFO - Pipeline Completo: SUCESSO
+2025-03-19 17:00:07,863 - TesteModosBOT - INFO - Resultados salvos em resultados_testes_modos_bot_20250319_170007.json
