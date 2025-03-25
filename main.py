@@ -1,702 +1,548 @@
-import logging
-
-# Configure logging
-logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler('bot.log'),
-        logging.StreamHandler()
-    ]
-)
-
-logger = logging.getLogger(__name__)
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 import os
-logger.debug("Importing os")  # Added debug log
-
-import argparse
-logger.debug("Importing argparse")  # Added debug log
-
-import time
-logger.debug("Importing time")  # Added debug log
-
-import signal
-logger.debug("Importing signal")  # Added debug log
-
 import sys
-logger.debug("Importing sys")  # Added debug log
-
-from contextlib import contextmanager
-logger.debug("Importing contextlib")  # Added debug log
-
-from typing import Dict, List, Optional
-logger.debug("Importing typing")  # Added debug log
-
-from datetime import datetime
-logger.debug("Importing datetime")  # Added debug log
-
+import time
 import json
-logger.debug("Importing json")  # Added debug log
-
-logger.debug("Importing pandas")
+import argparse
+import logging
+from datetime import datetime, timedelta
 import pandas as pd
-logger.debug("Pandas imported successfully")  # Added debug log
-
-logger.debug("Importing numpy")
 import numpy as np
-logger.debug("Numpy imported successfully")  # Added debug log
+import matplotlib.pyplot as plt
+from tqdm import tqdm
+import threading
+import queue
+import signal
+import traceback
 
-logger.debug("Importing dotenv")
-from dotenv import load_dotenv
-logger.debug("Dotenv imported successfully")  # Added debug log
-
-logger.debug("Importing configparser")
-import configparser
-logger.debug("Configparser imported successfully")  # Added debug log
-
-logger.debug("Importing Inteligencia")
-from inteligencia.Inteligencia import Inteligencia
-logger.debug("Inteligencia imported successfully")  # Added debug log
-
-logger.debug("Importing Ferramental")
-from ferramental.Ferramental import Ferramental
-logger.debug("Ferramental imported successfully")  # Added debug log
-
-logger.debug("Importing ErrorTracker")
+# Importações locais
+from utils.ConfigManager import ConfigManager
+from utils.LogManager import LogManager, setup_logger
 from ferramental.ErrorTracker import ErrorTracker
-logger.debug("ErrorTracker imported successfully")  # Added debug log
-
-logger.debug("Importing BotPerformanceMetrics")
 from ferramental.PerformanceMetrics import BotPerformanceMetrics
-logger.debug("BotPerformanceMetrics imported successfully")  # Added debug log
+from inteligencia.Inteligencia import Inteligencia
+from ferramental.Ferramental import Ferramental
 
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler('bot.log'),
-        logging.StreamHandler()
-    ]
-)
+# Configuração inicial de logging
+logger = setup_logger('main')
 
-logger = logging.getLogger(__name__)
 
-# Graceful shutdown handler
-def signal_handler(sig, frame):
-    logger.info("Received shutdown signal. Exiting gracefully...")
-    sys.exit(0)
+def parse_arguments():
+    """Parse command line arguments."""
+    parser = argparse.ArgumentParser(description='Bot IQ Option')
+    parser.add_argument('--mode', type=str, choices=['DOWNLOAD', 'LEARNING', 'TEST', 'REAL'],
+                        help='Mode of operation')
+    parser.add_argument('--config', type=str, default='config.ini',
+                        help='Path to configuration file')
+    parser.add_argument('--assets', type=str,
+                        help='Comma-separated list of assets to trade')
+    parser.add_argument('--debug', action='store_true',
+                        help='Enable debug mode')
+    return parser.parse_args()
 
-signal.signal(signal.SIGINT, signal_handler)
-signal.signal(signal.SIGTERM, signal_handler)
 
-@contextmanager
-def resource_manager(resources: Dict[str, any]):
-    """Context manager for resource cleanup"""
+def setup_signal_handlers(stop_event):
+    """Setup signal handlers for graceful shutdown."""
+    def signal_handler(sig, frame):
+        logger.info("Shutdown signal received. Cleaning up...")
+        stop_event.set()
+    
+    signal.signal(signal.SIGINT, signal_handler)
+    signal.signal(signal.SIGTERM, signal_handler)
+
+
+def display_welcome_message():
+    """Display welcome message with ASCII art."""
+    welcome_message = """
+    ██████╗  ██████╗ ████████╗    ██╗ ██████╗      ██████╗ ██████╗ ████████╗
+    ██╔══██╗██╔═══██╗╚══██╔══╝    ██║██╔═══██╗    ██╔═══██╗██╔══██╗╚══██╔══╝
+    ██████╔╝██║   ██║   ██║       ██║██║   ██║    ██║   ██║██████╔╝   ██║   
+    ██╔══██╗██║   ██║   ██║       ██║██║▄▄ ██║    ██║   ██║██╔═══╝    ██║   
+    ██████╔╝╚██████╔╝   ██║       ██║╚██████╔╝    ╚██████╔╝██║        ██║   
+    ╚═════╝  ╚═════╝    ╚═╝       ╚═╝ ╚══▀▀═╝      ╚═════╝ ╚═╝        ╚═╝   
+    """
+    print(welcome_message)
+    logger.info("Bot IQ Option iniciado")
+
+
+def check_dependencies():
+    """Check if all required dependencies are installed."""
     try:
-        yield resources
-    finally:
-        logger.info("Cleaning up resources...")
-        for name, resource in resources.items():
-            if hasattr(resource, 'close'):
-                resource.close()
-                logger.info(f"Closed resource: {name}")
+        import pandas as pd
+        import numpy as np
+        import matplotlib.pyplot as plt
+        from tqdm import tqdm
+        logger.info("All dependencies are installed")
+        return True
+    except ImportError as e:
+        logger.error(f"Missing dependency: {str(e)}")
+        return False
 
-def get_params(config, args, section, param_names):
-    """Gets and validates parameters from command line arguments or config file."""
-    params = {}
-    type_mapping = {
-        'timeframe_value': int,
-        'candle_count': int,
-        'max_trades': int,
-        'risk_per_trade': float,
-        'auto_switch_to_real': lambda x: x.lower() == 'true'
-    }
-    
-    for param_name in param_names:
-        try:
-            arg_value = getattr(args, param_name, None)
-            config_value = config.get(section, param_name, fallback=None)
-            
-            if arg_value is not None:
-                value = arg_value
-            elif config_value is not None:
-                value = config_value
-            else:
-                if param_name != "auto_switch_to_real":
-                    raise ValueError(f"Missing required parameter: {param_name}")
-                continue
-                
-            # Apply type conversion if specified
-            if param_name in type_mapping:
-                converter = type_mapping[param_name]
-                try:
-                    params[param_name] = converter(value)
-                except (ValueError, TypeError) as e:
-                    raise ValueError(f"Invalid value for {param_name}: {value}. Error: {str(e)}")
-            else:
-                params[param_name] = value
-                
-        except Exception as e:
-            logging.error(f"Error processing parameter {param_name}: {str(e)}")
-            raise
-            
-    return params
 
-def calculate_timeframe(timeframe_type, timeframe_value):
-    """Calculates timeframe in seconds."""
-    if timeframe_type == "Minutes":
-        return timeframe_value * 60
-    elif timeframe_type == "Seconds":
-        return timeframe_value
-    elif timeframe_type == "Hours":
-        return timeframe_value * 3600
-    else:
-        raise ValueError(f"Invalid timeframe type: {timeframe_type}")
+def check_api_connection(ferramental):
+    """Check connection to IQ Option API."""
+    try:
+        connected = ferramental.check_connection()
+        if connected:
+            logger.info("Successfully connected to IQ Option API")
+            return True
+        else:
+            logger.error("Failed to connect to IQ Option API")
+            return False
+    except Exception as e:
+        logger.error(f"Error checking API connection: {str(e)}")
+        return False
 
-def progress_bar(value: float, width: int = 40) -> str:
-    """Generate ASCII progress bar"""
-    filled = int(round(value * width))
-    return '[' + '=' * filled + ' ' * (width - filled) + ']'
 
-def plot_equity_curve(metrics) -> str:
-    """Generate enhanced ASCII equity curve with markers and trend lines"""
-    equity_curve = []
-    current_equity = 0.0
-    
-    for trade in metrics.trades:
-        current_equity += trade['amount'] if trade['result'] else -trade['amount']
-        equity_curve.append(current_equity)
-    
-    if not equity_curve:
-        return "No trades yet"
+def initialize_components(config_manager, args):
+    """Initialize all components of the bot."""
+    try:
+        # Carrega as credenciais do arquivo de configuração
+        username = config_manager.get_value('Credentials', 'username')
+        password = config_manager.get_value('Credentials', 'password')
         
-    max_equity = max(equity_curve)
-    min_equity = min(equity_curve)
-    scale = max_equity - min_equity
-    
-    if scale == 0:
-        return "Flat equity"
+        logger.info(f"Username from config: {username}")
+        logger.info(f"Password from config: {password}")
         
-    height = 10
-    width = 60
-    chart = [[' ' for _ in range(width)] for _ in range(height)]
-    
-    # Plot equity points
-    for i, value in enumerate(equity_curve):
-        x = min(i * width // len(equity_curve), width - 1)
-        y = int(((value - min_equity) / scale) * (height - 1))
-        chart[height - 1 - y][x] = '●'
-    
-    # Add trend line
-    if len(equity_curve) > 1:
-        start_x = 0
-        start_y = height - 1 - int((equity_curve[0] - min_equity) / scale * (height - 1))
-        end_x = width - 1
-        end_y = height - 1 - int((equity_curve[-1] - min_equity) / scale * (height - 1))
+        # Initialize error tracker
+        error_tracker = ErrorTracker()
         
-        # Bresenham's line algorithm
-        dx = abs(end_x - start_x)
-        dy = abs(end_y - start_y)
-        sx = 1 if start_x < end_x else -1
-        sy = 1 if start_y < end_y else -1
-        err = dx - dy
+        # Initialize performance metrics
+        performance_metrics = BotPerformanceMetrics()
         
-        while True:
-            if 0 <= start_x < width and 0 <= start_y < height:
-                if chart[start_y][start_x] == ' ':
-                    chart[start_y][start_x] = '─'
-            if start_x == end_x and start_y == end_y:
-                break
-            e2 = 2 * err
-            if e2 > -dy:
-                err -= dy
-                start_x += sx
-            if e2 < dx:
-                err += dx
-                start_y += sy
-    
-    # Add markers for key points
-    max_idx = equity_curve.index(max_equity)
-    min_idx = equity_curve.index(min_equity)
-    
-    max_x = min(max_idx * width // len(equity_curve), width - 1)
-    max_y = height - 1 - int((max_equity - min_equity) / scale * (height - 1))
-    min_x = min(min_idx * width // len(equity_curve), width - 1)
-    min_y = height - 1 - int((min_equity - min_equity) / scale * (height - 1))
-    
-    if 0 <= max_x < width and 0 <= max_y < height:
-        chart[max_y][max_x] = '▲'
-            
-        # Basic metrics
-        successful_trades = [t for t in metrics.trades if t['result'] is True]
-        win_rate = len(successful_trades) / len(metrics.trades)
+        # Initialize intelligence module
+        inteligencia = Inteligencia(config_manager)
         
-        # Advanced metrics
-        max_drawdown = metrics.calculate_max_drawdown()
-        sortino_ratio = metrics.calculate_sortino_ratio()
-        expectancy = metrics.calculate_expectancy()
-        risk_of_ruin = metrics.calculate_risk_of_ruin(win_rate)
+        # Inicializa o objeto Ferramental com o config_manager
+        ferramental = Ferramental(config_manager=config_manager)
         
-        # Trade statistics
-        avg_win = metrics.calculate_average_win()
-        avg_loss = metrics.calculate_average_loss()
-        profit_factor = metrics.calculate_profit_factor()
+        # Update auto switch criteria from config manager
+        inteligencia.update_auto_switch_criteria_from_config_manager(config_manager)
         
-        # Risk alerts
-        risk_alerts = []
-        if max_drawdown > 0.2:
-            risk_alerts.append("High drawdown detected")
-        if risk_of_ruin > 0.1:
-            risk_alerts.append("High risk of ruin")
-        if expectancy < 0:
-            risk_alerts.append("Negative expectancy")
-            
-        return {
-            'total_trades': len(metrics.trades),
-            'win_rate': win_rate,
-            'profit_factor': profit_factor,
-            'sharpe_ratio': metrics.calculate_sharpe_ratio(),
-            'sortino_ratio': sortino_ratio,
-            'expectancy': expectancy,
-            'risk_of_ruin': risk_of_ruin,
-            'max_drawdown': max_drawdown,
-            'average_win': avg_win,
-            'average_loss': avg_loss,
-            'risk_alerts': risk_alerts
-        }
-        
-class BotPerformanceMetrics:
-    def __init__(self):
-        self.trades = []
+        return inteligencia, ferramental, error_tracker, performance_metrics
+    except Exception as e:
+        logger.error(f"Error initializing components: {str(e)}")
+        return None, None, None, None
 
-    def add_trade(self, asset, direction, amount, result):
-        self.trades.append({
-            'asset': asset,
-            'direction': direction,
-            'amount': amount,
-            'result': result
-        })
-
-    def calculate_max_drawdown(self) -> float:
-        """Calculate maximum drawdown"""
-        equity_curve = []
-        current_equity = 0.0
-        
-        for trade in self.trades:
-            current_equity += trade['amount'] if trade['result'] else -trade['amount']
-            equity_curve.append(current_equity)
-            
-        peak = -float('inf')
-        max_dd = 0.0
-        
-        for value in equity_curve:
-            if value > peak:
-                peak = value
-            dd = (peak - value) / peak if peak != 0 else 0.0
-            if dd > max_dd:
-                max_dd = dd
-                
-        return max_dd
-        
-    def calculate_sortino_ratio(self) -> float:
-        """Calculate Sortino ratio (risk-adjusted return using downside deviation)"""
-        returns = [t['amount'] if t['result'] else -t['amount'] for t in self.trades]
-        if not returns:
-            return 0.0
-            
-        mean_return = np.mean(returns)
-        downside_returns = [r for r in returns if r < 0]
-        
-        if not downside_returns:
-            return float('inf')
-            
-        downside_deviation = np.std(downside_returns)
-        return mean_return / downside_deviation if downside_deviation != 0 else 0.0
-        
-    def calculate_expectancy(self) -> float:
-        """Calculate trading system expectancy"""
-        wins = [t['amount'] for t in self.trades if t['result']]
-        losses = [-t['amount'] for t in self.trades if not t['result']]
-        
-        if not wins or not losses:
-            return 0.0
-            
-        avg_win = np.mean(wins)
-        avg_loss = np.mean(losses)
-        win_rate = len(wins) / len(self.trades)
-        
-        return (win_rate * avg_win) - ((1 - win_rate) * avg_loss)
-        
-    def calculate_risk_of_ruin(self, win_rate: float) -> float:
-        """Calculate probability of losing entire account"""
-        if not self.trades:
-            return 0.0
-            
-        risk_per_trade = np.mean([t['amount'] for t in self.trades])
-        account_size = sum(t['amount'] for t in self.trades if t['result']) - sum(t['amount'] for t in self.trades if not t['result'])
-        
-        if account_size <= 0:
-            return 1.0
-            
-        num_trades = len(self.trades)
-        risk_percent = risk_per_trade / account_size
-        return ((1 - win_rate) / win_rate) ** (account_size / risk_per_trade)
-        
-    def calculate_average_win(self) -> float:
-        """Calculate average winning trade amount"""
-        wins = [t['amount'] for t in self.trades if t['result']]
-        return np.mean(wins) if wins else 0.0
-        
-    def calculate_average_loss(self) -> float:
-        """Calculate average losing trade amount"""
-        losses = [t['amount'] for t in self.trades if not t['result']]
-        return np.mean(losses) if losses else 0.0
-        
-    def calculate_profit_factor(self) -> float:
-        """Calculate profit factor (gross profits / gross losses)"""
-        profits = sum(t['amount'] for t in self.trades if t['result'] is True)
-        losses = sum(t['amount'] for t in self.trades if t['result'] is False)
-        return profits / losses if losses != 0 else float('inf')
-        
-    def calculate_sharpe_ratio(self) -> float:
-        """Calculate Sharpe ratio for risk-adjusted returns"""
-        returns = [t['amount'] if t['result'] else -t['amount'] for t in self.trades]
-        if not returns:
-            return 0.0
-            
-        mean_return = np.mean(returns)
-        std_dev = np.std(returns)
-        risk_free_rate = 0.0  # Could be configurable
-        
-        return (mean_return - risk_free_rate) / std_dev if std_dev != 0 else 0.0
-
-    def calculate_metrics(self):
-        successful_trades = [t for t in self.trades if t['result'] is True]
-        win_rate = len(successful_trades) / len(self.trades)
-        
-        # Advanced metrics
-        max_drawdown = self.calculate_max_drawdown()
-        sortino_ratio = self.calculate_sortino_ratio()
-        expectancy = self.calculate_expectancy()
-        risk_of_ruin = self.calculate_risk_of_ruin(win_rate)
-        
-        # Trade statistics
-        avg_win = self.calculate_average_win()
-        avg_loss = self.calculate_average_loss()
-        profit_factor = self.calculate_profit_factor()
-        
-        # Risk alerts
-        risk_alerts = []
-        if max_drawdown > 0.2:
-            risk_alerts.append("High drawdown detected")
-        if risk_of_ruin > 0.1:
-            risk_alerts.append("High risk of ruin")
-        if expectancy < 0:
-            risk_alerts.append("Negative expectancy")
-            
-        return {
-            'total_trades': len(self.trades),
-            'win_rate': win_rate,
-            'profit_factor': profit_factor,
-            'sharpe_ratio': self.calculate_sharpe_ratio(),
-            'sortino_ratio': sortino_ratio,
-            'expectancy': expectancy,
-            'risk_of_ruin': risk_of_ruin,
-            'max_drawdown': max_drawdown,
-            'average_win': avg_win,
-            'average_loss': avg_loss,
-            'risk_alerts': risk_alerts
-        }
-
-def validate_config(config):
-    """Validate configuration parameters"""
-    required_sections = ['General', 'Learning', 'Trading', 'Logging']
-    for section in required_sections:
-        if section not in config:
-            raise ValueError(f"Missing required section in config: {section}")
-            
-    # Validate General section
-    if not config['General'].get('operation_mode'):
-        raise ValueError("operation_mode is required in General section")
-        
-    # Validate Trading section
-    if not config['Trading'].get('amount'):
-        raise ValueError("amount is required in Trading section")
-        
-    return True
 
 def main():
-    logger.debug("Entering main function")  # Added debug log
-    load_dotenv()  # Load environment variables from .env file
-
-    # Initialize logging and error tracking
-    error_tracker = ErrorTracker()
+    """Main function."""
+    # Parse command line arguments
+    args = parse_arguments()
     
-    parser = argparse.ArgumentParser(description="IQ Option Bot")
-    parser.add_argument("--mode", help="Bot mode (Download, Learning, Test, Real)")
-    parser.add_argument("--asset", help="Asset to trade")
-    parser.add_argument("--timeframe_type", help="Timeframe type (Minutes, Seconds, Hours)")
-    parser.add_argument("--timeframe_value", type=int, help="Timeframe value")
-    parser.add_argument("--candle_count", type=int, help="Number of candles to download/use")
-    parser.add_argument("--max_trades", type=int, help="Maximum number of trades per asset")
-    parser.add_argument("--risk_per_trade", type=float, help="Risk percentage per trade")
-    args = parser.parse_args()
-
-    # Initialize performance tracking
-    performance_metrics = BotPerformanceMetrics()
+    # Display welcome message
+    display_welcome_message()
     
-    logger.info("IQ Option Bot started")
-    logger.info(f"Initializing in {args.mode or 'default'} mode")
-
-    config = configparser.ConfigParser()
-    config.read('conf.ini')
-    logger.debug("Config file read successfully")  # Added debug log
-
-    try:
-        validate_config(config)
-    except ValueError as e:
-        logger.error(f"Configuration error: {str(e)}")
-        error_tracker.log_error('CONFIG_ERROR', str(e))
+    # Check dependencies
+    if not check_dependencies():
+        logger.error("Missing dependencies. Please install required packages.")
         sys.exit(1)
-
-    mode = args.mode if args.mode else config['General']['operation_mode']
-    logger.debug(f"Selected mode: {mode}")  # Added debug log
-
-    # Get general parameters with asset handling
-    general_params = get_params(config, args, 'General', ['timeframe_type', 'timeframe_value', 'candle_count', 'auto_switch_to_real'])
     
-    # Handle assets separately
-    if args.asset:
-        assets = [args.asset]
+    # Load configuration
+    config_manager = ConfigManager(args.config)
+    
+    # Setup logging level
+    if args.debug:
+        logging.getLogger().setLevel(logging.DEBUG)
+        logger.debug("Debug mode enabled")
+    
+    # Initialize components
+    inteligencia, ferramental, error_tracker, performance_metrics = initialize_components(config_manager, args)
+    
+    if not inteligencia or not ferramental:
+        logger.error("Failed to initialize components")
+        sys.exit(1)
+    
+    # Check API connection
+    if not check_api_connection(ferramental):
+        logger.error("Failed to connect to IQ Option API. Please check your credentials and internet connection.")
+        sys.exit(1)
+    
+    # Create stop event for graceful shutdown
+    stop_event = threading.Event()
+    setup_signal_handlers(stop_event)
+    
+    # Determine initial mode
+    if args.mode:
+        mode = args.mode.upper()
     else:
-        assets = [asset.strip() for asset in config['General']['assets'].split(',') if asset.strip()]
-        if not assets:
-            raise ValueError("No valid assets configured in config file")
-        general_params['asset'] = assets[0]  # Use first asset as default
-
-    try:
-        # Initialize components with error handling
-        logger.debug("Initializing Inteligencia")  # Added debug log
-        inteligencia = Inteligencia(
-            model_path=config['General']['model_filename'],
-            historical_data_filename=config['General']['historical_data_filename']
-        )
-        logger.debug("Inteligencia initialized successfully")  # Added debug log
-
-        # Set auto_switch_to_real in Inteligencia
-        inteligencia.set_auto_switch(general_params.get('auto_switch_to_real', False))
-
-        assets = [asset.strip() for asset in config['General']['assets'].split(',') if asset.strip()]
-
-        if not assets:
-            raise ValueError("No valid assets configured")
-
-        logger.debug("Initializing Ferramental")  # Added debug log
-        ferramental = Ferramental(assets)
-        logger.debug("Ferramental initialized successfully")  # Added debug log
-
-        # Set timezone from config if specified
-        timezone = config['General'].get('timezone', 'UTC')
-        os.environ['TZ'] = timezone
-        if hasattr(time, 'tzset'):
-            time.tzset()
-
-    except Exception as e:
-        logger.error(f"Initialization error: {str(e)}")
-        error_tracker.log_error('INIT_ERROR', str(e))
-        sys.exit(1)
-
-    logger.info(f"Bot running in {mode} mode")
-    logger.debug("Initialization complete")  # Added debug log
-    logger.info(f"Timezone: {time.tzname[0]}")
-    logger.info(f"Available assets: {', '.join(assets)}")
-
-    # Validate environment variables
-    required_env_vars = ["IQ_OPTION_EMAIL", "IQ_OPTION_PASSWORD"]
-    missing_vars = [var for var in required_env_vars if not os.getenv(var)]
+        mode = config_manager.get_value('General', 'operation_mode', 'TEST')
     
-    if missing_vars:
-        logging.error(f"Missing required environment variables: {', '.join(missing_vars)}")
-        print(f"Please set the following environment variables in .env file: {', '.join(missing_vars)}")
-        return
-
-    # Check Python version and dependencies
-    if sys.version_info < (3, 8):
-        logging.error("Python 3.8 or higher is required")
-        return
-
+    logger.info(f"Starting in {mode} mode")
+    
+    # Get assets to trade
+    if args.assets:
+        assets = [asset.strip() for asset in args.assets.split(',')]
+    else:
+        assets_str = config_manager.get_value('General', 'assets', 'EURUSD')
+        assets = [asset.strip() for asset in assets_str.split(',')]
+    
+    logger.info(f"Trading assets: {', '.join(assets)}")
+    
+    # Main loop
     try:
-        import numpy as np
-        import pandas as pd
-        from dotenv import load_dotenv
-    except ImportError as e:
-        logging.error(f"Missing required dependency: {str(e)}")
-        print(f"Please install missing dependencies: {str(e)}")
-        return
-
-    # Connect to API with retries
-    max_retries = 3
-    retry_delay = 5
-    for attempt in range(max_retries):
-        try:
-            if ferramental.connect():
-                break
-            else:
-                logging.warning(f"Connection attempt {attempt + 1} failed. Retrying in {retry_delay} seconds...")
-                time.sleep(retry_delay)
-        except Exception as e:
-            logging.error(f"Connection error: {str(e)}")
-            error_tracker.log_error('CONNECTION_ERROR', str(e))
-            if attempt == max_retries - 1:
-                logging.error("Max connection attempts reached. Exiting...")
-                sys.exit(1)
-            time.sleep(retry_delay)
-
-    # Main bot loop
-    try:
-        logger.info("Starting main bot loop")
-
-        while True:
-            # Check current mode and execute appropriate logic
-            logger.debug(f"Current mode: {mode}")  # Added debug log
-            if mode == "Download":
-                logger.info("Starting data download")
-                try:
-                    for asset in assets:
-                        logger.info(f"Downloading historical data for {asset}")
-                        data = ferramental.download_historical_data(
-                            asset=asset,
-                            timeframe_type=general_params['timeframe_type'],
-                            timeframe_value=general_params['timeframe_value'],
-                            candle_count=general_params['candle_count']
-                        )
-                        if data is not None:
-                            inteligencia.store_training_data(data)
-                            logger.info(f"Successfully downloaded data for {asset}")
+        while not stop_event.is_set():
+            try:
+                if mode.upper() == "DOWNLOAD":
+                    logger.info("Starting historical data download")
+                    try:
+                        # Get date range for download
+                        start_date_str = config_manager.get_value('Download', 'start_date', '2023-01-01')
+                        end_date_str = config_manager.get_value('Download', 'end_date', datetime.now().strftime('%Y-%m-%d'))
+                        
+                        start_date = datetime.strptime(start_date_str, '%Y-%m-%d')
+                        end_date = datetime.strptime(end_date_str, '%Y-%m-%d')
+                        
+                        # Get timeframe
+                        timeframe_type = config_manager.get_value('General', 'timeframe_type', 'Minutes')
+                        timeframe_value = config_manager.get_value('General', 'timeframe_value', 1, int)
+                        
+                        # Download data for each asset
+                        for asset in assets:
+                            logger.info(f"Downloading historical data for {asset}")
+                            success = ferramental.download_historical_data(
+                                asset=asset,
+                                start_date=start_date,
+                                end_date=end_date,
+                                timeframe_type=timeframe_type,
+                                timeframe_value=timeframe_value
+                            )
+                            
+                            if success:
+                                logger.success(f"Successfully downloaded historical data for {asset}")
+                            else:
+                                logger.error(f"Failed to download historical data for {asset}")
+                        
+                        # After download, switch to LEARNING mode
+                        logger.info("Download completed. Switching to LEARNING mode")
+                        mode = "LEARNING"
+                    except Exception as e:
+                        logger.error(f"Error during data download: {str(e)}")
+                        error_tracker.log_error('DOWNLOAD_ERROR', str(e))
+                        break
+                
+                elif mode.upper() == "LEARNING":
+                    logger.info("Starting learning mode")
+                    try:
+                        # Process historical data
+                        for asset in assets:
+                            logger.info(f"Processing historical data for {asset}")
+                            data_processed = inteligencia.process_historical_data(asset)
+                            
+                            if not data_processed:
+                                logger.error(f"Failed to process historical data for {asset}")
+                                continue
+                        
+                        # Train model
+                        logger.info("Training model on historical data")
+                        training_success = inteligencia.train_model(assets)
+                        
+                        if training_success:
+                            logger.success("Model training completed successfully")
+                            
+                            # Evaluate model
+                            evaluation_metrics = inteligencia.evaluate_model(assets)
+                            logger.info(f"Model evaluation metrics: {evaluation_metrics}")
+                            
+                            # Save model
+                            model_saved = inteligencia.save_model()
+                            if model_saved:
+                                logger.success("Model saved successfully")
+                            else:
+                                logger.error("Failed to save model")
+                            
+                            # After learning, switch to TEST mode
+                            logger.info("Learning completed. Switching to TEST mode")
+                            mode = "TEST"
                         else:
-                            logger.error(f"Failed to download data for {asset}")
-                            error_tracker.log_error('DATA_DOWNLOAD_ERROR', f"Failed to download data for {asset}")
-
-                except Exception as e:
-                    logger.error(f"Error during data download: {str(e)}")
-                    error_tracker.log_error('DATA_DOWNLOAD_ERROR', str(e))
-                    break
-
-            elif mode == "Learning":
-                logger.info("Starting learning process")
-                try:
-                    inteligencia.train_model()
-                    logger.info("Model training completed successfully")
-                except Exception as e:
-                    logger.error(f"Error during model training: {str(e)}")
-                    error_tracker.log_error('TRAINING_ERROR', str(e))
-                    break
-
-            elif mode == "Test":
-                logger.info("Starting test trading")
-                try:
-                    # Get predictions from AI
-                    predictions = inteligencia.get_predictions(assets)
-
-                    # Execute test trades
-                    for asset, prediction in predictions.items():
-                        if prediction['confidence'] > 0.7:  # Only trade with high confidence
-                            result = ferramental.execute_test_trade(
+                            logger.error("Model training failed")
+                            # If learning fails, try again later
+                            time.sleep(60)
+                    except Exception as e:
+                        logger.error(f"Error during learning: {str(e)}")
+                        error_tracker.log_error('LEARNING_ERROR', str(e))
+                        break
+                
+                elif mode.upper() == "TEST":
+                    logger.info("Starting test trading")
+                    try:
+                        # Load model if not already loaded
+                        if not inteligencia.is_model_loaded():
+                            model_loaded = inteligencia.load_model()
+                            if not model_loaded:
+                                logger.error("Failed to load model. Switching to LEARNING mode")
+                                mode = "LEARNING"
+                                continue
+                        
+                        # Get current market data
+                        market_data = {}
+                        for asset in assets:
+                            data = ferramental.get_current_candles(
                                 asset=asset,
-                                direction=prediction['direction'],
-                                amount=general_params['risk_per_trade']
+                                count=config_manager.get_value('General', 'candle_count', 100, int)
                             )
-                            performance_metrics.add_trade(
-                                asset=asset,
-                                direction=prediction['direction'],
-                                amount=general_params['risk_per_trade'],
-                                result=result
-                            )
-                            logger.info(f"Test trade executed for {asset}")
-
-                except Exception as e:
-                    logger.error(f"Error during test trading: {str(e)}")
-                    error_tracker.log_error('TEST_TRADING_ERROR', str(e))
-                    break
-
-            elif mode == "Real":
-                logger.info("Starting real trading")
-                try:
-                    # Get predictions from AI
-                    predictions = inteligencia.get_predictions(assets)
-
-                    # Execute real trades
-                    for asset, prediction in predictions.items():
-                        if prediction['confidence'] > 0.8:  # Higher threshold for real trades
-                            result = ferramental.execute_real_trade(
-                                asset=asset,
-                                direction=prediction['direction'],
-                                amount=general_params['risk_per_trade']
-                            )
-                            performance_metrics.add_trade(
-                                asset=asset,
-                                direction=prediction['direction'],
-                                amount=general_params['risk_per_trade'],
-                                result=result
-                            )
-                            logger.info(f"Real trade executed for {asset}")
-
-                except Exception as e:
-                    logger.error(f"Error during real trading: {str(e)}")
-                    error_tracker.log_error('REAL_TRADING_ERROR', str(e))
-                    break
-
-            else:
-                logger.error(f"Invalid mode: {mode}")
-                break
-
-            # Display performance metrics
-            metrics = performance_metrics.calculate_metrics()
-            logger.info(f"Performance metrics: {metrics}")
-
-            # Check for auto-switch conditions
-            if mode == "Test" and inteligencia.should_switch_to_real():
-                logger.info("Switching to real trading mode based on performance")
-                mode = "Real"
-                inteligencia.set_auto_switch(False)  # Disable auto-switch after first switch
-                continue
-
-            # Sleep between iterations
-            timeframe = calculate_timeframe(
-                general_params['timeframe_type'],
-                general_params['timeframe_value']
-            )
-            logger.debug(f"Sleeping for {timeframe} seconds")  # Added debug log
-            time.sleep(timeframe)
-
+                            if data is not None:
+                                market_data[asset] = data
+                        
+                        if not market_data:
+                            logger.error("Failed to get market data for any asset")
+                            time.sleep(60)
+                            continue
+                        
+                        # Get predictions from AI
+                        predictions = inteligencia.get_predictions(assets, market_data)
+                        
+                        # Execute test trades
+                        for asset, prediction in predictions.items():
+                            if prediction['confidence'] > config_manager.get_value('Trading', 'test_confidence_threshold', 0.6, float):
+                                logger.info(f"Executing test trade for {asset} with direction {prediction['direction']} and confidence {prediction['confidence']:.2f}")
+                                
+                                # Simulate trade
+                                result = ferramental.simulate_trade(
+                                    asset=asset,
+                                    direction=prediction['direction'],
+                                    amount=config_manager.get_value('Trading', 'amount', 1.0, float)
+                                )
+                                
+                                # Record trade result
+                                inteligencia.record_trade(
+                                    asset=asset,
+                                    direction=prediction['direction'],
+                                    amount=config_manager.get_value('Trading', 'amount', 1.0, float),
+                                    result=result
+                                )
+                                
+                                performance_metrics.add_trade(
+                                    asset=asset,
+                                    direction=prediction['direction'],
+                                    amount=config_manager.get_value('Trading', 'amount', 1.0, float),
+                                    result=result
+                                )
+                                
+                                logger.info(f"Test trade result: {result}")
+                        
+                        # Check if we should switch to REAL mode
+                        auto_switch_enabled = config_manager.is_auto_switch_enabled()
+                        if auto_switch_enabled and inteligencia.should_switch_to_real():
+                            logger.info("Performance criteria met for real trading. Switching to REAL mode")
+                            mode = "REAL"
+                        
+                        # Wait before next cycle
+                        time.sleep(config_manager.get_value('Trading', 'cycle_interval_seconds', 60, int))
+                    
+                    except Exception as e:
+                        logger.error(f"Error during test trading: {str(e)}")
+                        error_tracker.log_error('TEST_TRADING_ERROR', str(e))
+                        break
+                
+                elif mode.upper() == "REAL":
+                    logger.info("Starting real trading")
+                    try:
+                        # Verifica se é seguro operar no modo real
+                        if not inteligencia.should_switch_to_real():
+                            logger.warning("Condições para operação real não atingidas. Voltando para modo de TESTE.")
+                            mode = "TEST"
+                            continue
+                        
+                        # Verifica se o horário atual é adequado para operar
+                        current_hour = datetime.now().hour
+                        trading_hours_start = config_manager.get_value('Trading', 'trading_hours_start', 9, int)
+                        trading_hours_end = config_manager.get_value('Trading', 'trading_hours_end', 17, int)
+                        
+                        if not (trading_hours_start <= current_hour <= trading_hours_end):
+                            logger.warning(f"Fora do horário de operação ({trading_hours_start}h-{trading_hours_end}h). Aguardando próximo ciclo.")
+                            time.sleep(60)  # Aguarda 1 minuto antes de verificar novamente
+                            continue
+                        
+                        # Obtém o saldo atual para ajustar o valor das operações se necessário
+                        balance = ferramental.get_balance_v2()
+                        if balance is None:
+                            logger.error("Não foi possível obter o saldo. Voltando para modo de TESTE.")
+                            mode = "TEST"
+                            continue
+                        
+                        # Verifica limites de risco
+                        if not ferramental.check_risk_limits(balance):
+                            logger.warning("Limites de risco excedidos. Voltando para modo de TESTE.")
+                            mode = "TEST"
+                            continue
+                        
+                        # Verifica a volatilidade atual do mercado
+                        market_volatility = ferramental.check_market_volatility(assets)
+                        max_volatility = config_manager.get_value('Trading', 'max_volatility_for_real', 0.4, float)
+                        
+                        if market_volatility > max_volatility:
+                            logger.warning(f"Volatilidade do mercado muito alta: {market_volatility:.2%} > {max_volatility:.2%}. Voltando para modo de TESTE.")
+                            mode = "TEST"
+                            continue
+                        
+                        # Obtém estatísticas de operações recentes
+                        trade_stats = inteligencia.get_trade_statistics(days=7)
+                        consecutive_losses = trade_stats['max_consecutive_losses']
+                        win_rate = trade_stats['win_rate']
+                        
+                        # Ajusta o valor da operação com base no saldo atual
+                        risk_params = config_manager.get_risk_params()
+                        risk_percentage = risk_params.get('risk_percentage', 0.02)  # 2% do saldo por padrão
+                        base_risk_per_trade = balance * risk_percentage
+                        
+                        # Limita o valor máximo por operação
+                        max_amount_per_trade = risk_params.get('max_amount_per_trade', 100)
+                        base_risk_per_trade = min(base_risk_per_trade, max_amount_per_trade)
+                        
+                        logger.info(f"Saldo atual: {balance:.2f}, Valor base por operação: {base_risk_per_trade:.2f}")
+                        
+                        # Get predictions from AI
+                        predictions = inteligencia.get_predictions(assets)
+                        
+                        # Execute real trades
+                        trades_executed = 0
+                        max_trades_per_cycle = config_manager.get_value('Trading', 'max_trades_per_cycle', 3, int)
+                        confidence_threshold = config_manager.get_value('Trading', 'real_confidence_threshold', 0.8, float)
+                        
+                        logger.info(f"Configurações de operação: Max trades={max_trades_per_cycle}, Limiar de confiança={confidence_threshold:.2f}")
+                        
+                        # Ordena as previsões por confiança (da maior para a menor)
+                        sorted_predictions = sorted(
+                            [(asset, pred) for asset, pred in predictions.items()],
+                            key=lambda x: x[1]['confidence'],
+                            reverse=True
+                        )
+                        
+                        for asset, prediction in sorted_predictions:
+                            # Verifica se já atingimos o número máximo de operações por ciclo
+                            if trades_executed >= max_trades_per_cycle:
+                                logger.info(f"Máximo de operações por ciclo atingido ({max_trades_per_cycle})")
+                                break
+                                
+                            if prediction['confidence'] > confidence_threshold:
+                                # Verifica se já temos operações recentes neste ativo
+                                recent_trades = inteligencia.get_recent_trades_for_asset(asset, hours=2)
+                                if len(recent_trades) > 0:
+                                    logger.info(f"Já existem operações recentes para {asset}. Pulando.")
+                                    continue
+                                
+                                # Ajusta o valor da operação com base nos fatores de risco
+                                adjusted_amount = ferramental.adjust_trade_amount_based_on_risk(
+                                    base_amount=base_risk_per_trade,
+                                    asset=asset,
+                                    win_rate=win_rate,
+                                    consecutive_losses=consecutive_losses,
+                                    market_volatility=market_volatility
+                                )
+                                
+                                # Verifica o payout atual antes de executar a operação
+                                payout = ferramental.get_payout(asset)
+                                if payout < config_manager.get_value('Trading', 'min_payout_for_real', 0.7, float):
+                                    logger.warning(f"Payout muito baixo para {asset}: {payout:.2%}. Pulando.")
+                                    continue
+                                
+                                # Executa a operação com valor ajustado
+                                result = ferramental.execute_real_trade(
+                                    asset=asset,
+                                    direction=prediction['direction'],
+                                    amount=adjusted_amount
+                                )
+                                
+                                # Verifica se a ordem foi realmente executada
+                                if result.get('status') == 'success' and 'order_id' in result:
+                                    order_verified = ferramental.verify_order_execution(result['order_id'])
+                                    if not order_verified:
+                                        logger.warning(f"Não foi possível verificar a execução da ordem {result['order_id']}. Considere como não executada.")
+                                        continue
+                                
+                                # Registra a operação no histórico para análise posterior
+                                inteligencia.record_trade(
+                                    asset=asset,
+                                    direction=prediction['direction'],
+                                    amount=adjusted_amount,
+                                    result=result
+                                )
+                                
+                                performance_metrics.add_trade(
+                                    asset=asset,
+                                    direction=prediction['direction'],
+                                    amount=adjusted_amount,
+                                    result=result
+                                )
+                                trades_executed += 1
+                                logger.success(f"Operação real executada para {asset} com confiança {prediction['confidence']:.2f}")
+                                
+                                # Aguarda um intervalo entre operações para evitar sobrecarga
+                                time.sleep(config_manager.get_value('Trading', 'trade_interval_seconds', 30, int))
+                            else:
+                                logger.info(f"Confiança insuficiente para {asset}: {prediction['confidence']:.2f} < {confidence_threshold:.2f}")
+                        
+                        if trades_executed == 0:
+                            logger.warning("Nenhuma operação executada neste ciclo. Considere ajustar o limiar de confiança.")
+                        
+                        # Verifica se devemos continuar no modo REAL
+                        metrics = performance_metrics.calculate_metrics()
+                        if metrics['win_rate'] < config_manager.get_value('Trading', 'min_win_rate_real', 0.55, float) or metrics['profit_factor'] < config_manager.get_value('Trading', 'min_profit_factor_real', 1.2, float):
+                            logger.warning(f"Métricas abaixo do esperado (Win Rate: {metrics['win_rate']:.2f}, Profit Factor: {metrics['profit_factor']:.2f}). Voltando para modo de TESTE.")
+                            mode = "TEST"
+                    
+                    except Exception as e:
+                        logger.error(f"Error during real trading: {str(e)}")
+                        error_tracker.log_error('REAL_TRADING_ERROR', str(e))
+                        # Em caso de erro no modo REAL, voltamos para o modo de TESTE por segurança
+                        logger.warning("Voltando para modo de TESTE devido a erro no modo REAL")
+                        mode = "TEST"
+                else:
+                    logger.error(f"Invalid mode: {mode}")
+                    # Definir um modo válido para evitar loop infinito
+                    mode = "TEST"
+                    logger.warning("Redefinindo para modo TEST devido a modo inválido")
+                    # Continuamos com o próximo ciclo do loop
+                    continue
+                
+                # Display performance metrics
+                metrics = performance_metrics.calculate_metrics()
+                logger.info(f"Performance metrics: {metrics}")
+                
+                # Check for errors and report
+                error_count = error_tracker.get_error_count()
+                if error_count > 0:
+                    logger.warning(f"Detected {error_count} errors in this session")
+                    if error_count > 10:
+                        logger.error("Too many errors. Consider restarting the bot")
+                
+            except Exception as e:
+                logger.error(f"Unexpected error in main loop: {str(e)}")
+                error_tracker.log_error('MAIN_LOOP_ERROR', str(e))
+                # Aguarda um tempo antes de tentar novamente
+                time.sleep(60)
+        
+        logger.info("Bot stopped gracefully")
+    
     except KeyboardInterrupt:
         logger.info("Bot stopped by user")
     except Exception as e:
-        logger.error(f"Unexpected error in main loop: {str(e)}")
-        error_tracker.log_error('MAIN_LOOP_ERROR', str(e))
+        logger.critical(f"Critical error: {str(e)}")
+        error_tracker.log_error('CRITICAL_ERROR', str(e))
     finally:
-        logger.info("Shutting down bot")
-        # Save final model state
+        # Cleanup
+        logger.info("Performing cleanup")
         try:
-            inteligencia.save_model()
-            logger.info("Model state saved successfully")
+            # Save performance metrics
+            metrics_file = config_manager.get_value('Logging', 'metrics_file', 'performance_metrics.json')
+            with open(metrics_file, 'w') as f:
+                json.dump(performance_metrics.calculate_metrics(), f, indent=4)
+            logger.info(f"Performance metrics saved to {metrics_file}")
+            
+            # Save error log
+            error_log_file = config_manager.get_value('Logging', 'error_log_file', 'error_log.json')
+            error_tracker.save_to_file(error_log_file)
+            logger.info(f"Error log saved to {error_log_file}")
+            
+            # Disconnect from API
+            if ferramental:
+                ferramental.disconnect()
+                logger.info("Disconnected from API")
         except Exception as e:
-            logger.error(f"Error saving model: {str(e)}")
-            error_tracker.log_error('MODEL_SAVE_ERROR', str(e))
-
-        # Generate final performance report
-        try:
-            metrics = performance_metrics.calculate_metrics()
-            logger.info("Final performance metrics:")
-            logger.info(json.dumps(metrics, indent=2))
-            logger.info("\nEquity curve:")
-            logger.info(plot_equity_curve(performance_metrics))
-        except Exception as e:
-            logger.error(f"Error generating final report: {str(e)}")
-            error_tracker.log_error('FINAL_REPORT_ERROR', str(e))
-        logger.debug("Exiting main function")  # Added debug log
+            logger.error(f"Error during cleanup: {str(e)}")
 
 if __name__ == "__main__":
     main()
