@@ -1,0 +1,1215 @@
+2025-03-26 10:18:48,751 - main - INFO - Bot IQ Option iniciado
+2025-03-26 10:18:48,752 - main - ERROR - Missing dependency: No module named 'talib'
+2025-03-26 10:18:48,752 - main - ERROR - Dependências ausentes. Instalando...
+2025-03-26 10:18:48,756 - main - INFO - Username from config: None
+2025-03-26 10:18:48,757 - main - ERROR - Critical error: object of type 'NoneType' has no len()
+2025-03-26 10:18:48,757 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 139, in main
+    logger.info(f"Password from config: {'*' * len(iqoption_password)}")
+                                               ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object of type 'NoneType' has no len()
+
+2025-03-26 10:18:48,758 - main - INFO - Performing cleanup
+2025-03-26 10:18:48,759 - main - INFO - Performance metrics saved to performance_metrics.json
+2025-03-26 10:18:48,760 - main - INFO - Error log saved to error_log.json
+2025-03-26 10:22:23,314 - main - INFO - Bot IQ Option iniciado
+2025-03-26 10:22:23,314 - main - WARNING - talib não está instalado. Usando alternativas para indicadores técnicos.
+2025-03-26 10:22:23,319 - main - INFO - Todas as dependências estão instaladas
+2025-03-26 10:22:23,320 - main - INFO - Username from config: alantaru@gmail.com
+2025-03-26 10:22:23,320 - main - INFO - Password from config: ***************
+2025-03-26 10:22:23,323 - main - ERROR - Critical error: 'Inteligencia' object has no attribute 'update_auto_switch_criteria'
+2025-03-26 10:22:23,324 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 177, in main
+    inteligencia.update_auto_switch_criteria(
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Inteligencia' object has no attribute 'update_auto_switch_criteria'
+
+2025-03-26 10:22:23,326 - main - INFO - Performing cleanup
+2025-03-26 10:22:23,327 - main - INFO - Performance metrics saved to performance_metrics.json
+2025-03-26 10:22:23,327 - main - INFO - Error log saved to error_log.json
+2025-03-26 10:23:31,977 - main - INFO - Bot IQ Option iniciado
+2025-03-26 10:23:31,979 - main - WARNING - talib não está instalado. Usando alternativas para indicadores técnicos.
+2025-03-26 10:23:31,979 - main - INFO - Todas as dependências estão instaladas
+2025-03-26 10:23:31,982 - main - INFO - Username from config: alantaru@gmail.com
+2025-03-26 10:23:31,982 - main - INFO - Password from config: ***************
+2025-03-26 10:23:31,986 - main - INFO - Verificando conexão com a API do IQ Option...
+2025-03-26 10:23:31,987 - main - WARNING - Falha na conexão inicial. Tentando reconectar...
+2025-03-26 10:23:31,987 - main - ERROR - Critical error: Ferramental.connect() got an unexpected keyword argument 'username'
+2025-03-26 10:23:31,988 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 194, in main
+    connection_success = ferramental.connect(
+                         ^^^^^^^^^^^^^^^^^^^^
+TypeError: Ferramental.connect() got an unexpected keyword argument 'username'
+
+2025-03-26 10:23:31,988 - main - INFO - Performing cleanup
+2025-03-26 10:23:31,990 - main - INFO - Performance metrics saved to performance_metrics.json
+2025-03-26 10:23:31,992 - main - INFO - Error log saved to error_log.json
+2025-03-26 10:24:27,551 - main - INFO - Bot IQ Option iniciado
+2025-03-26 10:24:27,552 - main - WARNING - talib não está instalado. Usando alternativas para indicadores técnicos.
+2025-03-26 10:24:27,552 - main - INFO - Todas as dependências estão instaladas
+2025-03-26 10:24:27,555 - main - INFO - Username from config: alantaru@gmail.com
+2025-03-26 10:24:27,556 - main - INFO - Password from config: ***************
+2025-03-26 10:24:27,559 - main - INFO - Verificando conexão com a API do IQ Option...
+2025-03-26 10:24:27,560 - main - WARNING - Falha na conexão inicial. Tentando reconectar...
+2025-03-26 10:26:00,029 - main - INFO - Starting in test mode
+2025-03-26 10:26:00,029 - main - INFO - Trading assets: eurusd
+2025-03-26 10:26:00,029 - main - INFO - Starting test mode
+2025-03-26 10:26:00,029 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:26:00,034 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 10:27:00,037 - main - INFO - Starting test mode
+2025-03-26 10:27:00,037 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:27:00,041 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 10:28:00,043 - main - INFO - Starting test mode
+2025-03-26 10:28:00,044 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:28:00,048 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 10:29:00,052 - main - INFO - Starting test mode
+2025-03-26 10:29:00,052 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:29:00,056 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 10:30:00,059 - main - INFO - Starting test mode
+2025-03-26 10:30:00,059 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:30:00,063 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 10:31:00,068 - main - INFO - Starting test mode
+2025-03-26 10:31:00,070 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:31:00,077 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 10:32:00,083 - main - INFO - Starting test mode
+2025-03-26 10:32:00,084 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:32:00,093 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 10:33:00,098 - main - INFO - Starting test mode
+2025-03-26 10:33:00,100 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:33:00,107 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 10:34:00,113 - main - INFO - Starting test mode
+2025-03-26 10:34:00,114 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:34:00,123 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 10:35:00,128 - main - INFO - Starting test mode
+2025-03-26 10:35:00,128 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:35:00,136 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 10:36:00,141 - main - INFO - Starting test mode
+2025-03-26 10:36:00,143 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:36:00,151 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 10:37:00,154 - main - INFO - Starting test mode
+2025-03-26 10:37:00,154 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:37:00,156 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 10:38:00,161 - main - INFO - Starting test mode
+2025-03-26 10:38:00,161 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:38:00,166 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 10:39:00,170 - main - INFO - Starting test mode
+2025-03-26 10:39:00,172 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:39:00,177 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 10:40:00,185 - main - INFO - Starting test mode
+2025-03-26 10:40:00,185 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:40:00,192 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 10:41:00,197 - main - INFO - Starting test mode
+2025-03-26 10:41:00,197 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:41:00,207 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 10:42:00,209 - main - INFO - Starting test mode
+2025-03-26 10:42:00,209 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:42:00,215 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 10:43:00,217 - main - INFO - Starting test mode
+2025-03-26 10:43:00,219 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:43:00,225 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 10:44:00,229 - main - INFO - Starting test mode
+2025-03-26 10:44:00,230 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:44:00,239 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 10:45:00,241 - main - INFO - Starting test mode
+2025-03-26 10:45:00,243 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:45:00,248 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 10:46:00,255 - main - INFO - Starting test mode
+2025-03-26 10:46:00,255 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:46:00,264 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 10:47:00,268 - main - INFO - Starting test mode
+2025-03-26 10:47:00,270 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:47:00,277 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 10:48:00,280 - main - INFO - Starting test mode
+2025-03-26 10:48:00,280 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:48:00,284 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 10:49:00,289 - main - INFO - Starting test mode
+2025-03-26 10:49:00,289 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:49:00,294 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 10:50:00,296 - main - INFO - Starting test mode
+2025-03-26 10:50:00,298 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:50:00,304 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 10:51:00,307 - main - INFO - Starting test mode
+2025-03-26 10:51:00,308 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:51:00,315 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 10:52:00,317 - main - INFO - Starting test mode
+2025-03-26 10:52:00,317 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:52:00,321 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 10:53:00,323 - main - INFO - Starting test mode
+2025-03-26 10:53:00,323 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:53:00,325 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 10:54:00,329 - main - INFO - Starting test mode
+2025-03-26 10:54:00,330 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:54:00,335 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 10:55:00,342 - main - INFO - Starting test mode
+2025-03-26 10:55:00,342 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:55:00,346 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 10:56:00,348 - main - INFO - Starting test mode
+2025-03-26 10:56:00,349 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:56:00,358 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 10:57:00,361 - main - INFO - Starting test mode
+2025-03-26 10:57:00,361 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:57:00,368 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 10:58:00,375 - main - INFO - Starting test mode
+2025-03-26 10:58:00,376 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:58:00,385 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 10:59:00,388 - main - INFO - Starting test mode
+2025-03-26 10:59:00,390 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 10:59:00,398 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:00:00,400 - main - INFO - Starting test mode
+2025-03-26 11:00:00,400 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:00:00,402 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:01:00,406 - main - INFO - Starting test mode
+2025-03-26 11:01:00,408 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:01:00,415 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:02:00,419 - main - INFO - Starting test mode
+2025-03-26 11:02:00,419 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:02:00,430 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:03:00,431 - main - INFO - Starting test mode
+2025-03-26 11:03:00,432 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:03:00,438 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:04:00,445 - main - INFO - Starting test mode
+2025-03-26 11:04:00,447 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:04:00,453 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:05:00,460 - main - INFO - Starting test mode
+2025-03-26 11:05:00,461 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:05:00,469 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:06:00,474 - main - INFO - Starting test mode
+2025-03-26 11:06:00,475 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:06:00,483 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:07:00,490 - main - INFO - Starting test mode
+2025-03-26 11:07:00,491 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:07:00,496 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:08:00,501 - main - INFO - Starting test mode
+2025-03-26 11:08:00,501 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:08:00,501 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:09:00,510 - main - INFO - Starting test mode
+2025-03-26 11:09:00,512 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:09:00,521 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:10:00,526 - main - INFO - Starting test mode
+2025-03-26 11:10:00,527 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:10:00,534 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:11:00,539 - main - INFO - Starting test mode
+2025-03-26 11:11:00,540 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:11:00,545 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:11:20,423 - main - INFO - Recebido sinal de interrupção. Encerrando...
+2025-03-26 11:12:00,548 - main - INFO - Bot stopped gracefully
+2025-03-26 11:12:00,549 - main - INFO - Performing cleanup
+2025-03-26 11:12:00,560 - main - INFO - Performance metrics saved to performance_metrics.json
+2025-03-26 11:12:00,562 - main - INFO - Error log saved to error_log.json
+2025-03-26 11:12:18,249 - main - INFO - Bot IQ Option iniciado
+2025-03-26 11:12:18,250 - main - WARNING - talib não está instalado. Usando alternativas para indicadores técnicos.
+2025-03-26 11:12:18,251 - main - INFO - Todas as dependências estão instaladas
+2025-03-26 11:12:18,253 - main - INFO - Username from config: alantaru@gmail.com
+2025-03-26 11:12:18,253 - main - INFO - Password from config: ***************
+2025-03-26 11:12:18,257 - main - INFO - Verificando conexão com a API do IQ Option...
+2025-03-26 11:12:18,258 - main - WARNING - Falha na conexão inicial. Tentando reconectar...
+2025-03-26 11:13:51,064 - main - INFO - Starting in test mode
+2025-03-26 11:13:51,067 - main - INFO - Trading assets: eurusd
+2025-03-26 11:13:51,067 - main - INFO - Starting test mode
+2025-03-26 11:13:51,067 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:13:51,077 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:14:51,081 - main - INFO - Starting test mode
+2025-03-26 11:14:51,082 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:14:51,088 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:15:51,093 - main - INFO - Starting test mode
+2025-03-26 11:15:51,094 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:15:51,103 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:16:51,106 - main - INFO - Starting test mode
+2025-03-26 11:16:51,107 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:16:51,114 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:17:51,119 - main - INFO - Starting test mode
+2025-03-26 11:17:51,122 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:17:51,122 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:18:51,132 - main - INFO - Starting test mode
+2025-03-26 11:18:51,133 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:18:51,138 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:19:51,143 - main - INFO - Starting test mode
+2025-03-26 11:19:51,143 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:19:51,149 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:20:51,152 - main - INFO - Starting test mode
+2025-03-26 11:20:51,153 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:20:51,160 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:21:51,165 - main - INFO - Starting test mode
+2025-03-26 11:21:51,165 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:21:51,171 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:22:51,178 - main - INFO - Starting test mode
+2025-03-26 11:22:51,179 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:22:51,189 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:23:51,193 - main - INFO - Starting test mode
+2025-03-26 11:23:51,193 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:23:51,202 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:24:51,205 - main - INFO - Starting test mode
+2025-03-26 11:24:51,205 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:24:51,216 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:25:51,218 - main - INFO - Starting test mode
+2025-03-26 11:25:51,219 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:25:51,226 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:26:51,231 - main - INFO - Starting test mode
+2025-03-26 11:26:51,231 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:26:51,232 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:27:51,239 - main - INFO - Starting test mode
+2025-03-26 11:27:51,239 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:27:51,249 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:28:51,251 - main - INFO - Starting test mode
+2025-03-26 11:28:51,253 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:28:51,260 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:29:51,264 - main - INFO - Starting test mode
+2025-03-26 11:29:51,266 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:29:51,275 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:30:51,278 - main - INFO - Starting test mode
+2025-03-26 11:30:51,279 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:30:51,288 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:31:51,290 - main - INFO - Starting test mode
+2025-03-26 11:31:51,290 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:31:51,300 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:32:51,303 - main - INFO - Starting test mode
+2025-03-26 11:32:51,304 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:32:51,311 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:33:51,315 - main - INFO - Starting test mode
+2025-03-26 11:33:51,315 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:33:51,319 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:34:51,321 - main - INFO - Starting test mode
+2025-03-26 11:34:51,321 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:34:51,326 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:35:51,328 - main - INFO - Starting test mode
+2025-03-26 11:35:51,331 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:35:51,340 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:36:51,343 - main - INFO - Starting test mode
+2025-03-26 11:36:51,343 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:36:51,353 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:37:51,355 - main - INFO - Starting test mode
+2025-03-26 11:37:51,356 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:37:51,365 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:38:51,369 - main - INFO - Starting test mode
+2025-03-26 11:38:51,370 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:38:51,374 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:39:51,384 - main - INFO - Starting test mode
+2025-03-26 11:39:51,386 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:39:51,395 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:40:51,401 - main - INFO - Starting test mode
+2025-03-26 11:40:51,401 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:40:51,401 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:41:51,413 - main - INFO - Starting test mode
+2025-03-26 11:41:51,414 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:41:51,423 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:42:51,429 - main - INFO - Starting test mode
+2025-03-26 11:42:51,431 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:42:51,438 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:43:51,444 - main - INFO - Starting test mode
+2025-03-26 11:43:51,445 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:43:51,454 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:44:51,459 - main - INFO - Starting test mode
+2025-03-26 11:44:51,460 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:44:51,467 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:45:51,472 - main - INFO - Starting test mode
+2025-03-26 11:45:51,472 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:45:51,476 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:46:51,480 - main - INFO - Starting test mode
+2025-03-26 11:46:51,482 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:46:51,492 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:47:51,496 - main - INFO - Starting test mode
+2025-03-26 11:47:51,498 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:47:51,507 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:48:51,511 - main - INFO - Starting test mode
+2025-03-26 11:48:51,514 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:48:51,522 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:49:51,526 - main - INFO - Starting test mode
+2025-03-26 11:49:51,528 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:49:51,537 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:50:51,541 - main - INFO - Starting test mode
+2025-03-26 11:50:51,543 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:50:51,552 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:51:51,556 - main - INFO - Starting test mode
+2025-03-26 11:51:51,557 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:51:51,565 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:52:51,569 - main - INFO - Starting test mode
+2025-03-26 11:52:51,570 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:52:51,578 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:53:51,581 - main - INFO - Starting test mode
+2025-03-26 11:53:51,583 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:53:51,591 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:54:51,595 - main - INFO - Starting test mode
+2025-03-26 11:54:51,596 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:54:51,604 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:55:51,607 - main - INFO - Starting test mode
+2025-03-26 11:55:51,609 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:55:51,618 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:56:51,621 - main - INFO - Starting test mode
+2025-03-26 11:56:51,623 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:56:51,631 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:57:51,634 - main - INFO - Starting test mode
+2025-03-26 11:57:51,636 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:57:51,642 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:58:51,645 - main - INFO - Starting test mode
+2025-03-26 11:58:51,647 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:58:51,655 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 11:59:51,658 - main - INFO - Starting test mode
+2025-03-26 11:59:51,659 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 11:59:51,668 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 12:00:51,671 - main - INFO - Starting test mode
+2025-03-26 12:00:51,671 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 12:00:51,742 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 12:01:51,744 - main - INFO - Starting test mode
+2025-03-26 12:01:51,745 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 12:01:51,753 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 12:02:51,756 - main - INFO - Starting test mode
+2025-03-26 12:02:51,757 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 12:02:51,767 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 12:03:51,769 - main - INFO - Starting test mode
+2025-03-26 12:03:51,771 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 12:03:51,780 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 12:04:51,783 - main - INFO - Starting test mode
+2025-03-26 12:04:51,784 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 12:04:51,792 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 12:05:51,795 - main - INFO - Starting test mode
+2025-03-26 12:05:51,797 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 12:05:51,805 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 12:06:51,808 - main - INFO - Starting test mode
+2025-03-26 12:06:51,809 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 12:06:51,813 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 12:07:51,815 - main - INFO - Starting test mode
+2025-03-26 12:07:51,817 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 12:07:51,825 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 12:08:51,828 - main - INFO - Starting test mode
+2025-03-26 12:08:51,829 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 12:08:51,837 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 12:09:51,840 - main - INFO - Starting test mode
+2025-03-26 12:09:51,841 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 12:09:51,849 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 12:10:51,851 - main - INFO - Starting test mode
+2025-03-26 12:10:51,852 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 12:10:51,860 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 12:11:51,863 - main - INFO - Starting test mode
+2025-03-26 12:11:51,864 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 12:11:51,872 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 12:12:51,874 - main - INFO - Starting test mode
+2025-03-26 12:12:51,875 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 12:12:51,884 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 12:13:51,887 - main - INFO - Starting test mode
+2025-03-26 12:13:51,889 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 12:13:51,898 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 12:14:51,900 - main - INFO - Starting test mode
+2025-03-26 12:14:51,901 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 12:14:51,907 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 12:15:51,910 - main - INFO - Starting test mode
+2025-03-26 12:15:51,913 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 12:15:51,922 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 12:16:51,924 - main - INFO - Starting test mode
+2025-03-26 12:16:51,925 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 12:16:51,930 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 12:17:51,932 - main - INFO - Starting test mode
+2025-03-26 12:17:51,932 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 12:17:51,936 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 12:18:51,938 - main - INFO - Starting test mode
+2025-03-26 12:18:51,939 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 12:18:51,948 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 12:19:51,950 - main - INFO - Starting test mode
+2025-03-26 12:19:51,951 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 12:19:51,961 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 12:20:51,964 - main - INFO - Starting test mode
+2025-03-26 12:20:51,966 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 12:20:51,975 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 12:21:51,977 - main - INFO - Starting test mode
+2025-03-26 12:21:51,979 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 12:21:51,986 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 12:22:51,989 - main - INFO - Starting test mode
+2025-03-26 12:22:51,989 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 12:22:51,995 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 12:23:51,997 - main - INFO - Starting test mode
+2025-03-26 12:23:51,997 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 12:23:51,999 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 12:24:27,000 - main - INFO - Recebido sinal de interrupção. Encerrando...
+2025-03-26 12:24:52,003 - main - INFO - Bot stopped gracefully
+2025-03-26 12:24:52,004 - main - INFO - Performing cleanup
+2025-03-26 12:24:52,014 - main - INFO - Performance metrics saved to performance_metrics.json
+2025-03-26 12:24:52,018 - main - INFO - Error log saved to error_log.json
+2025-03-26 12:25:53,743 - main - INFO - Bot IQ Option iniciado
+2025-03-26 12:25:53,745 - main - WARNING - talib não está instalado. Usando alternativas para indicadores técnicos.
+2025-03-26 12:25:53,745 - main - INFO - Todas as dependências estão instaladas
+2025-03-26 12:25:53,751 - main - INFO - Username from config: alantaru@gmail.com
+2025-03-26 12:25:53,752 - main - INFO - Password from config: ***************
+2025-03-26 12:25:53,756 - main - INFO - Verificando conexão com a API do IQ Option...
+2025-03-26 12:25:53,756 - main - WARNING - Falha na conexão inicial. Tentando reconectar...
+2025-03-26 12:27:25,956 - main - INFO - Starting in test mode
+2025-03-26 12:27:25,956 - main - INFO - Trading assets: eurusd
+2025-03-26 12:27:25,956 - main - INFO - Starting test mode
+2025-03-26 12:27:25,956 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'simulation_mode'
+2025-03-26 12:27:25,968 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    if not ferramental.simulation_mode:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'simulation_mode'. Did you mean: 'setup_simulation_mode'?
+
+2025-03-26 12:27:47,720 - main - INFO - Recebido sinal de interrupção. Encerrando...
+2025-03-26 12:28:25,971 - main - INFO - Bot stopped gracefully
+2025-03-26 12:28:25,971 - main - INFO - Performing cleanup
+2025-03-26 12:28:25,974 - main - INFO - Performance metrics saved to performance_metrics.json
+2025-03-26 12:28:25,976 - main - INFO - Error log saved to error_log.json
+2025-03-26 12:29:42,094 - main - INFO - Bot IQ Option iniciado
+2025-03-26 12:29:42,096 - main - WARNING - talib não está instalado. Usando alternativas para indicadores técnicos.
+2025-03-26 12:29:42,096 - main - INFO - Todas as dependências estão instaladas
+2025-03-26 12:29:42,101 - main - INFO - Username from config: alantaru@gmail.com
+2025-03-26 12:29:42,101 - main - INFO - Password from config: ***************
+2025-03-26 12:29:42,109 - main - INFO - Verificando conexão com a API do IQ Option...
+2025-03-26 12:29:42,110 - main - WARNING - Falha na conexão inicial. Tentando reconectar...
+2025-03-26 12:31:14,368 - main - INFO - Starting in test mode
+2025-03-26 12:31:14,369 - main - INFO - Trading assets: eurusd
+2025-03-26 12:31:14,370 - main - INFO - Starting test mode
+2025-03-26 12:31:15,032 - main - INFO - Getting real-time data for eurusd
+2025-03-26 12:31:15,032 - main - ERROR - Error during test mode: Ferramental.get_realtime_data() takes 1 positional argument but 2 were given
+2025-03-26 12:31:15,034 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 324, in main
+    realtime_data = ferramental.get_realtime_data(asset)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Ferramental.get_realtime_data() takes 1 positional argument but 2 were given
+
+2025-03-26 12:32:15,035 - main - INFO - Starting test mode
+2025-03-26 12:32:15,295 - main - INFO - Getting real-time data for eurusd
+2025-03-26 12:32:15,295 - main - ERROR - Error during test mode: Ferramental.get_realtime_data() takes 1 positional argument but 2 were given
+2025-03-26 12:32:15,296 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 324, in main
+    realtime_data = ferramental.get_realtime_data(asset)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Ferramental.get_realtime_data() takes 1 positional argument but 2 were given
+
+2025-03-26 12:32:17,192 - main - INFO - Recebido sinal de interrupção. Encerrando...
+2025-03-26 12:33:15,298 - main - INFO - Bot stopped gracefully
+2025-03-26 12:33:15,299 - main - INFO - Performing cleanup
+2025-03-26 12:33:15,307 - main - INFO - Performance metrics saved to performance_metrics.json
+2025-03-26 12:33:15,309 - main - INFO - Error log saved to error_log.json
+2025-03-26 12:33:55,898 - main - INFO - Bot IQ Option iniciado
+2025-03-26 12:33:55,900 - main - WARNING - talib não está instalado. Usando alternativas para indicadores técnicos.
+2025-03-26 12:33:55,900 - main - INFO - Todas as dependências estão instaladas
+2025-03-26 12:33:55,903 - main - INFO - Username from config: alantaru@gmail.com
+2025-03-26 12:33:55,904 - main - INFO - Password from config: ***************
+2025-03-26 12:33:55,906 - main - INFO - Verificando conexão com a API do IQ Option...
+2025-03-26 12:33:55,907 - main - WARNING - Falha na conexão inicial. Tentando reconectar...
+2025-03-26 12:35:28,353 - main - INFO - Starting in test mode
+2025-03-26 12:35:28,354 - main - INFO - Trading assets: eurusd
+2025-03-26 12:35:28,355 - main - INFO - Starting test mode
+2025-03-26 12:35:28,986 - main - INFO - Getting real-time data for eurusd
+2025-03-26 12:35:28,986 - main - ERROR - Error during test mode: Ferramental.get_realtime_data() takes 1 positional argument but 2 were given
+2025-03-26 12:35:28,988 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 324, in main
+    realtime_data = ferramental.get_realtime_data(asset)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Ferramental.get_realtime_data() takes 1 positional argument but 2 were given
+
+2025-03-26 12:36:28,990 - main - INFO - Starting test mode
+2025-03-26 12:36:29,609 - main - INFO - Getting real-time data for eurusd
+2025-03-26 12:36:29,609 - main - ERROR - Error during test mode: Ferramental.get_realtime_data() takes 1 positional argument but 2 were given
+2025-03-26 12:36:29,609 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 324, in main
+    realtime_data = ferramental.get_realtime_data(asset)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Ferramental.get_realtime_data() takes 1 positional argument but 2 were given
+
+2025-03-26 12:37:29,619 - main - INFO - Starting test mode
+2025-03-26 12:37:30,238 - main - INFO - Getting real-time data for eurusd
+2025-03-26 12:37:30,238 - main - ERROR - Error during test mode: Ferramental.get_realtime_data() takes 1 positional argument but 2 were given
+2025-03-26 12:37:30,241 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 324, in main
+    realtime_data = ferramental.get_realtime_data(asset)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Ferramental.get_realtime_data() takes 1 positional argument but 2 were given
+
+2025-03-26 12:38:30,243 - main - INFO - Starting test mode
+2025-03-26 12:38:30,868 - main - INFO - Getting real-time data for eurusd
+2025-03-26 12:38:30,869 - main - ERROR - Error during test mode: Ferramental.get_realtime_data() takes 1 positional argument but 2 were given
+2025-03-26 12:38:30,871 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 324, in main
+    realtime_data = ferramental.get_realtime_data(asset)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Ferramental.get_realtime_data() takes 1 positional argument but 2 were given
+
+2025-03-26 12:39:30,873 - main - INFO - Starting test mode
+2025-03-26 12:39:31,505 - main - INFO - Getting real-time data for eurusd
+2025-03-26 12:39:31,506 - main - ERROR - Error during test mode: Ferramental.get_realtime_data() takes 1 positional argument but 2 were given
+2025-03-26 12:39:31,508 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 324, in main
+    realtime_data = ferramental.get_realtime_data(asset)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Ferramental.get_realtime_data() takes 1 positional argument but 2 were given
+
+2025-03-26 12:40:31,510 - main - INFO - Starting test mode
+2025-03-26 12:40:32,133 - main - INFO - Getting real-time data for eurusd
+2025-03-26 12:40:32,133 - main - ERROR - Error during test mode: Ferramental.get_realtime_data() takes 1 positional argument but 2 were given
+2025-03-26 12:40:32,135 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 324, in main
+    realtime_data = ferramental.get_realtime_data(asset)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Ferramental.get_realtime_data() takes 1 positional argument but 2 were given
+
+2025-03-26 12:41:09,394 - main - INFO - Recebido sinal de interrupção. Encerrando...
+2025-03-26 12:41:32,137 - main - INFO - Bot stopped gracefully
+2025-03-26 12:41:32,137 - main - INFO - Performing cleanup
+2025-03-26 12:41:32,140 - main - INFO - Performance metrics saved to performance_metrics.json
+2025-03-26 12:41:32,143 - main - INFO - Error log saved to error_log.json
+2025-03-26 12:43:06,447 - main - INFO - Bot IQ Option iniciado
+2025-03-26 12:43:06,448 - main - WARNING - talib não está instalado. Usando alternativas para indicadores técnicos.
+2025-03-26 12:43:06,448 - main - INFO - Todas as dependências estão instaladas
+2025-03-26 12:43:06,451 - main - INFO - Username from config: alantaru@gmail.com
+2025-03-26 12:43:06,451 - main - INFO - Password from config: ***************
+2025-03-26 12:43:06,454 - main - INFO - Verificando conexão com a API do IQ Option...
+2025-03-26 12:43:06,455 - main - WARNING - Falha na conexão inicial. Tentando reconectar...
+2025-03-26 12:44:38,955 - main - INFO - Starting in test mode
+2025-03-26 12:44:38,955 - main - INFO - Trading assets: eurusd
+2025-03-26 12:44:38,955 - main - INFO - Starting test mode
+2025-03-26 12:44:39,250 - main - INFO - Getting real-time data for eurusd
+2025-03-26 12:44:39,252 - main - ERROR - Failed to get real-time data for eurusd
+2025-03-26 12:44:39,252 - main - ERROR - Error during test mode: 'Ferramental' object has no attribute 'get_trade_results'
+2025-03-26 12:44:39,257 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 352, in main
+    trade_results = ferramental.get_trade_results()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'get_trade_results'
+
+2025-03-26 12:44:51,622 - main - INFO - Recebido sinal de interrupção. Encerrando...
+2025-03-26 12:45:39,259 - main - INFO - Bot stopped gracefully
+2025-03-26 12:45:39,260 - main - INFO - Performing cleanup
+2025-03-26 12:45:39,264 - main - INFO - Performance metrics saved to performance_metrics.json
+2025-03-26 12:45:39,267 - main - INFO - Error log saved to error_log.json
+2025-03-26 12:48:05,880 - main - INFO - Bot IQ Option iniciado
+2025-03-26 12:48:05,882 - main - WARNING - talib não está instalado. Usando alternativas para indicadores técnicos.
+2025-03-26 12:48:05,882 - main - INFO - Todas as dependências estão instaladas
+2025-03-26 12:48:05,886 - main - INFO - Username from config: alantaru@gmail.com
+2025-03-26 12:48:05,886 - main - INFO - Password from config: ***************
+2025-03-26 12:48:05,889 - main - INFO - Verificando conexão com a API do IQ Option...
+2025-03-26 12:48:05,890 - main - WARNING - Falha na conexão inicial. Tentando reconectar...
+2025-03-26 12:49:38,427 - main - INFO - Starting in test mode
+2025-03-26 12:49:38,429 - main - INFO - Trading assets: eurusd
+2025-03-26 12:49:38,430 - main - INFO - Starting test mode
+2025-03-26 12:49:38,431 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'setup_simulation_mode'
+2025-03-26 12:49:38,440 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    ferramental.setup_simulation_mode()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'setup_simulation_mode'
+
+2025-03-26 12:50:38,442 - main - INFO - Starting test mode
+2025-03-26 12:50:38,442 - main - ERROR - Error in main loop: 'Ferramental' object has no attribute 'setup_simulation_mode'
+2025-03-26 12:50:38,452 - main - ERROR - Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 314, in main
+    ferramental.setup_simulation_mode()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Ferramental' object has no attribute 'setup_simulation_mode'
+
+2025-03-26 12:51:32,764 - main - INFO - Recebido sinal de interrupção. Encerrando...
+2025-03-26 12:51:38,453 - main - INFO - Bot stopped gracefully
+2025-03-26 12:51:38,454 - main - INFO - Performing cleanup
+2025-03-26 12:51:38,455 - main - INFO - Performance metrics saved to performance_metrics.json
+2025-03-26 12:51:38,457 - main - INFO - Error log saved to error_log.json
+2025-03-26 12:53:57,145 - main - INFO - Bot IQ Option iniciado
+2025-03-26 12:53:57,146 - main - WARNING - talib não está instalado. Usando alternativas para indicadores técnicos.
+2025-03-26 12:53:57,147 - main - INFO - Todas as dependências estão instaladas
+2025-03-26 12:53:57,150 - main - INFO - Username from config: alantaru@gmail.com
+2025-03-26 12:53:57,150 - main - INFO - Password from config: ***************
+2025-03-26 12:53:57,155 - main - INFO - Verificando conexão com a API do IQ Option...
+2025-03-26 12:53:57,155 - main - WARNING - Falha na conexão inicial. Tentando reconectar...
+2025-03-26 12:55:29,445 - main - INFO - Starting in test mode
+2025-03-26 12:55:29,446 - main - INFO - Trading assets: eurusd
+2025-03-26 12:55:29,447 - main - INFO - Starting test mode
+2025-03-26 12:55:30,098 - main - INFO - Getting real-time data for eurusd
+2025-03-26 12:55:30,100 - main - ERROR - Failed to get real-time data for eurusd
+2025-03-26 12:56:30,101 - main - INFO - Starting test mode
+2025-03-26 12:56:30,765 - main - INFO - Getting real-time data for eurusd
+2025-03-26 12:56:30,767 - main - ERROR - Failed to get real-time data for eurusd
+2025-03-26 12:57:30,769 - main - INFO - Starting test mode
+2025-03-26 12:57:31,415 - main - INFO - Getting real-time data for eurusd
+2025-03-26 12:57:31,417 - main - ERROR - Failed to get real-time data for eurusd
+2025-03-26 12:58:31,419 - main - INFO - Starting test mode
+2025-03-26 12:58:32,090 - main - INFO - Getting real-time data for eurusd
+2025-03-26 12:58:32,092 - main - ERROR - Failed to get real-time data for eurusd
+2025-03-26 12:59:32,094 - main - INFO - Starting test mode
+2025-03-26 12:59:32,761 - main - INFO - Getting real-time data for eurusd
+2025-03-26 12:59:32,765 - main - ERROR - Failed to get real-time data for eurusd
+2025-03-26 13:00:10,264 - main - INFO - Recebido sinal de interrupção. Encerrando...
+2025-03-26 13:00:32,767 - main - INFO - Bot stopped gracefully
+2025-03-26 13:00:32,767 - main - INFO - Performing cleanup
+2025-03-26 13:00:32,777 - main - INFO - Performance metrics saved to performance_metrics.json
+2025-03-26 13:00:32,780 - main - INFO - Error log saved to error_log.json

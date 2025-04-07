@@ -1,0 +1,25 @@
+{
+  "timestamp": "2025-04-07T14:49:42.049152",
+  "metrics": {
+    "total_trades": 0,
+    "win_count": 0,
+    "loss_count": 0,
+    "draw_count": 0,
+    "win_rate": 0.0,
+    "profit_factor": 0.0,
+    "total_profit": 0.0,
+    "max_drawdown": 0.0,
+    "avg_trade_duration": 0.0,
+    "best_asset": null,
+    "worst_asset": null,
+    "best_timeframe": null,
+    "worst_timeframe": null,
+    "last_updated": "2025-04-07T14:48:42.014280"
+  },
+  "asset_performance": {},
+  "timeframe_performance": {},
+  "daily_performance": {},
+  "equity_curve": [],
+  "trades_count": 0,
+  "trades": []
+}

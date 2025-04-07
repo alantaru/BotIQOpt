@@ -1,0 +1,51 @@
+2025-03-26 09:51:30,480 - Inteligencia - INFO - Critérios de mudança automática atualizados: min_accuracy=0.70, min_precision=0.65, min_recall=0.65, min_f1_score=0.65, min_trades_count=20, min_win_rate=0.60, min_profit=0.00, auto_switch_to_real=False
+2025-03-26 09:58:04,456 - Inteligencia - INFO - Critérios de mudança automática atualizados: min_accuracy=0.70, min_precision=0.65, min_recall=0.65, min_f1_score=0.65, min_trades_count=20, min_win_rate=0.60, min_profit=0.00, auto_switch_to_real=False
+2025-03-26 09:59:46,302 - Inteligencia - INFO - Critérios de mudança automática atualizados: min_accuracy=0.70, min_precision=0.65, min_recall=0.65, min_f1_score=0.65, min_trades_count=20, min_win_rate=0.60, min_profit=0.00, auto_switch_to_real=False
+2025-03-26 10:03:34,409 - Inteligencia - INFO - Critérios de mudança automática atualizados: min_accuracy=0.70, min_precision=0.65, min_recall=0.65, min_f1_score=0.65, min_trades_count=20, min_win_rate=0.60, min_profit=0.00, auto_switch_to_real=False
+2025-03-26 10:05:07,785 - Inteligencia - INFO - Processando dados históricos para eurusd (timeframe: 60s)
+2025-03-26 10:05:07,786 - Inteligencia - INFO - Aplicando pré-processamento aos dados
+2025-03-26 10:05:07,836 - Inteligencia - ERROR - Erro ao adicionar indicadores técnicos: 'tuple' object has no attribute 'empty'
+2025-03-26 10:05:07,855 - Inteligencia - INFO - Distribuição de classes: {1: 1755, 0: 1627, 2: 1618}
+2025-03-26 10:05:07,857 - Inteligencia - INFO - Dados pré-processados: 4801 linhas, 57 colunas
+2025-03-26 10:05:07,857 - Inteligencia - INFO - Criando rótulos para treinamento supervisionado
+2025-03-26 10:05:07,860 - Inteligencia - INFO - Distribuição de classes: {1: 1660, 0: 1622, 2: 1519}
+2025-03-26 10:05:07,860 - Inteligencia - INFO - Normalizando dados
+2025-03-26 10:05:08,037 - Inteligencia - INFO - Dados processados salvos em C:\Users\uz02095\Documents\BotIQOpt_\inteligencia\..\data\processed\eurusd_60_processed.csv
+2025-03-26 10:05:08,038 - Inteligencia - INFO - Processamento concluído. Shape final: (4801, 57)
+2025-03-26 10:23:31,986 - Inteligencia - INFO - Critérios de mudança automática atualizados: min_accuracy=0.7, min_precision=0.65, min_recall=0.65, min_f1_score=0.65, min_trades_count=20, min_win_rate=0.6, min_profit=0.0, auto_switch_to_real=False
+2025-03-26 10:24:27,559 - Inteligencia - INFO - Critérios de mudança automática atualizados: min_accuracy=0.7, min_precision=0.65, min_recall=0.65, min_f1_score=0.65, min_trades_count=20, min_win_rate=0.6, min_profit=0.0, auto_switch_to_real=False
+2025-03-26 11:12:18,257 - Inteligencia - INFO - Critérios de mudança automática atualizados: min_accuracy=0.7, min_precision=0.65, min_recall=0.65, min_f1_score=0.65, min_trades_count=20, min_win_rate=0.6, min_profit=0.0, auto_switch_to_real=False
+2025-03-26 12:25:53,756 - Inteligencia - INFO - Critérios de mudança automática atualizados: min_accuracy=0.7, min_precision=0.65, min_recall=0.65, min_f1_score=0.65, min_trades_count=20, min_win_rate=0.6, min_profit=0.0, auto_switch_to_real=False
+2025-03-26 12:29:42,109 - Inteligencia - INFO - Critérios de mudança automática atualizados: min_accuracy=0.7, min_precision=0.65, min_recall=0.65, min_f1_score=0.65, min_trades_count=20, min_win_rate=0.6, min_profit=0.0, auto_switch_to_real=False
+2025-03-26 12:31:15,031 - Inteligencia - INFO - Configurando inteligência para modo de teste
+2025-03-26 12:31:15,032 - Inteligencia - ERROR - Erro ao configurar modo de teste: 'Inteligencia' object has no attribute 'models_dir'
+2025-03-26 12:32:15,293 - Inteligencia - INFO - Configurando inteligência para modo de teste
+2025-03-26 12:32:15,294 - Inteligencia - ERROR - Erro ao configurar modo de teste: 'Inteligencia' object has no attribute 'models_dir'
+2025-03-26 12:33:55,906 - Inteligencia - INFO - Critérios de mudança automática atualizados: min_accuracy=0.7, min_precision=0.65, min_recall=0.65, min_f1_score=0.65, min_trades_count=20, min_win_rate=0.6, min_profit=0.0, auto_switch_to_real=False
+2025-03-26 12:35:28,986 - Inteligencia - INFO - Configurando inteligência para modo de teste
+2025-03-26 12:35:28,986 - Inteligencia - ERROR - Erro ao configurar modo de teste: 'Inteligencia' object has no attribute 'models_dir'
+2025-03-26 12:36:29,609 - Inteligencia - INFO - Configurando inteligência para modo de teste
+2025-03-26 12:36:29,609 - Inteligencia - ERROR - Erro ao configurar modo de teste: 'Inteligencia' object has no attribute 'models_dir'
+2025-03-26 12:37:30,238 - Inteligencia - INFO - Configurando inteligência para modo de teste
+2025-03-26 12:37:30,238 - Inteligencia - ERROR - Erro ao configurar modo de teste: 'Inteligencia' object has no attribute 'models_dir'
+2025-03-26 12:38:30,868 - Inteligencia - INFO - Configurando inteligência para modo de teste
+2025-03-26 12:38:30,868 - Inteligencia - ERROR - Erro ao configurar modo de teste: 'Inteligencia' object has no attribute 'models_dir'
+2025-03-26 12:39:31,505 - Inteligencia - INFO - Configurando inteligência para modo de teste
+2025-03-26 12:39:31,505 - Inteligencia - ERROR - Erro ao configurar modo de teste: 'Inteligencia' object has no attribute 'models_dir'
+2025-03-26 12:40:32,133 - Inteligencia - INFO - Configurando inteligência para modo de teste
+2025-03-26 12:40:32,133 - Inteligencia - ERROR - Erro ao configurar modo de teste: 'Inteligencia' object has no attribute 'models_dir'
+2025-03-26 12:43:06,454 - Inteligencia - INFO - Critérios de mudança automática atualizados: min_accuracy=0.7, min_precision=0.65, min_recall=0.65, min_f1_score=0.65, min_trades_count=20, min_win_rate=0.6, min_profit=0.0, auto_switch_to_real=False
+2025-03-26 12:44:39,249 - Inteligencia - INFO - Configurando inteligência para modo de teste
+2025-03-26 12:44:39,249 - Inteligencia - ERROR - Erro ao configurar modo de teste: 'Inteligencia' object has no attribute 'models_dir'
+2025-03-26 12:48:05,889 - Inteligencia - INFO - Critérios de mudança automática atualizados: min_accuracy=0.7, min_precision=0.65, min_recall=0.65, min_f1_score=0.65, min_trades_count=20, min_win_rate=0.6, min_profit=0.0, auto_switch_to_real=False
+2025-03-26 12:53:57,154 - Inteligencia - INFO - Critérios de mudança automática atualizados: min_accuracy=0.7, min_precision=0.65, min_recall=0.65, min_f1_score=0.65, min_trades_count=20, min_win_rate=0.6, min_profit=0.0, auto_switch_to_real=False
+2025-03-26 12:55:30,097 - Inteligencia - INFO - Configurando inteligência para modo de teste
+2025-03-26 12:55:30,097 - Inteligencia - ERROR - Erro ao configurar modo de teste: 'Inteligencia' object has no attribute 'models_dir'
+2025-03-26 12:56:30,764 - Inteligencia - INFO - Configurando inteligência para modo de teste
+2025-03-26 12:56:30,764 - Inteligencia - ERROR - Erro ao configurar modo de teste: 'Inteligencia' object has no attribute 'models_dir'
+2025-03-26 12:57:31,415 - Inteligencia - INFO - Configurando inteligência para modo de teste
+2025-03-26 12:57:31,415 - Inteligencia - ERROR - Erro ao configurar modo de teste: 'Inteligencia' object has no attribute 'models_dir'
+2025-03-26 12:58:32,090 - Inteligencia - INFO - Configurando inteligência para modo de teste
+2025-03-26 12:58:32,090 - Inteligencia - ERROR - Erro ao configurar modo de teste: 'Inteligencia' object has no attribute 'models_dir'
+2025-03-26 12:59:32,760 - Inteligencia - INFO - Configurando inteligência para modo de teste
+2025-03-26 12:59:32,760 - Inteligencia - ERROR - Erro ao configurar modo de teste: 'Inteligencia' object has no attribute 'models_dir'

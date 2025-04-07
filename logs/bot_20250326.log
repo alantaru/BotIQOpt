@@ -1,0 +1,85 @@
+2025-03-26 09:51:30,472 - main - INFO - Bot IQ Option iniciado
+2025-03-26 09:51:30,473 - main - INFO - All dependencies are installed
+2025-03-26 09:51:30,474 - ConfigManager - INFO - Configurações carregadas com sucesso de config.ini
+2025-03-26 09:51:30,474 - ConfigManager - INFO - Credenciais da IQ Option carregadas do arquivo de configuração
+2025-03-26 09:51:30,475 - main - INFO - Username from config: alantaru@gmail.com
+2025-03-26 09:51:30,475 - main - INFO - Password from config: 400fpsmmnfa$$$$
+2025-03-26 09:51:30,480 - Inteligencia - INFO - Critérios de mudança automática atualizados: min_accuracy=0.70, min_precision=0.65, min_recall=0.65, min_f1_score=0.65, min_trades_count=20, min_win_rate=0.60, min_profit=0.00, auto_switch_to_real=False
+2025-03-26 09:51:30,480 - main - ERROR - Failed to connect to IQ Option API
+2025-03-26 09:51:30,480 - main - ERROR - Failed to connect to IQ Option API. Please check your credentials and internet connection.
+2025-03-26 09:58:04,452 - main - INFO - Bot IQ Option iniciado
+2025-03-26 09:58:04,452 - main - INFO - All dependencies are installed
+2025-03-26 09:58:04,452 - ConfigManager - INFO - Configurações carregadas com sucesso de config.ini
+2025-03-26 09:58:04,453 - ConfigManager - INFO - Credenciais da IQ Option carregadas do arquivo de configuração
+2025-03-26 09:58:04,453 - main - INFO - Username from config: alantaru@gmail.com
+2025-03-26 09:58:04,453 - main - INFO - Password from config: 400fpsmmnfa$$$$
+2025-03-26 09:58:04,456 - Inteligencia - INFO - Critérios de mudança automática atualizados: min_accuracy=0.70, min_precision=0.65, min_recall=0.65, min_f1_score=0.65, min_trades_count=20, min_win_rate=0.60, min_profit=0.00, auto_switch_to_real=False
+2025-03-26 09:58:04,457 - main - INFO - Verificando conexão com a API do IQ Option...
+2025-03-26 09:58:04,457 - main - WARNING - Falha na conexão inicial. Tentando reconectar...
+2025-03-26 09:58:04,466 - main - ERROR - Falha na reconexão: Erro inesperado durante a conexão: 'IQ_Option' object has no attribute 'set_max_reconnect'
+2025-03-26 09:58:04,466 - main - INFO - Modo de simulação ativado. Usando dados sintéticos.
+2025-03-26 09:58:04,738 - main - INFO - Starting in learning mode
+2025-03-26 09:58:04,738 - main - INFO - Trading assets: eurusd
+2025-03-26 09:58:04,738 - main - INFO - Starting learning mode
+2025-03-26 09:58:04,738 - main - INFO - Processing historical data for eurusd
+2025-03-26 09:58:04,739 - main - ERROR - Error during learning: 'Inteligencia' object has no attribute 'process_historical_data'
+2025-03-26 09:58:04,740 - main - INFO - Bot stopped gracefully
+2025-03-26 09:58:04,740 - main - INFO - Performing cleanup
+2025-03-26 09:58:04,741 - main - INFO - Performance metrics saved to performance_metrics.json
+2025-03-26 09:58:04,742 - main - ERROR - Error during cleanup: 'ErrorTracker' object has no attribute 'save_to_file'
+2025-03-26 09:59:46,298 - main - INFO - Bot IQ Option iniciado
+2025-03-26 09:59:46,298 - main - INFO - All dependencies are installed
+2025-03-26 09:59:46,299 - ConfigManager - INFO - Configurações carregadas com sucesso de config.ini
+2025-03-26 09:59:46,300 - ConfigManager - INFO - Credenciais da IQ Option carregadas do arquivo de configuração
+2025-03-26 09:59:46,300 - main - INFO - Username from config: alantaru@gmail.com
+2025-03-26 09:59:46,300 - main - INFO - Password from config: 400fpsmmnfa$$$$
+2025-03-26 09:59:46,302 - Inteligencia - INFO - Critérios de mudança automática atualizados: min_accuracy=0.70, min_precision=0.65, min_recall=0.65, min_f1_score=0.65, min_trades_count=20, min_win_rate=0.60, min_profit=0.00, auto_switch_to_real=False
+2025-03-26 09:59:46,309 - main - INFO - Verificando conexão com a API do IQ Option...
+2025-03-26 09:59:46,309 - main - WARNING - Falha na conexão inicial. Tentando reconectar...
+2025-03-26 09:59:47,338 - iqoptionapi.ws.client - ERROR - Handshake status 403 Forbidden
+2025-03-26 10:00:18,051 - iqoptionapi.ws.client - ERROR - Handshake status 403 Forbidden
+2025-03-26 10:00:48,779 - iqoptionapi.ws.client - ERROR - Handshake status 403 Forbidden
+2025-03-26 10:01:18,816 - main - ERROR - Falha na reconexão: Número máximo de tentativas de conexão excedido
+2025-03-26 10:01:18,818 - main - INFO - Modo de simulação ativado. Usando dados sintéticos.
+2025-03-26 10:01:19,114 - main - INFO - Starting in learning mode
+2025-03-26 10:01:19,115 - main - INFO - Trading assets: eurusd
+2025-03-26 10:01:19,115 - main - INFO - Starting learning mode
+2025-03-26 10:01:19,115 - main - INFO - Processing historical data for eurusd
+2025-03-26 10:01:19,116 - main - ERROR - Error during learning: Inteligencia.process_historical_data() missing 1 required positional argument: 'asset_name'
+2025-03-26 10:01:19,118 - main - INFO - Bot stopped gracefully
+2025-03-26 10:01:19,118 - main - INFO - Performing cleanup
+2025-03-26 10:01:19,119 - main - INFO - Performance metrics saved to performance_metrics.json
+2025-03-26 10:01:19,120 - main - ERROR - Error during cleanup: 'ErrorTracker' object has no attribute 'save_to_file'
+2025-03-26 10:03:34,404 - main - INFO - Bot IQ Option iniciado
+2025-03-26 10:03:34,404 - main - INFO - All dependencies are installed
+2025-03-26 10:03:34,406 - ConfigManager - INFO - Configurações carregadas com sucesso de config.ini
+2025-03-26 10:03:34,406 - ConfigManager - INFO - Credenciais da IQ Option carregadas do arquivo de configuração
+2025-03-26 10:03:34,407 - main - INFO - Username from config: alantaru@gmail.com
+2025-03-26 10:03:34,407 - main - INFO - Password from config: 400fpsmmnfa$$$$
+2025-03-26 10:03:34,409 - Inteligencia - INFO - Critérios de mudança automática atualizados: min_accuracy=0.70, min_precision=0.65, min_recall=0.65, min_f1_score=0.65, min_trades_count=20, min_win_rate=0.60, min_profit=0.00, auto_switch_to_real=False
+2025-03-26 10:03:34,410 - main - INFO - Verificando conexão com a API do IQ Option...
+2025-03-26 10:03:34,412 - main - WARNING - Falha na conexão inicial. Tentando reconectar...
+2025-03-26 10:03:35,121 - iqoptionapi.ws.client - ERROR - Handshake status 403 Forbidden
+2025-03-26 10:04:06,756 - iqoptionapi.ws.client - ERROR - Handshake status 403 Forbidden
+2025-03-26 10:04:37,471 - iqoptionapi.ws.client - ERROR - Handshake status 403 Forbidden
+2025-03-26 10:05:07,507 - main - ERROR - Falha na reconexão: Número máximo de tentativas de conexão excedido
+2025-03-26 10:05:07,509 - main - INFO - Modo de simulação ativado. Usando dados sintéticos.
+2025-03-26 10:05:07,784 - main - INFO - Starting in learning mode
+2025-03-26 10:05:07,784 - main - INFO - Trading assets: eurusd
+2025-03-26 10:05:07,784 - main - INFO - Starting learning mode
+2025-03-26 10:05:07,784 - main - INFO - Processing historical data for eurusd
+2025-03-26 10:05:07,785 - Inteligencia - INFO - Processando dados históricos para eurusd (timeframe: 60s)
+2025-03-26 10:05:07,786 - Inteligencia - INFO - Aplicando pré-processamento aos dados
+2025-03-26 10:05:07,836 - Inteligencia - ERROR - Erro ao adicionar indicadores técnicos: 'tuple' object has no attribute 'empty'
+2025-03-26 10:05:07,855 - Inteligencia - INFO - Distribuição de classes: {1: 1755, 0: 1627, 2: 1618}
+2025-03-26 10:05:07,857 - Inteligencia - INFO - Dados pré-processados: 4801 linhas, 57 colunas
+2025-03-26 10:05:07,857 - Inteligencia - INFO - Criando rótulos para treinamento supervisionado
+2025-03-26 10:05:07,860 - Inteligencia - INFO - Distribuição de classes: {1: 1660, 0: 1622, 2: 1519}
+2025-03-26 10:05:07,860 - Inteligencia - INFO - Normalizando dados
+2025-03-26 10:05:08,037 - Inteligencia - INFO - Dados processados salvos em C:\Users\uz02095\Documents\BotIQOpt_\inteligencia\..\data\processed\eurusd_60_processed.csv
+2025-03-26 10:05:08,038 - Inteligencia - INFO - Processamento concluído. Shape final: (4801, 57)
+2025-03-26 10:05:08,039 - main - ERROR - Error during learning: The truth value of a DataFrame is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+2025-03-26 10:05:08,041 - main - INFO - Bot stopped gracefully
+2025-03-26 10:05:08,042 - main - INFO - Performing cleanup
+2025-03-26 10:05:08,044 - main - INFO - Performance metrics saved to performance_metrics.json
+2025-03-26 10:05:08,045 - main - ERROR - Error during cleanup: 'ErrorTracker' object has no attribute 'save_to_file'

@@ -1,0 +1,704 @@
+2025-04-07 10:10:08,163 - main - INFO - Logger 'main' configurado: Nível=DEBUG, Arquivo=logs/bot.log, Rotação=10mb/5 backups
+2025-04-07 10:10:08,164 - main - INFO - Bot IQ Option iniciado
+2025-04-07 10:10:09,401 - main - INFO - Todas as dependências estão instaladas
+2025-04-07 10:10:09,405 - main - DEBUG - Directories created
+2025-04-07 10:10:09,406 - main - INFO - Username from config: None
+2025-04-07 10:10:09,407 - main - CRITICAL - Critical error: object of type 'NoneType' has no len()
+Traceback (most recent call last):
+  File "C:\Users\uz02095\Documents\BotIQOpt_\main.py", line 172, in main
+    logger.info(f"Password from config: {'*' * len(iqoption_password)}")
+                                               ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object of type 'NoneType' has no len()
+
+2025-04-07 10:10:09,408 - main - INFO - Performing cleanup
+2025-04-07 10:10:09,410 - main - INFO - Performance metrics saved to performance_metrics.json
+2025-04-07 10:10:09,411 - main - INFO - Error log saved to error_log.json
+2025-04-07 10:12:02,762 - main - INFO - Logger 'main' configurado: Nível=DEBUG, Arquivo=logs/bot.log, Rotação=10mb/5 backups
+2025-04-07 10:12:02,763 - main - INFO - Bot IQ Option iniciado
+2025-04-07 10:12:04,039 - main - INFO - Todas as dependências estão instaladas
+2025-04-07 10:12:04,039 - main - DEBUG - Directories created
+2025-04-07 10:12:04,039 - main - INFO - Username from config: None
+2025-04-07 10:12:04,039 - main - INFO - Password from config: ***************
+2025-04-07 10:12:04,039 - main - INFO - Verificando conexão com a API do IQ Option...
+2025-04-07 10:12:04,039 - main - WARNING - Falha na conexão inicial. Tentando reconectar...
+2025-04-07 10:12:04,039 - main - INFO - Starting in test mode
+2025-04-07 10:12:04,039 - main - INFO - Trading assets: eurusd
+2025-04-07 10:12:04,052 - main - INFO - Starting test mode
+2025-04-07 10:12:04,059 - main - WARNING - Modo Teste em estado inesperado (nem simulação, nem conectado).
+2025-04-07 10:12:04,059 - main - INFO - Getting real-time data for eurusd
+2025-04-07 10:12:04,059 - main - ERROR - Failed to get real-time data for eurusd
+2025-04-07 10:13:04,061 - main - INFO - Starting test mode
+2025-04-07 10:13:04,076 - main - WARNING - Modo Teste em estado inesperado (nem simulação, nem conectado).
+2025-04-07 10:13:04,076 - main - INFO - Getting real-time data for eurusd
+2025-04-07 10:13:04,076 - main - ERROR - Failed to get real-time data for eurusd
+2025-04-07 10:14:04,082 - main - INFO - Starting test mode
+2025-04-07 10:14:04,089 - main - WARNING - Modo Teste em estado inesperado (nem simulação, nem conectado).
+2025-04-07 10:14:04,089 - main - INFO - Getting real-time data for eurusd
+2025-04-07 10:14:04,090 - main - ERROR - Failed to get real-time data for eurusd
+2025-04-07 10:15:04,091 - main - INFO - Starting test mode
+2025-04-07 10:15:04,101 - main - WARNING - Modo Teste em estado inesperado (nem simulação, nem conectado).
+2025-04-07 10:15:04,102 - main - INFO - Getting real-time data for eurusd
+2025-04-07 10:15:04,102 - main - ERROR - Failed to get real-time data for eurusd
+2025-04-07 10:16:04,103 - main - INFO - Starting test mode
+2025-04-07 10:16:04,111 - main - WARNING - Modo Teste em estado inesperado (nem simulação, nem conectado).
+2025-04-07 10:16:04,112 - main - INFO - Getting real-time data for eurusd
+2025-04-07 10:16:04,112 - main - ERROR - Failed to get real-time data for eurusd
+2025-04-07 10:16:53,426 - main - INFO - Recebido sinal de interrupção. Encerrando...
+2025-04-07 10:17:04,113 - main - INFO - Bot stopped gracefully
+2025-04-07 10:17:04,114 - main - INFO - Performing cleanup
+2025-04-07 10:17:04,119 - main - INFO - Performance metrics saved to performance_metrics.json
+2025-04-07 10:17:04,121 - main - INFO - Error log saved to error_log.json
+2025-04-07 10:20:18,230 - main - INFO - Logger 'main' configurado: Nível=DEBUG, Arquivo=logs/bot.log, Rotação=10mb/5 backups
+2025-04-07 10:20:18,230 - main - INFO - Bot IQ Option iniciado
+2025-04-07 10:20:19,480 - main - INFO - Todas as dependências estão instaladas
+2025-04-07 10:20:19,480 - main - DEBUG - Directories created
+2025-04-07 10:20:19,480 - main - INFO - Username from config: None
+2025-04-07 10:20:19,480 - main - INFO - Password from config: ***************
+2025-04-07 10:20:19,480 - main - INFO - Verificando conexão com a API do IQ Option...
+2025-04-07 10:20:19,480 - main - WARNING - Falha na conexão inicial. Tentando reconectar...
+2025-04-07 10:20:19,480 - main - INFO - Starting in test mode
+2025-04-07 10:20:19,491 - main - INFO - Trading assets: eurusd
+2025-04-07 10:20:19,491 - main - INFO - Starting test mode
+2025-04-07 10:20:19,498 - main - WARNING - Modo Teste em estado inesperado (nem simulação, nem conectado).
+2025-04-07 10:20:19,498 - main - INFO - Getting real-time data for eurusd
+2025-04-07 10:20:19,499 - main - ERROR - Failed to get real-time data for eurusd
+2025-04-07 10:21:19,500 - main - INFO - Starting test mode
+2025-04-07 10:21:19,514 - main - WARNING - Modo Teste em estado inesperado (nem simulação, nem conectado).
+2025-04-07 10:21:19,514 - main - INFO - Getting real-time data for eurusd
+2025-04-07 10:21:19,517 - main - ERROR - Failed to get real-time data for eurusd
+2025-04-07 10:22:19,520 - main - INFO - Starting test mode
+2025-04-07 10:22:19,520 - main - WARNING - Modo Teste em estado inesperado (nem simulação, nem conectado).
+2025-04-07 10:22:19,520 - main - INFO - Getting real-time data for eurusd
+2025-04-07 10:22:19,520 - main - ERROR - Failed to get real-time data for eurusd
+2025-04-07 10:23:19,584 - main - INFO - Starting test mode
+2025-04-07 10:23:19,595 - main - WARNING - Modo Teste em estado inesperado (nem simulação, nem conectado).
+2025-04-07 10:23:19,596 - main - INFO - Getting real-time data for eurusd
+2025-04-07 10:23:19,596 - main - ERROR - Failed to get real-time data for eurusd
+2025-04-07 10:24:19,653 - main - INFO - Starting test mode
+2025-04-07 10:24:19,666 - main - WARNING - Modo Teste em estado inesperado (nem simulação, nem conectado).
+2025-04-07 10:24:19,666 - main - INFO - Getting real-time data for eurusd
+2025-04-07 10:24:19,666 - main - ERROR - Failed to get real-time data for eurusd
+2025-04-07 10:25:19,724 - main - INFO - Starting test mode
+2025-04-07 10:25:19,737 - main - WARNING - Modo Teste em estado inesperado (nem simulação, nem conectado).
+2025-04-07 10:25:19,737 - main - INFO - Getting real-time data for eurusd
+2025-04-07 10:25:19,737 - main - ERROR - Failed to get real-time data for eurusd
+2025-04-07 10:25:56,408 - main - INFO - Recebido sinal de interrupção. Encerrando...
+2025-04-07 10:26:19,795 - main - INFO - Bot stopped gracefully
+2025-04-07 10:26:19,795 - main - INFO - Performing cleanup
+2025-04-07 10:26:19,795 - main - INFO - Performance metrics saved to performance_metrics.json
+2025-04-07 10:26:19,795 - main - INFO - Error log saved to error_log.json
+2025-04-07 10:33:56,298 - main - INFO - Logger 'main' configurado: Nível=DEBUG, Arquivo=logs/bot.log, Rotação=10mb/5 backups
+2025-04-07 10:33:56,299 - main - INFO - Bot IQ Option iniciado
+2025-04-07 10:33:57,548 - main - INFO - Todas as dependências estão instaladas
+2025-04-07 10:33:57,552 - main - DEBUG - Directories created
+2025-04-07 10:33:57,553 - main - INFO - Username from config: None
+2025-04-07 10:33:57,553 - main - INFO - Password from config: ***************
+2025-04-07 10:33:57,554 - main - INFO - Verificando conexão com a API do IQ Option...
+2025-04-07 10:33:57,554 - main - WARNING - Falha na conexão inicial. Tentando reconectar...
+2025-04-07 10:33:57,556 - main - INFO - Starting in test mode
+2025-04-07 10:33:57,556 - main - INFO - Trading assets: eurusd
+2025-04-07 10:33:57,556 - main - INFO - Starting test mode
+2025-04-07 10:33:57,563 - main - WARNING - Modo Teste em estado inesperado (nem simulação, nem conectado).
+2025-04-07 10:33:57,563 - main - INFO - Getting real-time data for eurusd
+2025-04-07 10:33:57,564 - main - ERROR - Failed to get real-time data for eurusd
+2025-04-07 10:34:57,576 - main - INFO - Starting test mode
+2025-04-07 10:34:57,583 - main - WARNING - Modo Teste em estado inesperado (nem simulação, nem conectado).
+2025-04-07 10:34:57,583 - main - INFO - Getting real-time data for eurusd
+2025-04-07 10:34:57,584 - main - ERROR - Failed to get real-time data for eurusd
+2025-04-07 10:35:57,595 - main - INFO - Starting test mode
+2025-04-07 10:35:57,601 - main - WARNING - Modo Teste em estado inesperado (nem simulação, nem conectado).
+2025-04-07 10:35:57,601 - main - INFO - Getting real-time data for eurusd
+2025-04-07 10:35:57,601 - main - ERROR - Failed to get real-time data for eurusd
+2025-04-07 10:36:57,613 - main - INFO - Starting test mode
+2025-04-07 10:36:57,619 - main - WARNING - Modo Teste em estado inesperado (nem simulação, nem conectado).
+2025-04-07 10:36:57,619 - main - INFO - Getting real-time data for eurusd
+2025-04-07 10:36:57,619 - main - ERROR - Failed to get real-time data for eurusd
+2025-04-07 10:37:57,633 - main - INFO - Starting test mode
+2025-04-07 10:37:57,639 - main - WARNING - Modo Teste em estado inesperado (nem simulação, nem conectado).
+2025-04-07 10:37:57,639 - main - INFO - Getting real-time data for eurusd
+2025-04-07 10:37:57,639 - main - ERROR - Failed to get real-time data for eurusd
+2025-04-07 10:38:57,661 - main - INFO - Starting test mode
+2025-04-07 10:38:57,668 - main - WARNING - Modo Teste em estado inesperado (nem simulação, nem conectado).
+2025-04-07 10:38:57,668 - main - INFO - Getting real-time data for eurusd
+2025-04-07 10:38:57,668 - main - ERROR - Failed to get real-time data for eurusd
+2025-04-07 10:39:57,691 - main - INFO - Starting test mode
+2025-04-07 10:39:57,697 - main - WARNING - Modo Teste em estado inesperado (nem simulação, nem conectado).
+2025-04-07 10:39:57,697 - main - INFO - Getting real-time data for eurusd
+2025-04-07 10:39:57,698 - main - ERROR - Failed to get real-time data for eurusd
+2025-04-07 10:40:57,720 - main - INFO - Starting test mode
+2025-04-07 10:40:57,727 - main - WARNING - Modo Teste em estado inesperado (nem simulação, nem conectado).
+2025-04-07 10:40:57,727 - main - INFO - Getting real-time data for eurusd
+2025-04-07 10:40:57,727 - main - ERROR - Failed to get real-time data for eurusd
+2025-04-07 10:41:57,750 - main - INFO - Starting test mode
+2025-04-07 10:41:57,756 - main - WARNING - Modo Teste em estado inesperado (nem simulação, nem conectado).
+2025-04-07 10:41:57,756 - main - INFO - Getting real-time data for eurusd
+2025-04-07 10:41:57,756 - main - ERROR - Failed to get real-time data for eurusd
+2025-04-07 10:42:57,775 - main - INFO - Starting test mode
+2025-04-07 10:42:57,781 - main - WARNING - Modo Teste em estado inesperado (nem simulação, nem conectado).
+2025-04-07 10:42:57,781 - main - INFO - Getting real-time data for eurusd
+2025-04-07 10:42:57,782 - main - ERROR - Failed to get real-time data for eurusd
+2025-04-07 10:43:57,792 - main - INFO - Starting test mode
+2025-04-07 10:43:57,798 - main - WARNING - Modo Teste em estado inesperado (nem simulação, nem conectado).
+2025-04-07 10:43:57,799 - main - INFO - Getting real-time data for eurusd
+2025-04-07 10:43:57,799 - main - ERROR - Failed to get real-time data for eurusd
+2025-04-07 10:44:57,809 - main - INFO - Starting test mode
+2025-04-07 10:44:57,815 - main - WARNING - Modo Teste em estado inesperado (nem simulação, nem conectado).
+2025-04-07 10:44:57,816 - main - INFO - Getting real-time data for eurusd
+2025-04-07 10:44:57,816 - main - ERROR - Failed to get real-time data for eurusd
+2025-04-07 10:45:57,826 - main - INFO - Starting test mode
+2025-04-07 10:45:57,834 - main - WARNING - Modo Teste em estado inesperado (nem simulação, nem conectado).
+2025-04-07 10:45:57,834 - main - INFO - Getting real-time data for eurusd
+2025-04-07 10:45:57,835 - main - ERROR - Failed to get real-time data for eurusd
+2025-04-07 10:46:12,922 - main - INFO - Recebido sinal de interrupção. Encerrando...
+2025-04-07 10:46:57,846 - main - INFO - Bot stopped gracefully
+2025-04-07 10:46:57,846 - main - INFO - Performing cleanup
+2025-04-07 10:46:57,849 - main - INFO - Performance metrics saved to performance_metrics.json
+2025-04-07 10:46:57,851 - main - INFO - Error log saved to error_log.json
+2025-04-07 10:49:03,402 - main - INFO - Logger 'main' configurado: Nível=DEBUG, Arquivo=logs/bot.log, Rotação=10mb/5 backups
+2025-04-07 10:49:03,403 - main - INFO - Bot IQ Option iniciado
+2025-04-07 10:49:04,685 - main - INFO - Todas as dependências estão instaladas
+2025-04-07 10:49:04,690 - main - DEBUG - Directories created
+2025-04-07 10:49:04,690 - main - INFO - Username from config: None
+2025-04-07 10:49:04,691 - main - INFO - Password from config: ***************
+2025-04-07 10:49:04,693 - main - INFO - Verificando conexão com a API do IQ Option...
+2025-04-07 10:49:04,693 - main - WARNING - Falha na conexão inicial. Tentando reconectar...
+2025-04-07 10:49:04,694 - main - INFO - Starting in learning mode
+2025-04-07 10:49:04,694 - main - INFO - Trading assets: eurusd, gbpusd, usdjpy
+2025-04-07 10:49:04,695 - main - INFO - Starting learning mode
+2025-04-07 10:49:04,695 - main - INFO - Processing historical data for eurusd
+2025-04-07 10:49:04,695 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 10:49:04,696 - main - INFO - Processing historical data for gbpusd
+2025-04-07 10:49:04,696 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 10:49:04,696 - main - INFO - Processing historical data for usdjpy
+2025-04-07 10:49:04,697 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 10:49:04,697 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 10:50:04,702 - main - INFO - Starting learning mode
+2025-04-07 10:50:04,703 - main - INFO - Processing historical data for eurusd
+2025-04-07 10:50:04,704 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 10:50:04,705 - main - INFO - Processing historical data for gbpusd
+2025-04-07 10:50:04,706 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 10:50:04,706 - main - INFO - Processing historical data for usdjpy
+2025-04-07 10:50:04,707 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 10:50:04,708 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 10:51:04,713 - main - INFO - Starting learning mode
+2025-04-07 10:51:04,715 - main - INFO - Processing historical data for eurusd
+2025-04-07 10:51:04,717 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 10:51:04,719 - main - INFO - Processing historical data for gbpusd
+2025-04-07 10:51:04,720 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 10:51:04,721 - main - INFO - Processing historical data for usdjpy
+2025-04-07 10:51:04,723 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 10:51:04,724 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 10:52:04,729 - main - INFO - Starting learning mode
+2025-04-07 10:52:04,731 - main - INFO - Processing historical data for eurusd
+2025-04-07 10:52:04,733 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 10:52:04,735 - main - INFO - Processing historical data for gbpusd
+2025-04-07 10:52:04,737 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 10:52:04,738 - main - INFO - Processing historical data for usdjpy
+2025-04-07 10:52:04,739 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 10:52:04,740 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 10:53:04,745 - main - INFO - Starting learning mode
+2025-04-07 10:53:04,747 - main - INFO - Processing historical data for eurusd
+2025-04-07 10:53:04,750 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 10:53:04,751 - main - INFO - Processing historical data for gbpusd
+2025-04-07 10:53:04,752 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 10:53:04,754 - main - INFO - Processing historical data for usdjpy
+2025-04-07 10:53:04,755 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 10:53:04,756 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 10:54:04,759 - main - INFO - Starting learning mode
+2025-04-07 10:54:04,761 - main - INFO - Processing historical data for eurusd
+2025-04-07 10:54:04,763 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 10:54:04,764 - main - INFO - Processing historical data for gbpusd
+2025-04-07 10:54:04,766 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 10:54:04,767 - main - INFO - Processing historical data for usdjpy
+2025-04-07 10:54:04,768 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 10:54:04,769 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 10:55:04,772 - main - INFO - Starting learning mode
+2025-04-07 10:55:04,773 - main - INFO - Processing historical data for eurusd
+2025-04-07 10:55:04,775 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 10:55:04,776 - main - INFO - Processing historical data for gbpusd
+2025-04-07 10:55:04,777 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 10:55:04,778 - main - INFO - Processing historical data for usdjpy
+2025-04-07 10:55:04,780 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 10:55:04,781 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 10:56:04,784 - main - INFO - Starting learning mode
+2025-04-07 10:56:04,785 - main - INFO - Processing historical data for eurusd
+2025-04-07 10:56:04,787 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 10:56:04,788 - main - INFO - Processing historical data for gbpusd
+2025-04-07 10:56:04,789 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 10:56:04,790 - main - INFO - Processing historical data for usdjpy
+2025-04-07 10:56:04,792 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 10:56:04,792 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 10:57:02,250 - main - INFO - Recebido sinal de interrupção. Encerrando...
+2025-04-07 10:57:04,796 - main - INFO - Bot stopped gracefully
+2025-04-07 10:57:04,796 - main - INFO - Performing cleanup
+2025-04-07 10:57:04,800 - main - INFO - Performance metrics saved to performance_metrics.json
+2025-04-07 10:57:04,802 - main - INFO - Error log saved to error_log.json
+2025-04-07 10:57:43,220 - main - INFO - Logger 'main' configurado: Nível=INFO, Arquivo=logs/bot.log, Rotação=10mb/5 backups
+2025-04-07 10:57:43,222 - main - INFO - Bot IQ Option iniciado
+2025-04-07 10:57:46,590 - main - INFO - Todas as dependências estão instaladas
+2025-04-07 10:57:46,596 - main - INFO - Username from config: None
+2025-04-07 10:57:46,596 - main - INFO - Password from config: ***************
+2025-04-07 10:57:46,598 - main - INFO - Verificando conexão com a API do IQ Option...
+2025-04-07 10:57:46,599 - main - WARNING - Falha na conexão inicial. Tentando reconectar...
+2025-04-07 10:57:46,600 - main - INFO - Starting in learning mode
+2025-04-07 10:57:46,600 - main - INFO - Trading assets: eurusd, gbpusd, usdjpy
+2025-04-07 10:57:46,600 - main - INFO - Starting learning mode
+2025-04-07 10:57:46,600 - main - INFO - Processing historical data for eurusd
+2025-04-07 10:57:46,601 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 10:57:46,601 - main - INFO - Processing historical data for gbpusd
+2025-04-07 10:57:46,602 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 10:57:46,602 - main - INFO - Processing historical data for usdjpy
+2025-04-07 10:57:46,602 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 10:57:46,603 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 10:58:04,346 - main - INFO - Recebido sinal de interrupção. Encerrando...
+2025-04-07 10:58:46,606 - main - INFO - Bot stopped gracefully
+2025-04-07 10:58:46,606 - main - INFO - Performing cleanup
+2025-04-07 10:58:46,606 - main - INFO - Performance metrics saved to performance_metrics.json
+2025-04-07 10:58:46,606 - main - INFO - Error log saved to error_log.json
+2025-04-07 11:15:54,902 - main - INFO - Logger 'main' configurado: Nível=DEBUG, Arquivo=logs/bot.log, Rotação=10mb/5 backups
+2025-04-07 11:15:54,904 - main - INFO - Bot IQ Option iniciado
+2025-04-07 11:15:55,945 - main - INFO - Todas as dependências estão instaladas
+2025-04-07 11:15:55,948 - main - DEBUG - Directories created
+2025-04-07 11:15:55,948 - main - INFO - Username from config: None
+2025-04-07 11:15:55,948 - main - INFO - Password from config: ***************
+2025-04-07 11:15:55,949 - main - INFO - Verificando conexão com a API do IQ Option...
+2025-04-07 11:15:55,950 - main - WARNING - Falha na conexão inicial. Tentando reconectar...
+2025-04-07 11:15:55,950 - main - INFO - Starting in learning mode
+2025-04-07 11:15:55,951 - main - INFO - Trading assets: eurusd, gbpusd, usdjpy
+2025-04-07 11:15:55,951 - main - INFO - Starting learning mode
+2025-04-07 11:15:55,951 - main - INFO - Processing historical data for eurusd
+2025-04-07 11:15:55,951 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 11:15:55,952 - main - INFO - Processing historical data for gbpusd
+2025-04-07 11:15:55,952 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 11:15:55,952 - main - INFO - Processing historical data for usdjpy
+2025-04-07 11:15:55,953 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 11:15:55,953 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 11:16:55,956 - main - INFO - Starting learning mode
+2025-04-07 11:16:55,956 - main - INFO - Processing historical data for eurusd
+2025-04-07 11:16:55,956 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 11:16:55,957 - main - INFO - Processing historical data for gbpusd
+2025-04-07 11:16:55,957 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 11:16:55,957 - main - INFO - Processing historical data for usdjpy
+2025-04-07 11:16:55,958 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 11:16:55,958 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 11:17:55,962 - main - INFO - Starting learning mode
+2025-04-07 11:17:55,962 - main - INFO - Processing historical data for eurusd
+2025-04-07 11:17:55,962 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 11:17:55,962 - main - INFO - Processing historical data for gbpusd
+2025-04-07 11:17:55,963 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 11:17:55,963 - main - INFO - Processing historical data for usdjpy
+2025-04-07 11:17:55,963 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 11:17:55,964 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 11:18:55,966 - main - INFO - Starting learning mode
+2025-04-07 11:18:55,966 - main - INFO - Processing historical data for eurusd
+2025-04-07 11:18:55,967 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 11:18:55,967 - main - INFO - Processing historical data for gbpusd
+2025-04-07 11:18:55,967 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 11:18:55,967 - main - INFO - Processing historical data for usdjpy
+2025-04-07 11:18:55,968 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 11:18:55,968 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:26:09,628 - main - INFO - Logger 'main' configurado: Nível=DEBUG, Arquivo=logs/bot.log, Rotação=10mb/5 backups
+2025-04-07 12:26:09,628 - main - INFO - Bot IQ Option iniciado
+2025-04-07 12:26:12,961 - main - INFO - Todas as dependências estão instaladas
+2025-04-07 12:26:12,961 - main - DEBUG - Directories created
+2025-04-07 12:26:12,961 - main - INFO - Username from config: None
+2025-04-07 12:26:12,961 - main - INFO - Password from config: ***************
+2025-04-07 12:26:12,976 - main - INFO - Verificando conexão com a API do IQ Option...
+2025-04-07 12:26:12,977 - main - WARNING - Falha na conexão inicial. Tentando reconectar...
+2025-04-07 12:26:12,977 - main - INFO - Starting in learning mode
+2025-04-07 12:26:12,978 - main - INFO - Trading assets: eurusd, gbpusd, usdjpy
+2025-04-07 12:26:12,978 - main - INFO - Starting learning mode
+2025-04-07 12:26:12,978 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:26:12,978 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:26:12,979 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:26:12,979 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:26:12,979 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:26:12,979 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:26:12,980 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:27:12,981 - main - INFO - Starting learning mode
+2025-04-07 12:27:12,981 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:27:12,981 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:27:12,981 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:27:12,981 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:27:12,981 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:27:12,981 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:27:12,981 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:28:12,983 - main - INFO - Starting learning mode
+2025-04-07 12:28:12,983 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:28:12,983 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:28:12,983 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:28:12,983 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:28:12,983 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:28:12,983 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:28:12,983 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:29:12,987 - main - INFO - Starting learning mode
+2025-04-07 12:29:12,987 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:29:12,987 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:29:12,987 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:29:12,987 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:29:12,987 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:29:12,987 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:29:12,987 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:30:12,993 - main - INFO - Starting learning mode
+2025-04-07 12:30:12,993 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:30:12,993 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:30:12,997 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:30:12,998 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:30:12,998 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:30:12,998 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:30:13,001 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:31:13,002 - main - INFO - Starting learning mode
+2025-04-07 12:31:13,002 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:31:13,002 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:31:13,002 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:31:13,002 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:31:13,002 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:31:13,002 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:31:13,002 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:32:13,010 - main - INFO - Starting learning mode
+2025-04-07 12:32:13,010 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:32:13,010 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:32:13,010 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:32:13,010 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:32:13,016 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:32:13,017 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:32:13,018 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:33:13,020 - main - INFO - Starting learning mode
+2025-04-07 12:33:13,020 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:33:13,020 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:33:13,020 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:33:13,020 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:33:13,020 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:33:13,020 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:33:13,020 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:34:13,025 - main - INFO - Starting learning mode
+2025-04-07 12:34:13,025 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:34:13,025 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:34:13,025 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:34:13,025 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:34:13,025 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:34:13,025 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:34:13,025 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:35:13,028 - main - INFO - Starting learning mode
+2025-04-07 12:35:13,028 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:35:13,028 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:35:13,028 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:35:13,028 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:35:13,028 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:35:13,028 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:35:13,028 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:36:13,033 - main - INFO - Starting learning mode
+2025-04-07 12:36:13,033 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:36:13,033 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:36:13,037 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:36:13,038 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:36:13,038 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:36:13,042 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:36:13,042 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:37:13,043 - main - INFO - Starting learning mode
+2025-04-07 12:37:13,043 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:37:13,043 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:37:13,043 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:37:13,043 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:37:13,043 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:37:13,043 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:37:13,043 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:38:13,049 - main - INFO - Starting learning mode
+2025-04-07 12:38:13,049 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:38:13,049 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:38:13,049 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:38:13,055 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:38:13,055 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:38:13,056 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:38:13,056 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:39:13,059 - main - INFO - Starting learning mode
+2025-04-07 12:39:13,059 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:39:13,059 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:39:13,059 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:39:13,059 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:39:13,059 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:39:13,059 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:39:13,059 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:40:13,067 - main - INFO - Starting learning mode
+2025-04-07 12:40:13,068 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:40:13,070 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:40:13,071 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:40:13,073 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:40:13,074 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:40:13,075 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:40:13,075 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:41:13,076 - main - INFO - Starting learning mode
+2025-04-07 12:41:13,077 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:41:13,079 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:41:13,080 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:41:13,082 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:41:13,083 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:41:13,084 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:41:13,085 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:42:13,087 - main - INFO - Starting learning mode
+2025-04-07 12:42:13,089 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:42:13,091 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:42:13,092 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:42:13,093 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:42:13,094 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:42:13,096 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:42:13,097 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:43:13,098 - main - INFO - Starting learning mode
+2025-04-07 12:43:13,099 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:43:13,100 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:43:13,101 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:43:13,102 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:43:13,102 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:43:13,103 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:43:13,104 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:44:13,106 - main - INFO - Starting learning mode
+2025-04-07 12:44:13,107 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:44:13,109 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:44:13,111 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:44:13,112 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:44:13,113 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:44:13,115 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:44:13,116 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:45:13,118 - main - INFO - Starting learning mode
+2025-04-07 12:45:13,119 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:45:13,121 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:45:13,122 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:45:13,123 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:45:13,124 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:45:13,125 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:45:13,125 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:46:13,126 - main - INFO - Starting learning mode
+2025-04-07 12:46:13,127 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:46:13,129 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:46:13,130 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:46:13,132 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:46:13,132 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:46:13,134 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:46:13,135 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:47:13,137 - main - INFO - Starting learning mode
+2025-04-07 12:47:13,138 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:47:13,140 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:47:13,141 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:47:13,143 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:47:13,143 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:47:13,145 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:47:13,146 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:48:13,148 - main - INFO - Starting learning mode
+2025-04-07 12:48:13,149 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:48:13,151 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:48:13,152 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:48:13,154 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:48:13,155 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:48:13,156 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:48:13,157 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:49:13,158 - main - INFO - Starting learning mode
+2025-04-07 12:49:13,159 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:49:13,161 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:49:13,162 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:49:13,164 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:49:13,165 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:49:13,167 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:49:13,168 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:50:13,169 - main - INFO - Starting learning mode
+2025-04-07 12:50:13,170 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:50:13,171 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:50:13,172 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:50:13,173 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:50:13,173 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:50:13,174 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:50:13,175 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:51:13,177 - main - INFO - Starting learning mode
+2025-04-07 12:51:13,178 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:51:13,180 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:51:13,180 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:51:13,182 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:51:13,182 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:51:13,184 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:51:13,185 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:52:13,186 - main - INFO - Starting learning mode
+2025-04-07 12:52:13,187 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:52:13,189 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:52:13,190 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:52:13,192 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:52:13,192 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:52:13,194 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:52:13,194 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:53:13,196 - main - INFO - Starting learning mode
+2025-04-07 12:53:13,197 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:53:13,199 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:53:13,201 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:53:13,202 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:53:13,202 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:53:13,203 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:53:13,204 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:54:13,206 - main - INFO - Starting learning mode
+2025-04-07 12:54:13,207 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:54:13,208 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:54:13,209 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:54:13,210 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:54:13,211 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:54:13,212 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:54:13,212 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:55:13,213 - main - INFO - Starting learning mode
+2025-04-07 12:55:13,214 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:55:13,214 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:55:13,215 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:55:13,216 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:55:13,217 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:55:13,218 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:55:13,218 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:56:13,220 - main - INFO - Starting learning mode
+2025-04-07 12:56:13,221 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:56:13,223 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:56:13,224 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:56:13,225 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:56:13,227 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:56:13,229 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:56:13,229 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:57:13,231 - main - INFO - Starting learning mode
+2025-04-07 12:57:13,232 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:57:13,234 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:57:13,235 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:57:13,236 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:57:13,237 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:57:13,238 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:57:13,238 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:58:13,240 - main - INFO - Starting learning mode
+2025-04-07 12:58:13,241 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:58:13,242 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:58:13,243 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:58:13,244 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:58:13,245 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:58:13,246 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:58:13,246 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 12:59:13,248 - main - INFO - Starting learning mode
+2025-04-07 12:59:13,249 - main - INFO - Processing historical data for eurusd
+2025-04-07 12:59:13,251 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 12:59:13,252 - main - INFO - Processing historical data for gbpusd
+2025-04-07 12:59:13,253 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 12:59:13,254 - main - INFO - Processing historical data for usdjpy
+2025-04-07 12:59:13,255 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 12:59:13,256 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 13:00:13,257 - main - INFO - Starting learning mode
+2025-04-07 13:00:13,257 - main - INFO - Processing historical data for eurusd
+2025-04-07 13:00:13,257 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 13:00:13,257 - main - INFO - Processing historical data for gbpusd
+2025-04-07 13:00:13,257 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 13:00:13,257 - main - INFO - Processing historical data for usdjpy
+2025-04-07 13:00:13,257 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 13:00:13,257 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 13:00:17,841 - main - INFO - Recebido sinal de interrupção. Encerrando...
+2025-04-07 13:01:13,260 - main - INFO - Bot stopped gracefully
+2025-04-07 13:01:13,260 - main - INFO - Performing cleanup
+2025-04-07 13:01:13,260 - main - INFO - Performance metrics saved to performance_metrics.json
+2025-04-07 13:01:13,270 - main - INFO - Error log saved to error_log.json
+2025-04-07 14:34:26,427 - main - INFO - Logger 'main' configurado: Nível=DEBUG, Arquivo=logs/bot.log, Rotação=10mb/5 backups
+2025-04-07 14:34:26,427 - main - INFO - Bot IQ Option iniciado
+2025-04-07 14:34:26,450 - main - INFO - Todas as dependências estão instaladas
+2025-04-07 14:34:26,458 - main - DEBUG - Directories created
+2025-04-07 14:34:26,458 - main - INFO - Username from config: alantaru@gmail.com
+2025-04-07 14:34:26,458 - main - INFO - Password from config: ***************
+2025-04-07 14:34:26,459 - main - INFO - Verificando conexão com a API do IQ Option...
+2025-04-07 14:34:26,460 - main - WARNING - Falha na conexão inicial. Tentando reconectar...
+2025-04-07 14:34:26,461 - main - INFO - Starting in learning mode
+2025-04-07 14:34:26,461 - main - INFO - Trading assets: eurusd, gbpusd, usdjpy
+2025-04-07 14:34:26,461 - main - INFO - Starting learning mode
+2025-04-07 14:34:26,461 - main - INFO - Processing historical data for eurusd
+2025-04-07 14:34:26,462 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 14:34:26,462 - main - INFO - Processing historical data for gbpusd
+2025-04-07 14:34:26,462 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 14:34:26,462 - main - INFO - Processing historical data for usdjpy
+2025-04-07 14:34:26,463 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 14:34:26,463 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 14:35:26,467 - main - INFO - Starting learning mode
+2025-04-07 14:35:26,467 - main - INFO - Processing historical data for eurusd
+2025-04-07 14:35:26,467 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 14:35:26,467 - main - INFO - Processing historical data for gbpusd
+2025-04-07 14:35:26,467 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 14:35:26,467 - main - INFO - Processing historical data for usdjpy
+2025-04-07 14:35:26,467 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 14:35:26,467 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 14:36:26,477 - main - INFO - Starting learning mode
+2025-04-07 14:36:26,477 - main - INFO - Processing historical data for eurusd
+2025-04-07 14:36:26,477 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 14:36:26,477 - main - INFO - Processing historical data for gbpusd
+2025-04-07 14:36:26,477 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 14:36:26,477 - main - INFO - Processing historical data for usdjpy
+2025-04-07 14:36:26,477 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 14:36:26,477 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 14:37:26,487 - main - INFO - Starting learning mode
+2025-04-07 14:37:26,488 - main - INFO - Processing historical data for eurusd
+2025-04-07 14:37:26,489 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 14:37:26,489 - main - INFO - Processing historical data for gbpusd
+2025-04-07 14:37:26,489 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 14:37:26,490 - main - INFO - Processing historical data for usdjpy
+2025-04-07 14:37:26,490 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 14:37:26,491 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 14:38:26,493 - main - INFO - Starting learning mode
+2025-04-07 14:38:26,494 - main - INFO - Processing historical data for eurusd
+2025-04-07 14:38:26,494 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 14:38:26,494 - main - INFO - Processing historical data for gbpusd
+2025-04-07 14:38:26,494 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 14:38:26,494 - main - INFO - Processing historical data for usdjpy
+2025-04-07 14:38:26,494 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 14:38:26,494 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 14:39:26,502 - main - INFO - Starting learning mode
+2025-04-07 14:39:26,502 - main - INFO - Processing historical data for eurusd
+2025-04-07 14:39:26,502 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 14:39:26,502 - main - INFO - Processing historical data for gbpusd
+2025-04-07 14:39:26,502 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 14:39:26,502 - main - INFO - Processing historical data for usdjpy
+2025-04-07 14:39:26,502 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 14:39:26,502 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 14:40:26,512 - main - INFO - Starting learning mode
+2025-04-07 14:40:26,512 - main - INFO - Processing historical data for eurusd
+2025-04-07 14:40:26,512 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 14:40:26,512 - main - INFO - Processing historical data for gbpusd
+2025-04-07 14:40:26,512 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 14:40:26,512 - main - INFO - Processing historical data for usdjpy
+2025-04-07 14:40:26,512 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 14:40:26,512 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 14:41:26,522 - main - INFO - Starting learning mode
+2025-04-07 14:41:26,522 - main - INFO - Processing historical data for eurusd
+2025-04-07 14:41:26,522 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 14:41:26,522 - main - INFO - Processing historical data for gbpusd
+2025-04-07 14:41:26,522 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 14:41:26,522 - main - INFO - Processing historical data for usdjpy
+2025-04-07 14:41:26,522 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 14:41:26,522 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 14:42:26,531 - main - INFO - Starting learning mode
+2025-04-07 14:42:26,532 - main - INFO - Processing historical data for eurusd
+2025-04-07 14:42:26,532 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 14:42:26,532 - main - INFO - Processing historical data for gbpusd
+2025-04-07 14:42:26,532 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 14:42:26,532 - main - INFO - Processing historical data for usdjpy
+2025-04-07 14:42:26,540 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 14:42:26,540 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 14:43:13,361 - main - INFO - Recebido sinal de interrupção. Encerrando...
+2025-04-07 14:43:26,543 - main - INFO - Bot stopped gracefully
+2025-04-07 14:43:26,543 - main - INFO - Performing cleanup
+2025-04-07 14:43:26,545 - main - INFO - Performance metrics saved to performance_metrics.json
+2025-04-07 14:43:26,547 - main - INFO - Error log saved to error_log.json
+2025-04-07 14:48:42,013 - main - INFO - Logger 'main' configurado: Nível=DEBUG, Arquivo=logs/bot.log, Rotação=10mb/5 backups
+2025-04-07 14:48:42,014 - main - INFO - Bot IQ Option iniciado
+2025-04-07 14:48:42,037 - main - INFO - Todas as dependências estão instaladas
+2025-04-07 14:48:42,040 - main - DEBUG - Directories created
+2025-04-07 14:48:42,041 - main - INFO - Username from config: alantaru@gmail.com
+2025-04-07 14:48:42,041 - main - INFO - Password from config: ***************
+2025-04-07 14:48:42,043 - main - INFO - Verificando conexão com a API do IQ Option...
+2025-04-07 14:48:42,044 - main - WARNING - Falha na conexão inicial. Tentando reconectar...
+2025-04-07 14:48:42,044 - main - INFO - Starting in learning mode
+2025-04-07 14:48:42,044 - main - INFO - Trading assets: eurusd, gbpusd, usdjpy
+2025-04-07 14:48:42,044 - main - INFO - Starting learning mode
+2025-04-07 14:48:42,045 - main - INFO - Processing historical data for eurusd
+2025-04-07 14:48:42,045 - main - ERROR - Failed to get historical data for eurusd
+2025-04-07 14:48:42,045 - main - INFO - Processing historical data for gbpusd
+2025-04-07 14:48:42,045 - main - ERROR - Failed to get historical data for gbpusd
+2025-04-07 14:48:42,045 - main - INFO - Processing historical data for usdjpy
+2025-04-07 14:48:42,046 - main - ERROR - Failed to get historical data for usdjpy
+2025-04-07 14:48:42,046 - main - ERROR - No processed data available to train the model. Skipping training.
+2025-04-07 14:48:48,480 - main - INFO - Recebido sinal de interrupção. Encerrando...
+2025-04-07 14:49:42,047 - main - INFO - Bot stopped gracefully
+2025-04-07 14:49:42,048 - main - INFO - Performing cleanup
+2025-04-07 14:49:42,053 - main - INFO - Performance metrics saved to performance_metrics.json
+2025-04-07 14:49:42,060 - main - INFO - Error log saved to error_log.json
