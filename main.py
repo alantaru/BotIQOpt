@@ -18,7 +18,7 @@ import signal
 import traceback
 from sklearn.model_selection import train_test_split # Adicionado para divisão treino/avaliação
 
-from dotenv import load_dotenv # Importar dotenv
+from dotenv import load_dotenv, find_dotenv # Importar dotenv e find_dotenv
 # Importações locais
 from utils.ConfigManager import ConfigManager
 from utils.Logger import setup_logger
@@ -44,8 +44,14 @@ logger = setup_logger('main', override_level=logging.DEBUG if args.debug else No
 # Configura também o logger da Inteligencia para garantir que o nível seja aplicado
 setup_logger('Inteligencia', override_level=logging.DEBUG if args.debug else None)
 
-# Carrega variáveis de ambiente do arquivo .env (se existir)
-load_dotenv()
+# Carrega variáveis de ambiente do arquivo .env, sobrescrevendo existentes
+# find_dotenv() procura o .env subindo a árvore de diretórios a partir daqui
+dotenv_path = find_dotenv()
+if dotenv_path:
+    logger.info(f"Arquivo .env encontrado em: {dotenv_path}. Carregando variáveis...")
+    load_dotenv(dotenv_path=dotenv_path, override=True)
+else:
+    logger.warning("Arquivo .env não encontrado. Tentando usar variáveis de ambiente existentes.")
 
 # Variáveis globais
 stop_event = threading.Event()
@@ -174,27 +180,20 @@ def main():
         config_manager = ConfigManager(config_file)
         
         # --- Carregamento de Credenciais ---
-        use_env = config_manager.get_value('Credentials', 'use_env_file', True, bool)
-        iqoption_email = None
-        iqoption_password = None
-
-        # A lógica agora sempre tenta carregar do ambiente (que pode ter sido populado pelo .env ou externamente)
-        logger.info("Tentando carregar credenciais das variáveis de ambiente (IQ_OPTION_EMAIL, IQ_OPTION_PASSWORD)") # Traduzido
+        # A função load_dotenv (chamada anteriormente) já tentou carregar do .env com override=True
+        logger.info("Tentando obter credenciais IQ_OPTION_EMAIL e IQ_OPTION_PASSWORD do ambiente (priorizando .env se carregado)")
         iqoption_email = os.getenv('IQ_OPTION_EMAIL')
         iqoption_password = os.getenv('IQ_OPTION_PASSWORD')
 
         if not iqoption_email or not iqoption_password:
-            logger.critical("Credenciais IQ_OPTION_EMAIL ou IQ_OPTION_PASSWORD não encontradas nas variáveis de ambiente.") # Traduzido
-            logger.critical("Verifique se o arquivo .env existe, está correto e contém as variáveis, ou se as variáveis de ambiente foram definidas externamente.") # Traduzido
-            sys.exit("Erro Crítico: Credenciais ausentes. Encerrando.") # Traduzido
+            logger.critical("Credenciais IQ_OPTION_EMAIL ou IQ_OPTION_PASSWORD não encontradas no ambiente.")
+            logger.critical("Verifique se o arquivo .env existe na raiz do projeto, está formatado corretamente (NOME=VALOR, sem espaços) e contém as variáveis, ou se as variáveis de ambiente foram definidas de outra forma.")
+            sys.exit("Erro Crítico: Credenciais ausentes. Encerrando.")
         else:
             # Log de sucesso, mas sem expor o email completo
             email_masked = iqoption_email[:3] + '***' + iqoption_email[iqoption_email.find('@'):] if '@' in iqoption_email else iqoption_email[:3] + '***'
-            logger.info(f"Credenciais carregadas com sucesso para o usuário: {email_masked}") # Traduzido
+            logger.info(f"Credenciais obtidas com sucesso para o usuário: {email_masked}")
             # Não logar a senha ou partes dela
-
-        # O parâmetro 'use_env_file' no config.ini agora serve apenas como documentação/lembrete.
-        # A remoção do bloco 'else' garante que o config.ini nunca seja usado para credenciais.
         # --- Inicializa componentes ---
         # Passa as credenciais carregadas para o Ferramental
         # Instancia o NovoFerramental (não precisa mais de config_manager e error_tracker no init)
