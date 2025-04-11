@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-04-07T14:49:42.049152",
+  "timestamp": "2025-04-11T15:19:53.962416",
   "metrics": {
     "total_trades": 0,
     "win_count": 0,
@@ -14,7 +14,7 @@
     "worst_asset": null,
     "best_timeframe": null,
     "worst_timeframe": null,
-    "last_updated": "2025-04-07T14:48:42.014280"
+    "last_updated": "2025-04-11T15:14:24.326817"
   },
   "asset_performance": {},
   "timeframe_performance": {},

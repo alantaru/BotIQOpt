@@ -1,0 +1,56 @@
+# Arquivos de Ambiente
+.env
+.venv
+env/
+venv/
+ENV/
+VENV/
+
+# Arquivos Python compilados e caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Arquivos de configuração de IDEs
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Arquivos de log
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Arquivos de dados e modelos (se não devem ser versionados)
+data/
+models/
+results/
+# Arquivos JSON/CSV específicos a ignorar (evitar regra genérica)
+error_log.json
+performance_metrics.json
+*.sqlite
+*.db
+
+# Arquivos de dependências locais (ex: wheels)
+*.whl
+
+# Arquivos de sistema operacional
+.DS_Store
+Thumbs.db
+
+# Credenciais
+credentials.py
+focus-pottery-456312-s9-15c8f881b2db.json
+
+# Bibliotecas/Instalação de Terceiros
+ta-lib/
+*.tar.gz
+
+# Arquivos Gerados
+training_visualizations/

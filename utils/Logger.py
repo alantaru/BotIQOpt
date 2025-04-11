@@ -38,8 +38,9 @@ def setup_logger(name, override_level=None):
     backup_count = log_params.get('log_backup_count', 5)
     log_format = config_manager.get_value('Logging', 'log_format', '%(asctime)s - %(name)s - %(levelname)s - %(message)s') # Busca formato específico
 
-    # Mapear string de nível para constante de logging (movido para cima)
-    log_level = getattr(logging, log_level_str, logging.INFO)
+    # A linha abaixo foi removida pois log_level já é definido corretamente
+    # com base no override_level ou na config.
+    # log_level = getattr(logging, log_level_str, logging.INFO)
 
     # Converter max_bytes_str para bytes (ex: 10MB -> 10 * 1024 * 1024)
     try:
