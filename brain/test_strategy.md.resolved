@@ -1,0 +1,30 @@
+# IQ Option Bot: High-Tier Testing Strategy
+
+This document defines the specialized testing layers requested: Semantic, Hermeneutic, and Philosophical validation.
+
+## 1. Semantic Layer (Meaning & Logic)
+*   **Goal**: Ensure the system's actions align precisely with the intended trading logic.
+*   **Approach**:
+    *   **Result Cross-Verification**: When the API returns a "Win", the system must independently verify the price difference between entry and exit to ensure the result makes mathematical sense.
+    *   **State Integrity**: Verify that the internal state (Balance, Open Positions) matches the API's state at every tick.
+
+## 2. Hermeneutic Layer (Interpretation & Context)
+*   **Goal**: Ensure the bot correctly interprets "gray areas" and changing API behaviors.
+*   **Approach**:
+    *   **Response Ambiguity Handling**: Testing reactions to throttled API responses, partial data fragments, and maintenance windows.
+    *   **Market Context Validation**: Ensuring the bot "understands" that zero volatility (flat lines) usually indicates a closed market or data feed failure, even if the API says "Open".
+
+## 3. Philosophical Layer (Principles & Purpose)
+*   **Goal**: Validate adherence to the bot's core principles of capital preservation and managed risk.
+*   **Approach**:
+    *   **Ethical Trade Execution**: Verification that the bot never ignores a Stop-Loss command, even in high-volatility scenarios (Priority over Profit).
+    *   **Systemic Resilience**: Testing the "will to live" of the bot—does it shut down gracefully under extreme network failure to prevent runaway trades?
+    *   **Truth Verification**: 100% agreement between the bot's logged expectation and the real account outcome.
+
+## 4. Operational Zero-Tolerance
+*   **Coverage**: 100% code coverage for all core and utility modules.
+*   **Structural Integrity**: Manual and automated audit to eliminate duplicate methods and inconsistent logic paths.
+*   **Linting**: Strict PEP8 adherence.
+*   **Static Analysis**: No unchecked types in core trading functions (Mypy).
+*   **Audit**: Every trade must leave a "Philosophical Trace" (reasoning) in the logs.
+

@@ -1,0 +1,50 @@
+# Robust Testing Pipeline & Quality Assurance Plan
+
+This plan outlines the creation of a high-tier testing infrastructure for the IQ Option trading bot, targeting 100% code coverage, zero-tolerance for warnings/linting errors, and deep validation of trading logic.
+
+## User Review Required
+
+> [!IMPORTANT]
+> **API Credentials for Integration Tests**: To perform real API validation without risking funds, we will use the **Practice Account**. 100% coverage requires simulating edge cases (API timeouts, invalid orders, connection drops) which will be handled via a hybrid approach of Mocking and real Practice account interactions.
+
+## Proposed Changes
+
+### 1. Infrastructure Setup
+- Create a `tests/` directory following standard Python patterns.
+- Install and configure `pytest`, `pytest-cov`, `pytest-mock`, and `linting` tools (`flake8`, `mypy`).
+- Configure a [.coveragerc](file:///C:/Users/uz02095/Documents/BotIQOpt_/.coveragerc) to track total project coverage.
+
+### 2. Unit Testing Layer (Syntactic & Logical)
+- **Ferramental**: Comprehensive test suite reaching >80% coverage.
+- **main.py**: Flow validation and error handling coverage.
+
+### 3. Integration Testing Layer (Semantic & Hermeneutic)
+- **API Wrapper**: Implement a Mock layer for `iqoptionapi` to test how [Ferramental](file:///C:/Users/uz02095/Documents/BotIQOpt_/ferramental/Ferramental.py#115-1814) interprets diverse API responses (Success, Failure, Multi-factor auth required).
+- **Data Flow**: Test the integration between [Ferramental](file:///C:/Users/uz02095/Documents/BotIQOpt_/ferramental/Ferramental.py#115-1814) data retrieval and [Inteligencia](file:///C:/Users/uz02095/Documents/BotIQOpt_/inteligencia/Inteligencia.py#106-1539) processing.
+
+### 4. End-to-End & Philosophical Layer
+- **Full Flow Execution**: A test suite that runs a simulated trading session from login to order confirmation.
+- **Risk Management Boundaries**: Stress testing the bot's reaction to consecutive losses and daily profit limits.
+- **Philosophical Consistency**: Verification that every trade adheres to the "Safety First" principle (Stop Loss, Take Profit validation).
+
+### 5. Zero-Tolerance Quality Audit
+- **Ferramental Integrity**: alcançado 86% de cobertura em core, [get_balance](file:///C:/Users/uz02095/Documents/BotIQOpt_/tests/integration/mock_api.py#22-24), [reconnect](file:///C:/Users/uz02095/Documents/BotIQOpt_/ferramental/Ferramental.py#267-275), e lógica de simulação simplificada. Atributos inicializados no `__init__` para evitar `AttributeError`.
+- **Intelligence Validation**: 
+    - [x] Unidade de testes para [LSTMModel](file:///C:/Users/uz02095/Documents/BotIQOpt_/inteligencia/Inteligencia.py#24-101) (forward pass, weight init, device handling).
+    - [x] Unidade de testes para `DataLoader` e engenharia de recursos ([_add_technical_indicators](file:///C:/Users/uz02095/Documents/BotIQOpt_/inteligencia/Inteligencia.py#993-1106), [_add_candle_patterns](file:///C:/Users/uz02095/Documents/BotIQOpt_/inteligencia/Inteligencia.py#1108-1175)).
+    - [ ] 100% cobertura em pipelines de dados e loops de treinamento/inferência (atualmente 83%).
+- **Zero Errors**: 
+    - [ ] Fix all 100+ `flake8` violations in [Inteligencia.py](file:///C:/Users/uz02095/Documents/BotIQOpt_/inteligencia/Inteligencia.py) (repetitive blank lines, line lengths, indentation).
+    - [ ] Resolve type errors and runtime warnings.
+
+
+
+## Verification Plan
+
+### Automated Tests
+- `pytest --cov=. --cov-report=term-missing`
+- `flake8 .`
+- `mypy .`
+
+### Manual Verification
+- Execution of a "Dry Run" test cycle where the bot operates in Practice mode, and results are manually audited against expected terminal outputs.
